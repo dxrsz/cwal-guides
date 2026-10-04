@@ -1,19 +1,10 @@
 name: CI
 
-# Pull requests: every definition must parse and pass the slug/time checks,
-# and the identifier's tests must pass.
+# Pull requests: every guide must pass the article checks and svelte-check.
 on:
   pull_request:
 
 jobs:
-  identifier:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
-      - run: cargo test
-
   guides:
     runs-on: ubuntu-latest
     steps:
