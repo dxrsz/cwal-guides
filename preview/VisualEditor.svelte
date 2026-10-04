@@ -227,7 +227,11 @@
 	<section class="meta">
 		<label class="wide">
 			<span>Title</span>
-			<input bind:value={article.title} oninput={onchange} placeholder="e.g. Nyoken's 2-Rax Academy" />
+			<input
+				bind:value={article.title}
+				oninput={onchange}
+				placeholder="e.g. Nyoken's 2-Rax Academy"
+			/>
 		</label>
 		<div class="row">
 			<label>

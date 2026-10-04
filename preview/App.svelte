@@ -7,9 +7,9 @@
 	import template from './template.yaml?raw';
 	import { hydrate, readArticle, writeArticle, type Article } from './article';
 
-	// Where pull requests go. Articles live at guides/articles/<slug>.yaml.
+	// Where pull requests go. Articles live at articles/<slug>.yaml.
 	const REPO = 'dxrsz/cwal-guides';
-	const ARTICLES = 'guides/articles';
+	const ARTICLES = 'articles';
 
 	const sources = import.meta.glob('../articles/*.yaml', {
 		eager: true,
@@ -236,11 +236,8 @@
 			>cwal<span>.gg</span></a
 		>
 		<h1>Build Order Builder</h1>
-		<a
-			class="help"
-			href="https://github.com/{REPO}/tree/main/guides#readme"
-			target="_blank"
-			rel="noopener">Format guide</a
+		<a class="help" href="https://github.com/{REPO}/#readme" target="_blank" rel="noopener"
+			>Format guide</a
 		>
 	</header>
 

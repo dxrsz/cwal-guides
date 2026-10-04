@@ -1,7 +1,6 @@
 name: Pages
 
-# Builds site/ and publishes it to GitHub Pages:
-#   /guides/      the build-order guide previews (guides/, vite build)
+# Builds the Build Order Builder (preview/) and publishes it to GitHub Pages.
 on:
   push:
     branches: [main]
@@ -25,14 +24,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Build the guide previews
+      - name: Build the Build Order Builder
         run: |
-          npm ci --prefix guides
-          npm run build --prefix guides
+          npm ci
+          npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist
 
   deploy:
     needs: build
