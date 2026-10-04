@@ -1,0 +1,232 @@
+title: Rush's ebay-armory
+matchup: TvP
+creator: Rush
+submitter: Dex
+tagline: "Blind one-factory mech: vulture control, turret defense, endless harass."
+objective: >-
+  Rush's blind ebay-armory mech versus Protoss. You skip the scan-heavy academy-armory to keep
+  four extra workers, open one factory into vulture and mine control, then tech straight to
+  ebay-armory with no goliaths. Missile turrets at 6:10 come up right as DT drops, reavers, and
+  shuttles leave the Protoss base, so they defend on their own while you keep expanding. You win
+  on optimization: never rest a worker, save your units, and trade endlessly with vultures. It
+  handles almost everything except carriers.
+references:
+  - youtube: https://www.youtube.com/watch?v=NXufBvwrDDE
+steps:
+  - section: Opener
+    at: 0:00
+    make: SCV
+    use: true
+    instruction: Split workers and mineral-boost
+    description: Split to the closest patches and boost the far ones.
+    notes: >-
+      Boost by holding position (press c) on a backline mineral and releasing when the SCV
+      turns; it roughly triples your early income. Place the rax and depot to one side near the
+      mineral line for the same reason, and keep boosting until about 4:00.
+
+  - at: 9 supply
+    make: Supply Depot
+
+  - at: 11 supply
+    make: Barracks
+    description: To the mineral side, for the boost.
+
+  - at: 12 supply
+    make: Refinery
+    description: One gas in the main.
+    notes: >-
+      Pull 2 SCVs off gas once you have banked about 88, which is enough for the machine shop
+      and siege. That keeps your mineral count healthy for vultures and the expansion.
+
+  - at: 13 supply
+    make: SCV
+    use: true
+    instruction: Send an SCV to scout
+    description: Read the Protoss opening.
+    notes: >-
+      Check for 14-zealot off the cybernetics-core timing: the core is slow, so an early zealot
+      with a slow core means a zealot is already on the way. Be ready either way. If you see two
+      zealots coming, add a third depot to hold.
+
+  - at: 15 supply
+    make: Supply Depot
+
+  - at: Barracks 100%
+    make: 2 Marine
+    description: A couple marines as the rax finishes.
+    notes: >-
+      Use them to poke the front and to push the dragoon off the map once your first vulture is
+      out. They also man a bunker if you get pressured.
+
+  - at: 17 supply
+    make: Factory
+    description: One factory, the core of the build.
+
+  - at: 21 supply
+    make: Supply Depot
+    instruction: If pressured
+    description: Third depot versus two-zealot pressure.
+    notes: Three depots hold two zealots comfortably. Losing an SCV in the process is fine.
+
+  - section: Vulture control
+    at: Factory 100%
+    make: Machine Shop
+    description: Add-on the moment the factory finishes.
+    notes: >-
+      Get the add-on when the Protoss does not commit two zealots right away. It unlocks mines,
+      siege, and tanks.
+
+  - at: 22 supply
+    make: Bunker
+    instruction: Only if a dragoon push is coming
+    description: Bunker first when you see range plus three pylons (2 zealot, 1 goon).
+    notes: >-
+      A dragoon can run straight into your base, so bunker before you expand. Scout and react;
+      do not build it blindly every game.
+
+  - at: 24 supply
+    or: 4:00
+    make: Command Center
+    description: Natural expansion, around 4:00.
+    notes: >-
+      A 4:00 CC is normal even while getting pressured; going bunker first still keeps it on
+      time. Match your CC to his nexus timing.
+
+  - at: Machine Shop 100%
+    make: 1 Vulture
+    description: First vulture once the machine shop is up.
+    notes: >-
+      Vulture before tank keeps map control and lets you lay mines. A tank first gives you
+      neither.
+
+  - at: Machine Shop 100%
+    make: Spider Mines
+    instruction: Research
+    description: Start mines right after the first vulture.
+    notes: >-
+      Mine the back paths and the spots where a reaver drops. If a shuttle or tank steps on even
+      one, it dies.
+
+  - at: Vulture 100%
+    make: 1 Vulture
+    instruction: Queue another vulture
+    description: Send the first out with your marines to push the dragoon off the map.
+
+  - at: Vulture 100%
+    make: 1 Siege Tank
+    description: A tank after your second vulture.
+    notes: >-
+      Insurance against a two-dragoon push. If the tank is already out, you only take one hit.
+
+  - at: 31 supply
+    make: Supply Depot
+
+  - section: Ebay-armory
+    at: 5:00
+    make: Engineering Bay
+    description: E-bay at 5:00.
+    notes: >-
+      Ebay-armory plays blind but keeps four more workers than academy-armory, which scans to
+      match the Protoss but loses mining time. It will not die to DTs, reavers, or shuttles, and
+      it is playable versus an observer. It is only weak to carriers.
+
+  - at: 5:30
+    make: Armory
+
+  - at: Armory 100%
+    make:
+      upgrade: Terran Vehicle Weapons
+      label: +1 Attack
+    instruction: Research at the armory
+    description: Start +1 vehicle weapons as the armory finishes.
+
+  - at: 5:50
+    make: Tank Siege Mode
+    instruction: Research siege at the machine shop
+    description: Siege once +1 attack is under way.
+
+  - at: 6:00
+    make: Refinery
+    description: Second gas once +1 and siege are going.
+    notes: >-
+      Take it when you have resources to spare. On maps where your third is mineral-only, this
+      is the right time to add gas.
+
+  - at: 6:10
+    make: 3 Missile Turret
+    description: Turrets at 6:10, up by 6:30.
+    notes: >-
+      DT drops, reavers, and shuttles leave his base around 6:30, so 6:10-6:20 lands them right
+      on time. No need to rush them if you already saw dragoon range (no fast cloak). Position
+      them over drop spots; build about three to start and add more as you expand.
+
+  - at: 7:00
+    make: Ion Thrusters
+    instruction: Research vulture speed
+    description: Ion Thrusters ahead of a push.
+
+  - at: 6:40
+    make: Factory
+    description: Second factory, to keep pace army-wise.
+
+  - at: 7:30
+    make: Factory
+    description: Third factory.
+
+  - at: 7:50
+    make:
+      - Academy
+      - Starport
+    description: Academy for comsat scans, plus a starport.
+    notes: >-
+      Comsat lets you scan and snipe the probe trying to take his third. The starport begins the
+      tech toward science vessels for the late game.
+
+  - section: Third and upgrades
+    at: Starport 100%
+    make:
+      - Science Facility
+      - Armory
+    description: Science facility and a second armory.
+    notes: >-
+      The second armory doubles your upgrade path toward 3/2. The science facility opens vessels
+      once the game goes long.
+
+  - at: 8:30
+    make: Command Center
+    description: A CC around 8:30 to float out as your third.
+    notes: >-
+      It is nice to build the CC after his observer dies, since his own expansion timing reads
+      off yours.
+
+  - at: 9:00
+    make: 2 Factory
+    description: Two more factories, toward five.
+
+  - at: Terran Vehicle Weapons 100%
+    make:
+      - upgrade: Terran Vehicle Weapons
+        label: +2 Attack
+      - upgrade: Terran Vehicle Plating
+        label: +1 Plating
+    instruction: Take your third, start 2/1
+    description: "As +1 lands (~10:00): float the CC down and start 2/1."
+
+  - at: 11:00
+    make: 2 Factory
+    description: Two more factories once the third is mining.
+    notes: >-
+      Five-plus factories of tank and vulture fill your supply so you are never pushed back.
+      Stop SCVs around 100 supply (about 10:00) if you never missed a worker.
+
+  - at: 12:00
+    make:
+      - Vulture
+      - Siege Tank
+    use: true
+    instruction: Push at your finishing timing
+    description: Move out only when you have a timing, not before.
+    notes: >-
+      Until then, harass with vultures and save your units. When you push at 200/200, leave the
+      low-HP tanks behind to repair, and scan ahead so you can keep pushing if he is not about
+      to attack. Prepare recall and stasis defense as the arbiter pops.

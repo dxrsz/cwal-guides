@@ -1,0 +1,43 @@
+# A build-order article. Edit on the left; the preview on the right updates as
+# you type. The README has the full format.
+title: My 1-1-1 Build
+matchup: TvP
+creator: Your name
+submitter: Your name
+tagline: One line for the browse card.
+objective: >-
+  What the build is for and how it wins. This is the overview at the top of
+  the guide, so a couple of sentences is plenty.
+references:
+  - youtube: https://www.youtube.com/watch?v=VIDEO_ID
+
+steps:
+  - section: Opener
+    at: 9 supply
+    make: Supply Depot
+
+  - at: 11 supply
+    make: Barracks
+    description: The short line under the step, always shown.
+
+  - at: 12 supply
+    make: Refinery
+
+  - at: Barracks 100%
+    make: Marine
+    notes: >-
+      The deeper why. Notes are folded away behind a "notes" toggle so the guide
+      stays readable.
+
+  - at: 15 supply
+    make: Factory
+
+  - at: Factory 100%
+    make: [Starport, Machine Shop]
+
+  - section: Follow-up
+    at: 5:00
+    make: 2 Siege Tank
+    use: true
+    instruction: Move out
+    description: A `use` step sits on the right; it uses the units, it doesn't build them.

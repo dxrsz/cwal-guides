@@ -1,0 +1,37 @@
+/* cwal.gg's site tokens and base styles (frontend/src/routes/+layout.svelte),
+   so the guide components render here exactly as they do on the site. */
+:root {
+	--bg: #0b0d10;
+	--bg-elev: #10141a;
+	--bg-hover: #151a21;
+	--border: #1d232c;
+	--border-strong: #2a323e;
+	--text: #e7eaf0;
+	--text-2: #9aa4b2;
+	--text-3: #5e6875;
+	--accent: #f4522d;
+	--tracked: #a78bfa;
+	--green: #31c47c;
+	--red: #e5484d;
+	--link: #7ba4f5;
+	--radius: 8px;
+	color-scheme: dark;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: var(--bg);
+	min-height: 100vh;
+	color: var(--text);
+	font-family:
+		'Inter',
+		-apple-system,
+		'Segoe UI',
+		system-ui,
+		sans-serif;
+	font-size: 14px;
+	line-height: 1.5;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,223 @@
+title: Ebay +1
+matchup: TvZ
+submitter: Dex
+tagline: Walled fast-expand into an early E-bay, +1, and a heavy turret wall versus muta.
+objective: >-
+  A wall-in fast-expand that holds mutalisks on turrets, fine against the whole spread of muta
+  openings, 2-hatch, 2.5-hatch, and 3-hatch. You take the Command Center early off a single
+  barracks, then get an Engineering Bay around 3:20 for +1 weapons and, more importantly, a
+  turret line before the mutalisks. Because the economy is strong and the marine count is low,
+  you do not try to out-marine the mutas: you build turrets aggressively, roughly 4 nearest the
+  Zerg, 2 at the ramp, 3 across the natural and main, and let them carry the defense. Once you
+  have stabilized you tech straight up, factory into two starports and a Science Facility, for
+  science vessels and Irradiate, add +1 armor and +2 weapons, and take a third. Mutas typically
+  hit around 6:15, by which point the turret wall should already be up.
+steps:
+  - section: Opener
+    at: 8 supply
+    or: 0:51
+    make: Supply Depot
+    description: Seventh SCV, sent down for the wall.
+    notes: >-
+      First of the wall pieces. The build order is depot, barracks, depot: two depots and a
+      barracks close the ramp.
+
+  - at: 11 supply
+    or: 1:18
+    make: Barracks
+    description: The second wall piece, right after the first depot.
+
+  - at: 12 supply
+    or: 1:30
+    make: SCV
+    use: true
+    instruction: Send an SCV to scout
+    description: "Read the Zerg: hatch count and gas timing."
+    notes: >-
+      On a four-player map, send a second SCV if the first base is empty so you are not
+      surprised by a rush. This opener holds up across the range of muta openings, from 2-hatch
+      through 3-hatch, so you are reading the Zerg gas and hatch timing more than committing to
+      a specific answer.
+
+  - at: Barracks 100%
+    make: 4 Marine
+    description: Pump marines off the one barracks up to 4.
+    notes: >-
+      Never stop the barracks and never stop SCVs. You stop at 4 marines on purpose: past that
+      you are spending supply you want for SCVs, and the first marine is out around 2:10. Make
+      enough to feel safe before the Command Center, usually 1 to 3.
+
+  - at: 13 supply
+    or: 2:11
+    make: Supply Depot
+    description: Third wall piece, closing the ramp.
+
+  - at: 18 supply
+    or: 2:45
+    make: Command Center
+    description: Expand at the natural once you have 2 to 3 marines.
+    notes: >-
+      This is the economic heart of the build: a 2:45 Command Center off one barracks. Marine
+      and SCV production never stops while it goes down.
+
+  - at: 20 supply
+    or: 3:07
+    make: Refinery
+    description: Gas as soon as you can afford it, around 3:07.
+    notes: >-
+      Take gas the moment it does not cost you a marine or an SCV. Put 3 SCVs on it when it
+      finishes. The gas feeds Stim, Range, and the +1.
+
+  - at: 22 supply
+    or: 3:19
+    make: Engineering Bay
+    description: Right after gas, around 3:20. This is the build.
+    notes: >-
+      The early Engineering Bay is the whole idea. It gives you +1 weapons now and, just as
+      important, lets the turret line start well before the mutalisks. Everything after this
+      leans on it.
+
+  - at: 22 supply
+    or: 3:40
+    make: Academy
+    description: As soon as you can afford it, around 3:40 at 4 marines.
+    notes: >-
+      Keep prioritizing SCVs through here until the Command Center brings you to ~36 supply.
+
+  - at: Engineering Bay 100%
+    make:
+      upgrade: Terran Infantry Weapons
+      label: +1 Attack
+    instruction: Research +1
+    description: Start +1 weapons the moment the E-bay finishes, around 4:00.
+    notes: >-
+      The +1 lands right as the mutalisk fight begins and makes every marine and turret shot
+      count. This is why the E-bay comes so early.
+
+  - section: Hold the mutas
+    at: Academy 100%
+    make:
+      tech: Stim Packs
+      label: Stim Pack
+    instruction: Research Stim
+    description: Start Stim as the Academy finishes, around 4:30.
+
+  - at: Academy 100%
+    make: 2 Medic
+    description: At ~6 marines, add 2 medics.
+    notes: First medic is out around 4:30. They keep the marine ball alive under muta fire.
+
+  - at: Academy 100%
+    or: 4:39
+    make: Barracks
+    description: Second barracks around 4:40, restarting marine production.
+    notes: >-
+      Once the Command Center is up and SCVs have caught the economy back up (~36 supply), add
+      barracks and put marines back on. Third barracks follows around 4:55.
+
+  - at: 5:00
+    make:
+      - building: ComSat Station
+        label: Comsat Station
+        count: 2
+      - Barracks
+    description: Comsats on both bases around 5:00, and a fourth barracks.
+    notes: >-
+      Scan for the Zerg tech and any hidden expansion. The fourth barracks goes down when you
+      can afford it, around 5:10. Keep laying supply depots the whole game so you never block.
+
+  - at: Stim Packs 100%
+    make: U-238 Shells
+    instruction: Research range
+    description: Marine +1 range as soon as Stim finishes, around 5:20.
+
+  - at: 5:25
+    or: Engineering Bay 100%
+    make: Missile Turret
+    instruction: Turret wall, and cut SCVs to afford it
+    description: >-
+      Start at 5:25, before the mutas: ~4 nearest Zerg, 2 at the ramp, 3 across nat and main.
+    notes: >-
+      This is the defining defensive move. Because the economy is strong but the marine count is
+      low, you spam turrets hard rather than trying to out-produce mutas. Build them
+      aggressively from 5:25 through ~6:05, roughly 4 at the closest edge to the Zerg, 2 at the
+      ramp and barracks, and 3 spread across the natural and main. Cut SCVs to pay for them and
+      start SCVs again the moment they are up. The mutalisks arrive around 6:15, so the wall is
+      up first.
+
+  - at: 5:33
+    make: Barracks
+    use: true
+    instruction: Lift the first barracks and group your buildings
+    description: Around 5:35, while the turrets are going up.
+    notes: >-
+      After the fourth barracks is a good moment to lift the original wall barracks and pull it
+      into your production group, tightening the base against muta harass and run-bys.
+
+  - section: Tech and expand
+    at: 7:12
+    make: Factory
+    description: Around 7:10, once the muta pressure is handled.
+    notes: >-
+      The factory exists only to tech up into the starport. By now you are around 5 barracks of
+      bio with +1 and range, holding on turrets.
+
+  - at: 7:33
+    make:
+      upgrade: Terran Infantry Armor
+      label: +1 Armor
+    instruction: Research +1 armor
+    description: Off the E-bay around 7:30, after +1 weapons.
+
+  - at: Factory 100%
+    make:
+      - 2 Starport
+      - 2 Control Tower
+    description: Two starports with control towers, around 8:15.
+    notes: >-
+      Two starports so science vessels come out in pairs. Take your second gas right alongside
+      them so the vessel and upgrade path is fed.
+
+  - at: 8:16
+    make: Refinery
+    description: Second gas with the starports, around 8:15.
+
+  - at: 9:01
+    make: Science Facility
+    description: Around 9:00, for vessels and Irradiate.
+
+  - at: 9:15
+    make: Engineering Bay
+    description: A second E-bay around 9:00, once you are on two gas.
+    notes: >-
+      The standard way to keep upgrades on time is a second Engineering Bay so weapons and armor
+      run in parallel instead of staggering through one building. With two E-bays your +2
+      weapons and +2 armor land together rather than minutes apart. Not every game takes it, but
+      most pros do.
+
+  - at: Science Facility 100%
+    make: 2 Science Vessel
+    description: First vessels around 9:40, two at a time off the two starports.
+    notes: >-
+      Irradiate hard-counters mutalisks and lets the turret line breathe. Keep vessels coming.
+
+  - at: Science Facility 100%
+    make: Irradiate
+    instruction: Research Irradiate
+    description: Start Irradiate around 10:00 as the vessels come out.
+
+  - at: 11:03
+    make:
+      - upgrade: Terran Infantry Weapons
+        label: +2 Attack
+      - upgrade: Terran Infantry Armor
+        label: +2 Armor
+    instruction: Research +2 weapons and +2 armor
+    description: Around 11:00, both at once off the two E-bays.
+
+  - at: 11:27
+    make: Command Center
+    description: Third base around 11:30, once vessels stabilize the map.
+    notes: >-
+      With vessels out and the turret line holding, you are oversaturated on two bases. Take the
+      third and keep the bio and vessel count climbing into the mid game.

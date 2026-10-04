@@ -1,0 +1,220 @@
+title: Nyoken's 2-Rax Academy
+matchup: TvZ
+creator: Nyoken
+submitter: Dex
+tagline: Marine-heavy 2-rax that hits ~20s before mutas, into fast vessels.
+objective: >-
+  A twist on the standard 2-rax TvZ opener versus the modern 2-hatch (~2:00 gas). Pump marines
+  non-stop off one barracks while cutting SCVs, and move out with 9 marines and 2 medics around
+  4:50. The attack hits ~20s before mutalisks, so it often just kills the Zerg. If it does not,
+  you transition into heavy turrets and a two-base science vessel tech with a strong mid game.
+references:
+  - youtube: https://www.youtube.com/watch?v=qkY8kKXPK7g
+steps:
+  - section: Opener
+    at: 9 supply
+    make: Supply Depot
+    description: Sent at 8 supply, for the wall.
+
+  - at: 11 supply
+    make: Barracks
+
+  - at: Barracks 100%
+    make: 8 Marine
+    description: 8 marines off the first barracks, non-stop.
+    notes: >-
+      Never stop marine production. With the 1 off the second barracks that is 9 before you
+      switch to medics.
+
+  - at: 12 supply
+    make: SCV
+    use: true
+    instruction: Send an SCV to scout
+    description: Scout the Zerg to read 2-hatch vs 3-hatch.
+    notes: >-
+      On a 4-player map, send a second SCV scout if the first location is empty so you are not
+      cheesed. This whole build is meant for the 2-hatch opener; if they are on 3-hatch, do not
+      use it.
+
+  - at: 14 supply
+    make: Supply Depot
+    description: Sent at 13 supply, for the wall.
+    notes: >-
+      On a walled map, pull one SCV down fast to lay the second depot on time, or you can get
+      supply blocked.
+
+  - at: 19 supply
+    make: Command Center
+    description: Keep marine production going the whole time.
+    notes: The double scout causes a slight worker pause, which is fine.
+
+  - at: 23 supply
+    or: 3:15
+    make: Barracks
+    instruction: Cut SCVs and bank ~250 minerals
+    description: Second barracks around 3:15, while banking.
+    notes: >-
+      The single barracks must pump marines non-stop, without stopping to lay the second rax.
+      Stopping it costs you two marines off the move-out. You start cutting SCVs here at 23
+      supply, which is more than most pros cut, and bank up ~250 while marines keep flowing.
+
+  - at: Barracks 100%
+    make: 1 Marine
+    description: 1 more off the second barracks, for 9 before medics.
+
+  - at: 24 supply
+    make:
+      - Refinery
+      - Academy
+    description: "Once you have ~250 minerals: refinery, then academy."
+    notes: >-
+      Keep cutting SCVs through this. Two-hatch Zerg is also low economy, so cutting this hard
+      is not a big deal for the pressure you get.
+
+  - at: Academy 100%
+    make:
+      tech: Stim Packs
+      label: Stim Pack
+    instruction: Research
+    description: Start Stim the moment the Academy finishes.
+
+  - at: Academy 100%
+    make: 2 Medic
+    description: 2 medics as the Academy finishes.
+
+  - at: 25 supply
+    make: 5 SCV
+    use: true
+    instruction: Split 4-5 SCVs from main to natural
+    notes: >-
+      Do not send too many: you already lost ~2 SCVs cutting from 23 until the CC finished, so
+      oversending rocks your economy. Make sure saturation is even across both bases.
+
+  - at: 26 supply
+    make: SCV
+    use: true
+    instruction: Resume SCV production
+    description: The CC finishes at 26 supply, so pump both barracks now.
+
+  - at: 39 supply
+    or: 4:50
+    make:
+      - 9 Marine
+      - 2 Medic
+    use: true
+    instruction: Move out
+    description: At 9 marines, stop marines, build medics, and push at ~4:50.
+    notes: >-
+      Send an SCV along to scout for a hidden third and to look for a ling counter. At the
+      natural, one sunken you can bust, two you cannot, and a scan tells you where the hidden
+      hatch is. This hits ~20s before mutalisks, so the Zerg has to choose between mutas and
+      defense. Rally firebats in, stim, and go.
+
+  - at: Medic 100%
+    make: 2 Firebat
+    description: 2 firebats after the medics, to cover a ling counter.
+    notes: >-
+      Their job is to defend the push from a ling counter on the way in. If you are confident
+      there are no lings on the map, use them to hunt for a hidden Zerg expansion instead, or
+      just rally them into the attack.
+
+  - section: Follow-up
+    at: 5:00
+    make:
+      - Engineering Bay
+      - building: ComSat Station
+        label: Comsat Station
+      - Supply Depot
+    description: "Back home around 5:00: E-bay, comsat, and depot."
+    notes: >-
+      Remember these as one set. The E-bay so turrets can start at 5:38 when the mutalisks
+      spawn, a comsat to scan for the Zerg third if your SCV did not find it, and sim-city the
+      depot at the natural for the wall versus a ling run-by.
+
+  - at: Stim Packs 100%
+    make: U-238 Shells
+    instruction: Research range
+    description: Marine +1 range, as soon as Stim finishes.
+
+  - at: Engineering Bay 100%
+    make: Missile Turret
+    description: "Start at 5:38: 2 main, 2 natural, 2 barracks."
+    notes: >-
+      These need to be up as the mutalisks hatch, which for 2-hatch muta is 5:38. Build ~6-7 to
+      start (two at the rax, two at the natural, one or two in the main), then keep adding as
+      SCVs free up until roughly 3 main, 3 nat, 3 rax, replacing as needed. Your marine count
+      stays low on two barracks, so the turrets carry the anti-muta defense.
+
+  - at: 6:00
+    or: 6:30
+    make:
+      upgrade: Terran Infantry Weapons
+      label: +1 Attack
+    instruction: Research at the E-bay
+    description: +1 infantry weapons around 6:00 to 6:30.
+    notes: >-
+      Deliberately not rushed off the E-bay: the E-bay finishes ~5:38 and goes to turrets first,
+      and your one gas is busy on Stim then Range. Start +1 between 6:00 and 6:30 on purpose. +2
+      takes six minutes, so a 6:00 start lands +2 around 12:00, a strong timing; starting as
+      late as ~6:50 is a bit off but still fine.
+
+  - at: 6:30
+    make:
+      - Factory
+      - Refinery
+    description: Around 6:30. Take your second gas with it.
+    notes: >-
+      Taking gas exactly when you start the factory is the key timing across all his TvZ. The
+      factory is only there to tech up into the starport.
+
+  - at: Factory 100%
+    make: Starport
+    description: Straight into the starport after the factory.
+
+  - at: Starport 100%
+    make:
+      - Science Facility
+      - Engineering Bay
+    description: Science facility, plus a second E-bay alongside it.
+    notes: >-
+      The second E-bay gives you a parallel upgrade path. Around 4 barracks is the number he
+      supports on two base; go 5 only if the Zerg is not harassing with mutas.
+
+  - at: Science Facility 100%
+    make: 2 Science Vessel
+    description: Start both upgrades and get a double vessel.
+    notes: Irradiate hard-counters the mutalisks and lets your turret line breathe.
+
+  - at: Science Vessel 100%
+    make: Bunker
+    description: Before you leave with vessels, in case of a runby.
+    notes: >-
+      Moving out with only two vessels leaves your base exposed; a bunker at the front stops a
+      ling or muta runby from punishing you while the army is away.
+
+  - at: Science Vessel 100%
+    make: 2 Science Vessel
+    use: true
+    instruction: Move out with your first 2 vessels
+    description: Consolidate the army and get outside your natural.
+    notes: >-
+      Do not get contained: lurkers can set up and pin you with only two vessels out. Push to at
+      least outside your natural, then look to expand.
+
+  - at: next
+    make: SCV
+    use: true
+    instruction: Keep rebuilding SCVs
+    description: Balance workers; aim for ~45 SCVs.
+    notes: >-
+      Unlike 5-rax (which stops SCVs at 6:30), there is no set stop time versus 2-hatch because
+      muta harass keeps killing workers. Keep replacing them, but do not overbuild and die: ~45
+      is ideal for two-base Terran, and the Zerg is low economy anyway.
+
+  - at: Science Vessel 100%
+    make: Command Center
+    description: Third base after the first vessels, ~45-50 SCVs.
+    notes: >-
+      Once the first two-to-four vessels are out you are oversaturated on two base, so start
+      taking a third. From here add an armory and start air/BC tech if the game goes long; he is
+      generally on three starports.
