@@ -39,7 +39,6 @@
 	};
 
 	const stepErrors = (i: number) => errors.filter((e) => e.path[0] === 'steps' && e.path[1] === i);
-	const topErrors = $derived(errors.filter((e) => e.path[0] !== 'steps' || e.path.length < 2));
 
 	const edit = (s: RawStep) => {
 		syncStep(s);
@@ -225,16 +224,10 @@
 </datalist>
 
 <div class="visual">
-	{#if topErrors.length}
-		<ul class="errs">
-			{#each topErrors as e, i (i)}<li>{e.message}</li>{/each}
-		</ul>
-	{/if}
-
 	<section class="meta">
 		<label class="wide">
 			<span>Title</span>
-			<input bind:value={article.title} oninput={onchange} placeholder="Nyoken's 2-Rax Academy" />
+			<input bind:value={article.title} oninput={onchange} placeholder="e.g. Nyoken's 2-Rax Academy" />
 		</label>
 		<div class="row">
 			<label>
@@ -522,6 +515,11 @@
 		padding: 5px 8px;
 		min-width: 0;
 	}
+	input::placeholder,
+	textarea::placeholder {
+		color: var(--text-3);
+		opacity: 0.7;
+	}
 	input:focus,
 	textarea:focus,
 	select:focus {
@@ -567,13 +565,9 @@
 	.danger:hover:not(:disabled) {
 		color: var(--red);
 	}
-	.errs,
 	.err {
 		color: var(--red);
 		margin: 0 0 8px;
-	}
-	.errs {
-		padding-left: 18px;
 	}
 	.meta {
 		display: grid;

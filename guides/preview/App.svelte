@@ -22,7 +22,18 @@
 
 	// ---- the draft, kept in this browser between visits -------------------
 	const DRAFT_KEY = 'cwal-guides:draft';
-	type Draft = { text: string; editing: string | null; mode?: 'visual' | 'yaml' };
+	// A new guide starts nearly empty; the example shows every feature in use.
+	const BLANK = 'title: \nmatchup: TvZ\nobjective: \nsteps:\n  - at: 9 supply\n    make: \n';
+	// Where the editor's text came from: a blank guide, the example, or the
+	// slug of a published build being edited.
+	type Source = '__blank' | '__example' | string;
+	const pristine = (src: Source) =>
+		src === '__blank'
+			? BLANK
+			: src === '__example'
+				? template
+				: (existing.find((x) => x.slug === src)?.text ?? '');
+	type Draft = { text: string; source?: Source; editing?: string | null; mode?: 'visual' | 'yaml' };
 	const load = (): Draft => {
 		try {
 			const d = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? 'null');
@@ -30,16 +41,18 @@
 		} catch {
 			/* storage blocked or corrupt: start fresh */
 		}
-		return { text: template, editing: null };
+		return { text: BLANK, source: '__blank' };
 	};
 	const initial = load();
 	let text = $state(initial.text);
 	// The slug of the published article being edited, or null for a new one.
-	let editing = $state<string | null>(initial.editing);
+	let source = $state<Source>(initial.source ?? initial.editing ?? '__example');
+	// The slug of the published article being edited, or null for a new one.
+	const editing = $derived(source.startsWith('__') ? null : source);
 	// Visual (form) or YAML editing. Both edit the same article text.
 	let mode = $state<'visual' | 'yaml'>(initial.mode ?? 'visual');
 	$effect(() => {
-		const d: Draft = { text, editing, mode };
+		const d: Draft = { text, source, mode };
 		try {
 			localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
 		} catch {
@@ -116,7 +129,9 @@
 			.replace(/[^a-z0-9]+/g, '-')
 			.replace(/^-|-$/g, '')
 			.slice(0, 60) || 'my-build';
-	const slug = $derived(editing ?? (good ? slugify(good.title) : 'my-build'));
+	const slug = $derived(
+		editing ?? slugify((typeof model?.title === 'string' && model.title) || 'my-build')
+	);
 	const cardBuilds = $derived(
 		good ? [{ slug, build: good }, ...builds.filter((b) => b.slug !== slug)] : builds
 	);
@@ -151,20 +166,19 @@
 	};
 
 	const start = (e: Event) => {
-		const v = (e.currentTarget as HTMLSelectElement).value;
-		(e.currentTarget as HTMLSelectElement).value = '';
-		if (!v) return;
-		if (text !== template && !confirm('Replace what is in the editor?')) return;
-		if (v === '__new') {
-			text = template;
-			editing = null;
-		} else {
-			const a = existing.find((x) => x.slug === v);
-			if (a) {
-				text = a.text;
-				editing = a.slug;
-			}
+		const sel = e.currentTarget as HTMLSelectElement;
+		const v = sel.value as Source;
+		// Only ask when there are edits that would be lost.
+		if (text !== pristine(source) && !confirm('Discard your changes and switch?')) {
+			sel.value = source;
+			return;
 		}
+		source = v;
+		text = pristine(v);
+		// Don't keep showing the previous guide while the new one is incomplete.
+		good = null;
+		goodKey = '';
+		stale = false;
 	};
 
 	// ---- hand-off to GitHub -------------------------------------------------
@@ -233,10 +247,12 @@
 	<main class="split">
 		<section class="editor">
 			<div class="bar">
-				<select onchange={start} aria-label="Start from">
-					<option value="">Start from…</option>
-					<option value="__new">Blank template</option>
-					<optgroup label="Edit a published build">
+				<select value={source} onchange={start} aria-label="Guide">
+					<optgroup label="Write a new guide">
+						<option value="__blank">New blank guide</option>
+						<option value="__example">New, from the example</option>
+					</optgroup>
+					<optgroup label="Edit a published guide">
 						{#each existing as a (a.slug)}<option value={a.slug}>{a.slug}</option>{/each}
 					</optgroup>
 				</select>
@@ -345,7 +361,9 @@
 			{/if}
 			<div class="stage" class:phone>
 				{#if !good}
-					<p class="empty">Nothing to preview yet. Fix the problems in the editor.</p>
+					<p class="empty">
+						The preview appears once the guide has a title, an objective and a first step.
+					</p>
 				{:else if view === 'card'}
 					<div class="cardpage">
 						<BuildSearch builds={cardBuilds} hrefFor={() => '#'} />

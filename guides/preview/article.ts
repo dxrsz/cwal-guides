@@ -120,9 +120,10 @@ export type Cue =
 	| { type: 'next' }
 	| { type: 'other'; raw: string };
 
-export const readCue = (v: string | number | undefined): Cue => {
-	if (v === undefined || v === '') return { type: 'supply', supply: '' };
+export const readCue = (v: unknown): Cue => {
+	if (v == null || v === '') return { type: 'supply', supply: '' };
 	if (typeof v === 'number') return { type: 'supply', supply: String(v) };
+	if (typeof v !== 'string') return { type: 'other', raw: '' };
 	const s = v.trim();
 	let m: RegExpMatchArray | null;
 	if ((m = s.match(/^(\d+)(?:\s*supply)?$/i))) return { type: 'supply', supply: m[1] };
@@ -154,15 +155,23 @@ export type ItemRow = { name: string; count: string; label: string };
 const KINDS: Kind[] = ['building', 'unit', 'upgrade', 'tech'];
 
 export const readItems = (make: RawStep['make']): ItemRow[] => {
-	const list = make === undefined ? [] : Array.isArray(make) ? make : [make];
+	// Half-typed YAML can hold anything here (`make:` with no value is null).
+	const list = make == null ? [] : Array.isArray(make) ? make : [make];
 	return list.map((it) => {
+		if (it == null || typeof it === 'number')
+			return { name: it == null ? '' : String(it), count: '', label: '' };
+		if (typeof it !== 'object' && typeof it !== 'string') return { name: '', count: '', label: '' };
 		if (typeof it === 'string') {
 			const m = it.trim().match(/^(?:(\d+)\s*[x×]?\s+)?(.+?)(?:\s+[x×](\d+))?$/i);
 			return { name: m?.[2] ?? it, count: m?.[1] ?? m?.[3] ?? '', label: '' };
 		}
 		const kind = KINDS.find((k) => k in it);
 		const name = String((kind ? it[kind] : it.name) ?? '');
-		return { name, count: it.count ? String(it.count) : '', label: it.label ?? '' };
+		return {
+			name,
+			count: it.count ? String(it.count) : '',
+			label: typeof it.label === 'string' ? it.label : ''
+		};
 	});
 };
 
@@ -227,8 +236,10 @@ export const hydrate = (a: Article): Article => {
 	for (const s of a.steps) {
 		if (!s || typeof s !== 'object') continue;
 		s._at = readCue(s.at);
-		s._or = s.or === undefined ? null : readCue(s.or);
+		s._or = s.or == null ? null : readCue(s.or);
 		s._items = readItems(s.make);
+		// an empty row to type into, rather than just an "Add" button
+		if (s._items.length === 0) s._items.push({ name: '', count: '', label: '' });
 	}
 	return a;
 };
