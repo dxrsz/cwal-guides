@@ -6,6 +6,8 @@
 	import VisualEditor from './VisualEditor.svelte';
 	import template from './template.yaml?raw';
 	import { hydrate, readArticle, writeArticle, type Article } from './article';
+	import { readReplay, type ReplayProgress } from './replay';
+	import { seedArticle, type Timeline } from './seed';
 
 	// Where pull requests go. Articles live at articles/<slug>.yaml.
 	const REPO = 'dxrsz/cwal-guides';
@@ -24,16 +26,24 @@
 	const DRAFT_KEY = 'cwal-guides:draft';
 	// A new guide starts nearly empty; the example shows every feature in use.
 	const BLANK = 'title: \nmatchup: TvZ\nobjective: \nsteps:\n  - at: 9 supply\n    make: \n';
-	// Where the editor's text came from: a blank guide, the example, or the
-	// slug of a published build being edited.
-	type Source = '__blank' | '__example' | string;
+	// Where the editor's text came from: a blank guide, the example, a replay
+	// (its seeded text is kept in `seed`), or the slug of a published build.
+	type Source = '__blank' | '__example' | '__replay' | string;
 	const pristine = (src: Source) =>
 		src === '__blank'
 			? BLANK
 			: src === '__example'
 				? template
-				: (existing.find((x) => x.slug === src)?.text ?? '');
-	type Draft = { text: string; source?: Source; editing?: string | null; mode?: 'visual' | 'yaml' };
+				: src === '__replay'
+					? seed
+					: (existing.find((x) => x.slug === src)?.text ?? '');
+	type Draft = {
+		text: string;
+		source?: Source;
+		seed?: string;
+		editing?: string | null;
+		mode?: 'visual' | 'yaml';
+	};
 	const load = (): Draft => {
 		try {
 			const d = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? 'null');
@@ -45,6 +55,7 @@
 	};
 	const initial = load();
 	let text = $state(initial.text);
+	let seed = $state(initial.seed ?? '');
 	// The slug of the published article being edited, or null for a new one.
 	let source = $state<Source>(initial.source ?? initial.editing ?? '__example');
 	// The slug of the published article being edited, or null for a new one.
@@ -52,7 +63,7 @@
 	// Visual (form) or YAML editing. Both edit the same article text.
 	let mode = $state<'visual' | 'yaml'>(initial.mode ?? 'visual');
 	$effect(() => {
-		const d: Draft = { text, source, mode };
+		const d: Draft = { text, source, seed, mode };
 		try {
 			localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
 		} catch {
@@ -165,21 +176,80 @@
 		if (gutter && ta) gutter.scrollTop = ta.scrollTop;
 	};
 
-	const start = (e: Event) => {
-		const sel = e.currentTarget as HTMLSelectElement;
-		const v = sel.value as Source;
-		// Only ask when there are edits that would be lost.
-		if (text !== pristine(source) && !confirm('Discard your changes and switch?')) {
-			sel.value = source;
-			return;
-		}
+	// Only ask when there are edits that would be lost.
+	const okToReplace = () =>
+		text === pristine(source) || confirm('Discard your changes and switch?');
+	const switchTo = (v: Source, newText: string) => {
 		source = v;
-		text = pristine(v);
+		text = newText;
 		// Don't keep showing the previous guide while the new one is incomplete.
 		good = null;
 		goodKey = '';
 		stale = false;
 	};
+	const start = (e: Event) => {
+		const sel = e.currentTarget as HTMLSelectElement;
+		const v = sel.value as Source;
+		if (v === '__pick') {
+			sel.value = source;
+			picker?.click();
+			return;
+		}
+		if (!okToReplace()) {
+			sel.value = source;
+			return;
+		}
+		switchTo(v, pristine(v));
+	};
+
+	// ---- start from a replay ------------------------------------------------
+	// A dropped (or picked) .rep is simulated in a worker; the chosen player's
+	// build becomes the starting steps.
+	let picker: HTMLInputElement | undefined = $state();
+	let dragging = $state(false);
+	let replay = $state<{
+		file: string;
+		progress?: ReplayProgress;
+		timeline?: Timeline;
+		error?: string;
+	} | null>(null);
+	const openReplay = async (file: File | undefined) => {
+		dragging = false;
+		if (!file) return;
+		if (!/\.rep$/i.test(file.name)) {
+			replay = { file: file.name, error: "That isn't a StarCraft replay (.rep) file." };
+			return;
+		}
+		replay = { file: file.name, progress: { stage: 'loading' } };
+		try {
+			const timeline = await readReplay(file, (p) => {
+				if (replay) replay.progress = p;
+			});
+			if (!replay) return; // closed while reading
+			const usable = timeline.players.filter((p) => p.events.some((e) => e.constructed));
+			if (!usable.length) throw new Error('No one built anything in this replay.');
+			if (usable.length === 1) usePlayer(timeline, usable[0].player_id);
+			else replay = { file: file.name, timeline };
+		} catch (err) {
+			if (replay) {
+				const m = (err as Error).message || 'Something went wrong reading this replay.';
+				replay = {
+					file: file.name,
+					error: m[0].toUpperCase() + m.slice(1) + (/[.!?]$/.test(m) ? '' : '.')
+				};
+			}
+		}
+	};
+	const usePlayer = (tl: Timeline, id: number) => {
+		replay = null;
+		if (!okToReplace()) return;
+		seed = writeArticle(seedArticle(tl, id));
+		switchTo('__replay', seed);
+		mode = 'visual';
+		flash('Steps filled in from the replay. Add a title and objective, then trim and annotate.');
+	};
+	const RACE_NAME: Record<string, string> = { T: 'Terran', P: 'Protoss', Z: 'Zerg' };
+	const isFileDrag = (e: DragEvent) => !!e.dataTransfer?.types.includes('Files');
 
 	// ---- hand-off to GitHub -------------------------------------------------
 	let toast = $state('');
@@ -230,6 +300,33 @@
 	};
 </script>
 
+<svelte:window
+	ondragover={(e) => {
+		if (!isFileDrag(e)) return;
+		e.preventDefault();
+		dragging = true;
+	}}
+	ondragleave={(e) => {
+		if (!e.relatedTarget) dragging = false;
+	}}
+	ondrop={(e) => {
+		if (!isFileDrag(e)) return;
+		e.preventDefault();
+		openReplay(e.dataTransfer?.files[0]);
+	}}
+/>
+
+<input
+	bind:this={picker}
+	type="file"
+	accept=".rep"
+	hidden
+	onchange={(e) => {
+		openReplay(e.currentTarget.files?.[0]);
+		e.currentTarget.value = '';
+	}}
+/>
+
 <div class="app">
 	<header class="top">
 		<a class="brand" href="https://cwal.gg/builds" target="_blank" rel="noopener"
@@ -248,6 +345,8 @@
 					<optgroup label="Write a new guide">
 						<option value="__blank">New blank guide</option>
 						<option value="__example">New, from the example</option>
+						<option value="__pick">New, from a replay…</option>
+						{#if source === '__replay'}<option value="__replay">From your replay</option>{/if}
 					</optgroup>
 					<optgroup label="Edit a published guide">
 						{#each existing as a (a.slug)}<option value={a.slug}>{a.slug}</option>{/each}
@@ -375,6 +474,61 @@
 	</main>
 
 	{#if toast}<div class="toast" role="status">{toast}</div>{/if}
+
+	{#if dragging}
+		<div class="dropzone" aria-hidden="true">
+			<div>
+				<b>Drop a replay</b>
+				<span>Its build order becomes the starting steps of a new guide.</span>
+			</div>
+		</div>
+	{/if}
+
+	{#if replay}
+		<div class="modal-bg" role="presentation" onclick={() => (replay = null)}>
+			<div
+				class="modal"
+				role="dialog"
+				aria-modal="true"
+				aria-label="Start from a replay"
+				tabindex="-1"
+				onclick={(e) => e.stopPropagation()}
+				onkeydown={(e) => e.key === 'Escape' && (replay = null)}
+			>
+				<p class="mfile">{replay.file}</p>
+				{#if replay.error}
+					<p class="merr">{replay.error}</p>
+					<button onclick={() => (replay = null)}>Close</button>
+				{:else if replay.timeline}
+					<p>Whose build should the guide start from?</p>
+					<div class="players">
+						{#each replay.timeline.players as p (p.player_id)}
+							{@const n = p.events.filter((e) => e.constructed).length}
+							<button disabled={!n} onclick={() => usePlayer(replay!.timeline!, p.player_id)}>
+								<b>{p.name}</b>
+								<span>{RACE_NAME[p.race] ?? p.race}</span>
+							</button>
+						{/each}
+					</div>
+					<p class="mnote">{replay.timeline.map}. Covers the first 8 minutes.</p>
+				{:else}
+					{@const pr = replay.progress}
+					<p>
+						{pr?.stage === 'reading'
+							? 'Reading the build order…'
+							: 'Loading the replay engine (about 9 MB, once)…'}
+					</p>
+					<div class="bar-track">
+						<div
+							class="bar-fill"
+							class:indeterminate={pr?.stage !== 'reading'}
+							style="width:{pr?.stage === 'reading' ? Math.round((pr.pct ?? 0) * 100) : 100}%"
+						></div>
+					</div>
+				{/if}
+			</div>
+		</div>
+	{/if}
 </div>
 
 <style>
@@ -608,6 +762,103 @@
 		padding: 40px;
 		color: var(--text-3);
 		text-align: center;
+	}
+	.dropzone {
+		position: fixed;
+		inset: 10px;
+		z-index: 50;
+		display: grid;
+		place-items: center;
+		border: 2px dashed var(--accent);
+		border-radius: 14px;
+		background: color-mix(in srgb, var(--bg) 82%, transparent);
+		pointer-events: none;
+		text-align: center;
+	}
+	.dropzone b {
+		display: block;
+		font-size: 1.3rem;
+		margin-bottom: 4px;
+	}
+	.dropzone span {
+		color: var(--text-2);
+	}
+	.modal-bg {
+		position: fixed;
+		inset: 0;
+		z-index: 60;
+		display: grid;
+		place-items: center;
+		background: rgba(0, 0, 0, 0.55);
+		padding: 16px;
+	}
+	.modal {
+		width: min(420px, 100%);
+		padding: 18px 20px;
+		border-radius: 10px;
+		background: var(--bg-elev);
+		border: 1px solid var(--border-strong);
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+	}
+	.modal p {
+		margin: 0 0 12px;
+	}
+	.mfile {
+		font-family: ui-monospace, monospace;
+		font-size: 0.78rem;
+		color: var(--text-3);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.merr {
+		color: var(--red);
+	}
+	.mnote {
+		font-size: 0.78rem;
+		color: var(--text-3);
+		margin: 12px 0 0 !important;
+	}
+	.players {
+		display: grid;
+		gap: 8px;
+	}
+	.players button {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		padding: 10px 12px;
+		font-size: 0.9rem;
+	}
+	.players button:hover:not(:disabled) {
+		border-color: var(--accent);
+	}
+	.players span {
+		color: var(--text-2);
+		font-size: 0.8rem;
+	}
+	.bar-track {
+		height: 6px;
+		border-radius: 3px;
+		background: var(--bg-hover);
+		overflow: hidden;
+	}
+	.bar-fill {
+		height: 100%;
+		background: var(--accent);
+		transition: width 0.2s;
+	}
+	.bar-fill.indeterminate {
+		width: 35% !important;
+		animation: slide 1.1s ease-in-out infinite;
+	}
+	@keyframes slide {
+		from {
+			transform: translateX(-100%);
+		}
+		to {
+			transform: translateX(300%);
+		}
 	}
 	.toast {
 		position: fixed;

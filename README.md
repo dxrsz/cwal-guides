@@ -13,6 +13,8 @@ problems, click **Open a pull request on GitHub**.
 
 1. Open the [Build Order Builder](https://dxrsz.github.io/cwal-guides/).
    Start from the blank template, or pick a published build to edit.
+   Or drop a replay (`.rep`) anywhere on the page, or pick **New, from a replay…**:
+   choose a player and their first 8 minutes become the starting steps.
 2. Fill in the details and add steps in the **Visual** tab (or write YAML in the
    **YAML** tab; both edit the same file) until the panel under the editor says
    **Looks good**.
@@ -24,8 +26,10 @@ The file name becomes the url: `articles/nyoken-2rax-academy.yaml` is
 `cwal.gg/builds/nyoken-2rax-academy`. A check runs on every pull request and
 fails with the same messages the builder shows.
 
-Prefer working locally? `npm install`, then `npm run dev` serves the builder with
-your local `articles/` in the "Start from" list, and `npm run check` validates
+Prefer working locally? `npm install`, then `npm run dev` serves the builder (the
+first run downloads the replay engine, about 9 MB, from the
+[build classifier's sandbox](https://dxrsz.github.io/cwal-build-classifier/)) with
+your local `articles/` in the guide menu, and `npm run check` validates
 every article.
 
 ## Article format

@@ -5,7 +5,9 @@
 	"type": "module",
 	"description": "Build-order guides for cwal.gg: the articles, their parser, and the components that render them.",
 	"scripts": {
+		"predev": "node scripts/fetch-engine.mjs",
 		"dev": "vite",
+		"prebuild": "node scripts/fetch-engine.mjs",
 		"build": "vite build",
 		"check": "tsx scripts/check.ts && svelte-check --tsconfig ./tsconfig.json",
 		"format": "prettier --write ."
