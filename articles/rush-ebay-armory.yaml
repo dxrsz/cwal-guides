@@ -64,8 +64,8 @@ steps:
     description: One factory, the core of the build. Pull 2 off gas as you start it.
     notes: >-
       With one gas you only need about 88 banked for the machine shop and siege, so move 2 of
-      the 3 SCVs back to minerals the moment the factory goes down. The extra minerals pay for
-      vultures and the expansion.
+      the 3 SCVs back to minerals the moment the factory goes down, until the machine shop is
+      half built. The extra minerals pay for vultures and the expansion.
 
   - at: 21 supply
     make: Supply Depot
@@ -80,6 +80,15 @@ steps:
     notes: >-
       Get the add-on when the Protoss does not commit two zealots right away. It unlocks mines,
       siege, and tanks.
+
+  - at: Machine Shop 50%
+    make: 2 SCV
+    use: true
+    instruction: Put 2 SCVs back on gas
+    description: Back to 3 on gas once the machine shop is half built.
+    notes: >-
+      Gas was cut to 1 SCV while the factory went down. Refill it now so there is gas for siege,
+      mines and tanks as the add-on finishes.
 
   - at: 22 supply
     make: Bunker
