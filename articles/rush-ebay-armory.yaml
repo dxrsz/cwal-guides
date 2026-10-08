@@ -60,7 +60,12 @@ steps:
 
   - at: 17 supply
     make: Factory
-    description: One factory, the core of the build.
+    instruction: Pull 2 SCVs off gas
+    description: One factory, the core of the build. Pull 2 off gas as you start it.
+    notes: >-
+      With one gas you only need about 88 banked for the machine shop and siege, so move 2 of
+      the 3 SCVs back to minerals the moment the factory goes down. The extra minerals pay for
+      vultures and the expansion.
 
   - at: 21 supply
     make: Supply Depot
