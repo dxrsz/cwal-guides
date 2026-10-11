@@ -1,0 +1,2607 @@
+title: TvT 2 Factory
+matchup: TvT
+tagline: One Barracks, gas and two Factories by 3:05, then a Tank push, mass Vultures or
+  Vulture-Goliath into the natural.
+objective: >-
+  An aggressive one-base TvT opener aimed at the Terran who expands early: Depot, Barracks, gas,
+  a Marine or two and two Factories by about 3:05. As the first Factory finishes, at about 3:20,
+  you pick the attack: a three-Tank push with Vultures and Mines, mass Vultures with speed and
+  Mines (5–1 in 6 pro games), or an early Armory into Goliaths, which expands earliest of the
+  three lines (about 5:36). After a Tank push, expand: the pros who stayed on one base went 0–4.
+  Against an opponent who stays on one base himself, hold with Vultures, Goliaths and a Comsat,
+  then expand.
+references:
+  - youtube: https://www.youtube.com/watch?v=QWkLvhLh0dg
+    label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+  - replay: https://cwal.gg/viewer?match=MM-17C3C25A-BD2F-11F1-A71E-FA167AEAB62F
+    label: "Artosis vs fast expand: Tank push, then expand (win, closest to the consensus)"
+  - replay: https://cwal.gg/viewer?match=MM-DCF53178-BA67-11F1-B3A2-FA167B99164A
+    label: "Light vs fast expand: Tank push (win)"
+  - replay: https://cwal.gg/viewer?match=MM-DDE5B544-BB98-11F1-A71E-FA167AEAB62F
+    label: "Artosis vs fast expand: mass Vultures, then expand (win)"
+  - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+    label: "Artosis vs fast expand: one-base Vulture all-in (win)"
+  - replay: https://cwal.gg/viewer?match=MM-6FBCD540-BE02-11F1-A71E-FA167AEAB62F
+    label: "Prime vs one-base tech: Vulture-Goliath, then expand"
+
+stages:
+  - title: "Opener: Barracks, gas, two Factories"
+    steps:
+      - at: 9 supply
+        or: 0:56
+        make: Supply Depot
+        description: The usual first Depot; at the top of your ramp if you want a wall.
+        notes: >-
+          A wall at the main ramp makes the build more comfortable, but Lee Sung-eun plays it
+          without one and says you don't need to force it. If your minerals sit to the right of
+          the Command Center, a Depot placed against it shortens the SCVs' trips. SCVs go
+          nonstop until the 15th, at 16 supply. This guide lists every Depot up to the fourth,
+          at about 4:25; after that, keep one building ahead of supply.
+        sources:
+          - replays:
+              players: 103
+              at: 0:56
+              range: 0:55-0:58
+              supply: 9
+              workers: 8
+              note: "Supply Depot #1"
+          - replays:
+              players: 78
+              at: 2:28
+              range: 2:24-2:45
+              note: Worker Pause@16
+          - replays:
+              players: 97
+              at: 4:22
+              range: 4:06-4:43
+              supply: 29
+              workers: 20
+              note: "Supply Depot #4"
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=41
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+          - youtube: https://youtu.be/zFpTLY4Pgpk?t=50
+            label: 흑운장TV
+
+      - at: 11 supply
+        or: 1:28
+        make: Barracks
+        description: Barracks at 11, as in the video and in every replay.
+        notes: >-
+          The Barracks is only there for a Marine or two and to unlock the Factory. Marines are
+          never massed in TvT, because Tanks beat them; the Barracks usually lifts off later to
+          scout.
+        sources:
+          - replays:
+              players: 103
+              at: 1:27
+              range: 1:25-1:29
+              supply: 11
+              workers: 10
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=84
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=1520
+            label: Day9TV
+
+      - at: 12 supply
+        or: 1:39
+        make: Refinery
+        description: Gas next, about 17 seconds after the Depot finishes.
+        notes: >-
+          The video says 11; nearly every replay has it on 12. Put three SCVs on it as it
+          finishes. This is your only gas until the natural is up.
+        sources:
+          - replays:
+              players: 103
+              at: 1:38
+              range: 1:36-1:41
+              supply: 12
+              workers: 11
+              note: "Refinery #1"
+          - replays:
+              players: 51
+              at: 7:56
+              range: 7:19-8:33
+              supply: 47
+              workers: 29
+              note: "Refinery #2"
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=84
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+      - at: 14 supply
+        make: SCV
+        use: true
+        instruction: Scout with an SCV
+        description: Send it at 14 while gas is mining.
+        notes: >-
+          In their main, look at the Barracks: does it keep making Marines, or lift off early?
+          Then get out before it is trapped and wait outside their natural. A Command Center
+          there, or a forward Barracks that lifts off after being scouted, means they are
+          expanding; no Command Center and a second Factory or a Starport means one-base tech.
+          That is the first choice below. Keep the SCV alive: you will want it again. If instead
+          you find two or more Barracks, or nothing at all in their main (a proxy), the replays
+          have almost no games to go on: make the second Marine, add a Bunker by your mineral
+          line, and take a Vulture before the Machine Shop. Lee Sung-eun holds an early Vulture
+          with a Bunker, three Marines and pulled SCVs.
+        sources:
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=105
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+          - youtube: https://youtu.be/zFpTLY4Pgpk?t=159
+            label: 흑운장TV
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=1520
+            label: Day9TV
+
+      - at: Barracks 100%
+        or: 2:20
+        make: Marine
+        description: One Marine as the Barracks finishes; 9 in 10 players make it.
+        sources:
+          - replays:
+              players: 94
+              at: 2:20
+              range: 2:18-2:24
+              supply: 16
+              workers: 14
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=129
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+      - at: 16 supply
+        or: 2:21
+        make: Supply Depot
+        description: The second Depot, about a minute after the first finished.
+        sources:
+          - replays:
+              players: 103
+              at: 2:21
+              range: 2:18-2:33
+              supply: 16
+              workers: 14
+              note: "Supply Depot #2"
+
+      - at: 16 supply
+        or: 2:28
+        make: SCV
+        use: true
+        instruction: Cut SCVs at 16 supply for the Factory
+        description: With 15 SCVs, about 25 seconds without SCVs while the Factory and second Marine go
+          down.
+        notes: >-
+          Three in four players take this short cut. Start SCVs again as soon as the Factory is
+          placed.
+        sources:
+          - replays:
+              players: 78
+              at: 2:28
+              range: 2:24-2:45
+              note: Worker Pause@16
+
+      - id: fact1
+        at: Refinery 100%
+        or: 2:30
+        make: Factory
+        description: The first Factory, about 25 seconds after the Refinery finishes.
+        notes: >-
+          Build it the moment you can afford it, as the video does. Its finishing, at about
+          3:20, is when you pick the attack in the next stages.
+        sources:
+          - replays:
+              players: 103
+              at: 2:30
+              range: 2:28-2:33
+              supply: 16
+              workers: 15
+              note: "Factory #1"
+          - replays:
+              players: 52
+              at: 3:27
+              range: 3:21-3:43
+              supply: 21
+              workers: 18
+              note: "Machine Shop #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line"
+          - replays:
+              players: 101
+              at: 3:30
+              range: 3:20-4:02
+              supply: 23
+              workers: 18
+              note: "Vulture #1"
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=129
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+      - at: 18 supply
+        or: 2:40
+        make: Marine
+        description: A second Marine; about 3 in 4 players make it, 1 in 3 a third.
+        notes: >-
+          Half of the mass-Vulture players skip this one. Two Marines and SCVs are all the
+          defence you have until the first Vulture, which is fine: there is nothing to attack
+          yet, so stay home.
+        sources:
+          - replays:
+              players: 78
+              at: 2:40
+              range: 2:36-2:46
+              supply: 18
+              workers: 15
+              note: "Marine #2"
+          - replays:
+              players: 37
+              at: 3:16
+              range: 2:59-3:35
+              supply: 21
+              workers: 17
+              note: "Marine #3"
+          - replays:
+              players: 8
+              at: 2:44
+              range: 2:35-2:51
+              supply: 19
+              workers: 16
+              note: "Marine #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                Vulture line"
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=1520
+            label: Day9TV
+
+      - at: Factory 68%
+        or: 3:05
+        make: Factory
+        description: Second Factory, two-thirds of the way into the first. About 17 SCVs.
+        notes: >-
+          Lee Sung-eun builds it as his scout leaves their main. Everyone on every line builds
+          it here; the lines split in the next half-minute, as the first Factory finishes.
+        sources:
+          - replays:
+              players: 103
+              at: 3:05
+              range: 2:57-3:13
+              supply: 19
+              workers: 17
+              note: "Factory #2"
+          - replays:
+              players: 52
+              at: 3:04
+              range: 2:57-3:11
+              supply: 19
+              workers: 17
+              note: "Factory #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line"
+          - replays:
+              players: 16
+              at: 3:02
+              range: 2:55-3:06
+              supply: 18
+              workers: 17
+              note: "Factory #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                Vulture line"
+          - replays:
+              players: 17
+              at: 3:05
+              range: 3:00-3:15
+              supply: 19
+              workers: 17
+              note: "Factory #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=174
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+  - title: Against their opener
+    choose: What did your scout see?
+    options:
+      - id: vs-fast-expand
+        label: Fast expand
+        read: >-
+          A Command Center at their natural by about 3:00, or a forward Barracks that lifts off
+          after being scouted (the CC follows). 1 Factory expand and CC first both count. This
+          is by far the common case: 86 of the 103 players faced it.
+        steps:
+          - at: 3:15
+            make: SCV
+            use: true
+            instruction: Watch their natural until the Command Center goes down
+            description: Then park the SCV somewhere safe and pick the attack.
+            notes: >-
+              An expanding Terran with one Marine has a weak Bunker, which is why the push below
+              works even if he has seen your Factories. The attack is picked as the first
+              Factory finishes, at about 3:20: a Machine Shop first means the Tank push; a
+              Vulture first means mass Vultures or the Goliath line. In the replays 52 players
+              went Tank push, 16 mass Vultures and 17 Vulture-Goliath into the natural.
+            sources:
+              - replays:
+                  players: 52
+                  at: 3:27
+                  range: 3:21-3:43
+                  supply: 21
+                  workers: 18
+                  note: "Machine Shop #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - replays:
+                  players: 13
+                  at: 3:27
+                  range: 3:22-4:25
+                  supply: 21
+                  workers: 18
+                  note: "Machine Shop #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line"
+              - replays:
+                  players: 17
+                  at: 3:21
+                  range: 3:20-3:24
+                  supply: 22
+                  workers: 18
+                  note: "Vulture #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 17
+                  at: 3:32
+                  range: 3:30-3:45
+                  supply: 23
+                  workers: 18
+                  note: "Armory #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=174
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+      - id: vs-one-base
+        label: One-base tech
+        read: >-
+          No Command Center at their natural by about 3:15, and their Barracks stays home. They
+          are teching on one base: a second Factory, a Starport (1-1-1, Wraiths) or Tanks off
+          one Factory. 15 of the 103 players faced this.
+        steps:
+          - at: 3:15
+            make: SCV
+            use: true
+            instruction: No natural seen; keep the scout alive
+            description: Pull it back to somewhere safe; it goes into their main again at about 4:00.
+            sources:
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=174
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+  - title: The attack
+    when: [ vs-fast-expand ]
+    choose: Tanks, Vultures or Goliaths?
+    options:
+      - id: tank-push
+        label: Tank push
+        read: >-
+          Your call as the first Factory finishes (about 3:20): the Machine Shop goes on before
+          any Vulture. The standard line, 52 of 86 players against an expansion; pros went 5–5.
+        steps:
+          - at: Factory 100% @fact1
+            or: 3:27
+            make: Machine Shop
+            description: Machine Shop on the first Factory the moment it finishes.
+            sources:
+              - replays:
+                  players: 52
+                  at: 3:27
+                  range: 3:21-3:43
+                  supply: 21
+                  workers: 18
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                    line
+
+          - at: 22 supply
+            or: 3:31
+            make: Supply Depot
+            description: The third Depot, after the second Factory. About 19 SCVs at 4:00.
+            notes: >-
+              The video builds this Depot right after the second Factory.
+            sources:
+              - replays:
+                  players: 52
+                  at: 3:31
+                  range: 3:27-3:40
+                  supply: 22
+                  workers: 18
+                  note: "Supply Depot #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=219
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: Machine Shop 100%
+            or: 3:54
+            make: Siege Tank
+            description: The first Tank as the Machine Shop finishes.
+            notes: >-
+              Their first Vulture tends to show up around now; keep it off your SCVs with the
+              Marines and the Tank.
+            sources:
+              - replays:
+                  players: 52
+                  at: 3:53
+                  range: 3:47-4:10
+                  supply: 26
+                  workers: 20
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                    line
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=219
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: 25 supply
+            or: 3:57
+            make: Vulture
+            description: A Vulture from the second Factory as it finishes.
+            sources:
+              - replays:
+                  players: 50
+                  at: 3:56
+                  range: 3:23-4:24
+                  supply: 25
+                  workers: 18
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                    line
+
+          - at: next
+            or: 4:15
+            make: SCV
+            use: true
+            instruction: Cut SCVs at 21
+            description: About 35 seconds without SCVs while Tank 2, a Depot and Siege Mode go down.
+            notes: >-
+              Nearly 9 in 10 players take this cut. About 23 SCVs on one base is where the push
+              line sits until it expands.
+            sources:
+              - replays:
+                  players: 45
+                  at: 4:15
+                  range: 3:54-4:49
+                  note: Worker Pause@22, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line
+
+          - at: Siege Tank 100%
+            or: 4:26
+            make: Siege Tank
+            description: The second Tank.
+            sources:
+              - replays:
+                  players: 52
+                  at: 4:26
+                  range: 4:20-4:37
+                  supply: 29
+                  workers: 21
+                  note: "Siege Tank #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+
+          - at: 29 supply
+            or: 4:26
+            make: Supply Depot
+            description: The fourth Depot, with the second Tank. Build it ahead, as the video says.
+            notes: >-
+              From here keep one Depot building ahead of supply; the next comes at about 38
+              supply.
+            sources:
+              - replays:
+                  players: 50
+                  at: 4:25
+                  range: 4:10-4:42
+                  supply: 29
+                  workers: 20
+                  note: "Supply Depot #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - replays:
+                  players: 52
+                  at: 4:26
+                  range: 4:20-4:37
+                  supply: 29
+                  workers: 21
+                  note: "Siege Tank #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - replays:
+                  players: 45
+                  at: 5:30
+                  range: 5:07-6:18
+                  supply: 38
+                  workers: 23
+                  note: "Supply Depot #5, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=263
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: next
+            or: 4:28
+            make: Tank Siege Mode
+            description: Siege Mode, right after the second Tank.
+            notes: >-
+              Lee Sung-eun's TvT lecture says to only advance and threaten until Siege Mode is
+              done, then push the line forward. The 2 Factory video itself starts walking out at
+              about 5:28 with three Tanks and only sieges partway through the push.
+            sources:
+              - replays:
+                  players: 50
+                  at: 4:27
+                  range: 4:03-4:55
+                  supply: 28
+                  workers: 20
+                  note: Tank Siege Mode, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line
+              - replays:
+                  players: 52
+                  at: 4:26
+                  range: 4:20-4:37
+                  supply: 29
+                  workers: 21
+                  note: "Siege Tank #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=500
+                label: 흑운장TV
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=328
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: Siege Tank 100%
+            or: 4:56
+            make: Siege Tank
+            instruction: Keep both Factories busy
+            description: The third Tank. Tanks off the Machine Shop, Vultures from the second Factory.
+            notes: >-
+              Players keep the Tank Factory busy most of the time and make about 4 Tanks by
+              5:20, then switch to Vultures or Goliaths. Three Tanks is the number the video
+              pushes with.
+            sources:
+              - replays:
+                  players: 51
+                  at: 4:56
+                  range: 4:40-5:40
+                  supply: 34
+                  workers: 22
+                  note: "Siege Tank #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - replays:
+                  players: 52
+                  at: 3:53
+                  range: 3:47-4:10
+                  note: Siege Tank production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2
+                    Factory Tank-Vulture push line
+              - replays:
+                  players: 44
+                  at: 5:38
+                  range: 5:12-6:30
+                  supply: 37
+                  workers: 23
+                  note: "Siege Tank #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=328
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: 5:02
+            make: Machine Shop
+            description: The second Machine Shop, on the second Factory, after the early Tanks.
+            notes: >-
+              The video seems to add it after two Tanks. The players who go on to expand add it
+              at about 5:00, after the third Tank; across all Tank-push players the median is
+              earlier, about 4:12, with a wide spread.
+            sources:
+              - replays:
+                  players: 27
+                  at: 5:02
+                  range: 4:05-6:45
+                  supply: 31
+                  workers: 22
+                  note: "Machine Shop #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 30
+                  at: 4:58
+                  range: 4:41-5:36
+                  supply: 34
+                  workers: 22
+                  note: "Siege Tank #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 47
+                  at: 4:12
+                  range: 3:57-5:30
+                  supply: 27
+                  workers: 20
+                  note: "Machine Shop #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=263
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: 5:05
+            make: Spider Mines
+            instruction: Research Spider Mines
+            description: Mines once you have 100 gas spare, after the second Tank; 60% get them.
+            notes: >-
+              The video starts Mines as soon as 100 gas is banked. Speed is rarer on this line
+              (under half get Ion Thrusters, later).
+            sources:
+              - replays:
+                  players: 31
+                  at: 5:05
+                  range: 4:52-6:02
+                  supply: 34
+                  workers: 22
+                  note: Spider Mines, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line
+              - replays:
+                  players: 24
+                  at: 5:38
+                  range: 4:46-7:16
+                  supply: 35
+                  workers: 22
+                  note: Ion Thrusters, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=263
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: 5:06
+            make: Armory
+            description: An Armory, in case they went Starport. 9 in 10 build it.
+            notes: >-
+              Lee Sung-eun adds it as a follow-up to the push; seeing Factories rather than a
+              Starport in their base means Goliaths can wait.
+            sources:
+              - replays:
+                  players: 47
+                  at: 5:06
+                  range: 4:12-5:51
+                  supply: 33
+                  workers: 22
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                    line
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=308
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: Tank Siege Mode 100%
+            make: Siege Tank
+            use: true
+            instruction: Move out with 3 Tanks, Vultures and Mines
+            description: Walk slowly toward their natural, laying Mines as you go.
+            notes: >-
+              Hotkey both Factories so you keep producing while you move. Push in slowly with
+              the three Tanks and the Vultures, Mine the ground in front of you, focus fire
+              their Tank, then siege up and Mine inside their position. Vultures soaking Tank
+              shots let your few Tanks beat more; what counts in TvT is Tanks lost and killed.
+              Waiting for Siege Mode is this guide's cue, from Lee Sung-eun's lecture and the
+              replays' Siege Mode timing; the video leaves a little earlier. About 23 SCVs at
+              6:00.
+            sources:
+              - replays:
+                  players: 50
+                  at: 4:27
+                  range: 4:03-4:55
+                  supply: 28
+                  workers: 20
+                  note: Tank Siege Mode, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=500
+                label: 흑운장TV
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=308
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=130
+                label: Day9TV
+
+      - id: mass-vulture
+        label: Mass Vultures
+        read: >-
+          Your call as the first Factory finishes (about 3:20): both Factories go to Vultures,
+          with no early Tank. 5–1 in 6 pro games, from 16 players; just over half of them expand
+          behind it.
+        steps:
+          - at: Factory 100% @fact1
+            or: 3:28
+            make: Machine Shop
+            description: One Machine Shop, on the first Factory as it finishes, as Artosis and Skey do.
+            notes: >-
+              A Factory can't add a Machine Shop while it is training, so it goes on before that
+              Factory makes anything. About half the players make one Vulture from it first and
+              add the Shop between Vultures instead. One Machine Shop is enough: you are
+              researching on it, not making Tanks. Most players make no Tank before about 6:30;
+              Skey took one Tank off it first, with Mines.
+            sources:
+              - replays:
+                  players: 13
+                  at: 3:27
+                  range: 3:22-4:25
+                  supply: 21
+                  workers: 18
+                  note: "Machine Shop #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line"
+              - replays:
+                  players: 16
+                  at: 3:23
+                  range: 3:20-3:56
+                  supply: 22
+                  workers: 18
+                  note: "Vulture #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 11
+                  at: 6:32
+                  range: 3:48-7:05
+                  supply: 38
+                  workers: 24
+                  note: "Siege Tank #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+                label: Example replay
+              - replay: https://cwal.gg/viewer?match=MM-56B7595E-C248-11F1-A71E-FA167AEAB62F
+                label: Example replay
+
+          - at: next
+            or: 3:30
+            make: SCV
+            use: true
+            instruction: Cut SCVs at 19
+            description: About 40 seconds without SCVs while the Vultures start.
+            notes: >-
+              14 of the 16 players take this cut, most for about 40 seconds. About half pause
+              again at about 24 SCVs, around 5:10. What restarts them after that depends on the
+              next choice.
+            sources:
+              - replays:
+                  players: 14
+                  at: 3:30
+                  range: 3:27-3:48
+                  note: Worker Pause@19, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line
+              - replays:
+                  players: 9
+                  at: 5:09
+                  range: 4:48-6:00
+                  note: Worker Pause@24, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line
+
+          - at: 22 supply
+            or: 3:35
+            make: Supply Depot
+            description: The third Depot. About 19 SCVs at 4:00.
+            sources:
+              - replays:
+                  players: 16
+                  at: 3:35
+                  range: 3:26-3:49
+                  supply: 22
+                  workers: 18
+                  note: "Supply Depot #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line"
+
+          - at: Factory 100%
+            or: 3:52
+            make: Vulture
+            instruction: Keep both Factories on Vultures
+            description: Vultures from the second Factory as it finishes, and from the first once its
+              Machine Shop is done; about 8 by 5:05.
+            notes: >-
+              The Factories are busy almost the whole time; most players make 10 to 17 Vultures
+              in a row. When the run ends depends on the next choice.
+            sources:
+              - replays:
+                  players: 16
+                  at: 3:51
+                  range: 3:41-4:16
+                  supply: 25
+                  workers: 19
+                  note: "Vulture #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 16
+                  at: 5:05
+                  range: 4:43-5:14
+                  supply: 35
+                  workers: 21
+                  note: "Vulture #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 16
+                  at: 3:23
+                  range: 3:20-3:56
+                  note: Vulture production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line
+
+          - at: Machine Shop 100%
+            or: 4:20
+            make: Ion Thrusters
+            instruction: Research Ion Thrusters
+            description: Vulture speed as the Machine Shop finishes; 4 in 5 get it.
+            notes: >-
+              Players start it a few seconds after the Shop finishes. With the Shop on the first
+              Factory that is about 3:50, as Artosis does; 4:20 is the median across players.
+            sources:
+              - replays:
+                  players: 13
+                  at: 4:20
+                  range: 4:00-4:52
+                  supply: 25
+                  workers: 20
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass Vulture line
+              - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+                label: Example replay
+              - replay: https://cwal.gg/viewer?match=MM-DDE5B544-BB98-11F1-A71E-FA167AEAB62F
+                label: Example replay
+
+          - at: 30 supply
+            or: 4:29
+            make: Supply Depot
+            description: The fourth Depot. Keep one ahead from here.
+            notes: >-
+              Artosis also put down an Armory at about 4:24 in both of his mass-Vulture games
+              against an expansion; it is optional, and most players get theirs after 6:00.
+            sources:
+              - replays:
+                  players: 16
+                  at: 4:29
+                  range: 4:06-4:49
+                  supply: 30
+                  workers: 20
+                  note: "Supply Depot #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line"
+              - replays:
+                  players: 11
+                  at: 6:11
+                  range: 4:43-6:58
+                  supply: 38
+                  workers: 25
+                  note: "Armory #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=263
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+              - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+                label: Example replay
+              - replay: https://cwal.gg/viewer?match=MM-DDE5B544-BB98-11F1-A71E-FA167AEAB62F
+                label: Example replay
+
+          - at: 31 supply
+            or: 4:57
+            make: Spider Mines
+            instruction: Research Spider Mines
+            description: Mines after speed; 4 in 5 get them.
+            notes: >-
+              Speed comes first in the replays. Lee Sung-eun calls Mines the most important
+              Vulture upgrade in TvT, and the plan is to Mine as close to their base as you can:
+              it gives vision and pins them in.
+            sources:
+              - replays:
+                  players: 13
+                  at: 4:57
+                  range: 4:28-5:28
+                  supply: 31
+                  workers: 21
+                  note: Spider Mines, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line
+              - replays:
+                  players: 13
+                  at: 4:20
+                  range: 4:00-4:52
+                  supply: 25
+                  workers: 20
+                  note: Ion Thrusters, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=308
+                label: 흑운장TV
+
+          - at: next
+            or: 5:05
+            make: Vulture
+            use: true
+            instruction: Take the Vultures across the map
+            description: With about 8 fast Vultures, hit their natural mineral line and Mine the approaches.
+            notes: >-
+              Early Vultures can run over one or two unsupported Tanks and then kill SCVs; that
+              is the window this line plays for. Fight Marines and SCVs, not sieged Tanks:
+              Vultures trade badly into even a couple of sieged Tanks. What happens at their
+              natural is the next choice.
+            sources:
+              - replays:
+                  players: 16
+                  at: 5:05
+                  range: 4:43-5:14
+                  supply: 35
+                  workers: 21
+                  note: "Vulture #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=308
+                label: 흑운장TV
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=130
+                label: Day9TV
+
+      - id: goliath-expand
+        label: Goliath expand
+        read: >-
+          Your call as the first Factory finishes (about 3:20): a Vulture, then the Armory a few
+          seconds later, before any Machine Shop. 17 of 86 players, all ladder; it expands
+          earliest of the three lines and is safe against Wraiths.
+        steps:
+          - at: Factory 100% @fact1
+            or: 3:22
+            make: Vulture
+            description: A Vulture the moment the first Factory finishes.
+            sources:
+              - replays:
+                  players: 17
+                  at: 3:21
+                  range: 3:20-3:24
+                  supply: 22
+                  workers: 18
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Vulture-Goliath into
+                    expansion
+
+          - at: 22 supply
+            or: 3:29
+            make: Supply Depot
+            description: The third Depot. About 19 SCVs at 4:00.
+            sources:
+              - replays:
+                  players: 17
+                  at: 3:29
+                  range: 3:19-3:42
+                  supply: 22
+                  workers: 18
+                  note: "Supply Depot #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+
+          - at: Factory 58%
+            or: 3:33
+            make: Armory
+            description: The Armory, halfway through the second Factory.
+            notes: >-
+              This is the whole idea of the line: Goliaths, not Tanks, cover the expansion. An
+              early Armory also covers a Starport you may not have scouted.
+            sources:
+              - replays:
+                  players: 17
+                  at: 3:32
+                  range: 3:30-3:45
+                  supply: 23
+                  workers: 18
+                  note: "Armory #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 17
+                  at: 4:31
+                  range: 4:25-4:42
+                  supply: 32
+                  workers: 20
+                  note: "Goliath #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=392
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=1628
+                label: Day9TV
+
+          - at: next
+            or: 3:34
+            make: SCV
+            use: true
+            instruction: Cut SCVs at 19
+            description: About 45 seconds without SCVs while the Armory and Vultures go down.
+            notes: >-
+              Every player on this line takes it. Most start SCVs again with the natural.
+            sources:
+              - replays:
+                  players: 17
+                  at: 3:34
+                  range: 3:28-3:46
+                  note: Worker Pause@20, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion
+
+          - at: Factory 100%
+            or: 4:00
+            make: Vulture
+            instruction: Both Factories on Vultures until the Armory finishes
+            description: About 5 Vultures, then switch.
+            sources:
+              - replays:
+                  players: 17
+                  at: 3:59
+                  range: 3:52-4:03
+                  supply: 27
+                  workers: 19
+                  note: "Vulture #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 17
+                  at: 3:21
+                  range: 3:20-3:24
+                  note: Vulture production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion
+
+          - at: 29 supply
+            or: 4:12
+            make: Supply Depot
+            description: The fourth Depot. Keep one ahead from here.
+            sources:
+              - replays:
+                  players: 17
+                  at: 4:12
+                  range: 4:05-4:22
+                  supply: 29
+                  workers: 19
+                  note: "Supply Depot #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=263
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+          - at: Armory 100%
+            or: 4:31
+            make: Goliath
+            instruction: Switch both Factories to Goliaths
+            description: Goliaths nonstop, 4 by 5:00 and about 8 by 6:10.
+            notes: >-
+              Both Factories stay busy on Goliaths. They hold Vultures, Wraiths and the early
+              Tank push you might face; Day9's example of a careful expander uses the same quick
+              Armory.
+            sources:
+              - replays:
+                  players: 17
+                  at: 4:31
+                  range: 4:25-4:42
+                  supply: 32
+                  workers: 20
+                  note: "Goliath #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 15
+                  at: 4:59
+                  range: 4:55-5:10
+                  supply: 37
+                  workers: 21
+                  note: "Goliath #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 10
+                  at: 6:08
+                  range: 5:52-6:13
+                  supply: 43
+                  workers: 24
+                  note: "Goliath #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 17
+                  at: 4:31
+                  range: 4:25-4:42
+                  note: Goliath production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=1628
+                label: Day9TV
+
+          - at: 36 supply
+            or: 5:36
+            make: Command Center
+            description: The natural, the earliest of any line, with about 22 SCVs.
+            notes: >-
+              About 9 in 10 take it here. The Goliaths and Vultures at your natural make it
+              safe; the natural should be taken as early as you can in TvT. SCVs pick up briefly
+              as it goes down, then most players cut again (next step).
+            sources:
+              - replays:
+                  players: 15
+                  at: 5:36
+                  range: 5:20-5:54
+                  supply: 36
+                  workers: 22
+                  note: "Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 15
+                  at: 5:36
+                  range: 5:20-5:54
+                  note: "Workers at Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT
+                    2 Factory Vulture-Goliath into expansion"
+              - replays:
+                  players: 14
+                  at: 5:51
+                  range: 5:23-6:18
+                  note: Worker Pause@25, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=196
+                label: Day9TV
+
+          - at: 5:52
+            make: SCV
+            use: true
+            instruction: Cut SCVs at about 24
+            description: About 40 seconds without SCVs while Goliaths and the Machine Shops go down; about 5
+              in 6 players.
+            sources:
+              - replays:
+                  players: 14
+                  at: 5:51
+                  range: 5:23-6:18
+                  note: Worker Pause@25, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion
+              - replays:
+                  players: 13
+                  at: 6:20
+                  range: 5:25-6:50
+                  supply: 40
+                  workers: 24
+                  note: "Machine Shop #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+              - replays:
+                  players: 10
+                  at: 6:08
+                  range: 5:52-6:13
+                  supply: 43
+                  workers: 24
+                  note: "Goliath #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Vulture-Goliath into expansion"
+
+  - title: "After the push: expand behind your Tanks"
+    when: [ tank-push ]
+    steps:
+      - at: 5:46
+        make: SCV
+        use: true
+        instruction: Stop SCVs at about 24
+        description: About 5 in 6 players stop for about 35 seconds here, while Goliaths and the natural
+          are afforded.
+        notes: >-
+          Most start again around the natural.
+        sources:
+          - replays:
+              players: 25
+              at: 5:45
+              range: 5:27-6:40
+              note: Worker Pause@26, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push
+          - replays:
+              players: 30
+              at: 6:40
+              range: 6:03-7:02
+              supply: 36
+              workers: 24
+              note: "Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+
+      - at: Armory 100%
+        or: 6:07
+        make: 2 Goliath
+        instruction: Start Goliaths
+        description: A pair of Goliaths as the Armory finishes, then keep adding them.
+        notes: >-
+          Most players on this line keep making Goliaths beside the Tanks: about 3 by 6:45, 5 by
+          9:00 and 8 by 12:00.
+        sources:
+          - replays:
+              players: 27
+              at: 6:06
+              range: 5:16-7:45
+              supply: 40
+              workers: 24
+              note: "Goliath #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 25
+              at: 6:11
+              range: 5:40-8:53
+              supply: 44
+              workers: 26
+              note: "Goliath #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 27
+              at: 6:06
+              range: 5:16-7:45
+              note: Goliath production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push
+          - replays:
+              players: 22
+              at: 6:42
+              range: 6:12-9:21
+              supply: 44
+              workers: 28
+              note: "Goliath #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 15
+              at: 8:56
+              range: 7:32-10:23
+              supply: 59
+              workers: 34
+              note: "Goliath #5, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 11
+              at: 12:10
+              range: 9:46-12:26
+              supply: 72
+              workers: 38
+              note: "Goliath #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+
+      - at: 36 supply
+        or: 6:40
+        make: Command Center
+        description: The natural, with Tanks sieged in front of it. About 24 SCVs.
+        notes: >-
+          Expand whether the push did damage or was held. In the replays the 22 players who
+          stayed on one base after the push had about 20 SCVs at 6:00, half of their games were
+          over by about 7:30, and the pros among them went 0–4. A held attack that delays your
+          own expansion only evens the game, so don't make it worse by staying on one base.
+        sources:
+          - replays:
+              players: 30
+              at: 6:40
+              range: 6:03-7:02
+              supply: 36
+              workers: 24
+              note: "Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 30
+              at: 6:40
+              range: 6:03-7:02
+              note: "Workers at Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT
+                2 Factory Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 4
+              at: 8:17
+              range: 7:53-9:18
+              supply: 43
+              workers: 26
+              note: "Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory no expansion by 7:30"
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=196
+            label: Day9TV
+
+      - at: next
+        or: 7:03
+        make: Charon Boosters
+        instruction: Research Goliath range
+        description: Charon Boosters after the second Goliath; about 6 in 10 get it.
+        sources:
+          - replays:
+              players: 19
+              at: 7:03
+              range: 6:02-8:10
+              supply: 42
+              workers: 27
+              note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                line, with TvT 2 Factory expand behind the push
+
+      - at: next
+        make: Siege Tank
+        instruction: Tanks from the Machine Shop Factories, Goliaths from the others
+        description: Tanks are the army; about 6 by 7:10 and 8 by 8:15.
+        notes: >-
+          Sieged Tanks beat Vultures and Goliaths for their cost, and Tank count is the score in
+          TvT. Few players add a third Machine Shop, so the later Factories make Goliaths.
+          Vultures and Mines hold the map between your Tank lines.
+        sources:
+          - replays:
+              players: 29
+              at: 7:12
+              range: 6:36-7:51
+              supply: 41
+              workers: 26
+              note: "Siege Tank #6, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 27
+              at: 8:12
+              range: 7:42-8:54
+              supply: 47
+              workers: 28
+              note: "Siege Tank #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 6
+              at: 11:17
+              range: 9:37-12:14
+              supply: 70
+              workers: 41
+              note: "Machine Shop #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 11
+              at: 12:10
+              range: 9:46-12:26
+              supply: 72
+              workers: 38
+              note: "Goliath #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=130
+            label: Day9TV
+
+      - at: 44 supply
+        or: 7:20
+        make: Academy
+        description: Academy for Comsats; 2 in 3 build it.
+        sources:
+          - replays:
+              players: 20
+              at: 7:20
+              range: 5:59-8:08
+              supply: 44
+              workers: 28
+              note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                line, with TvT 2 Factory expand behind the push
+
+      - at: Command Center 100%
+        or: 7:53
+        make: Refinery
+        description: Natural gas as the Command Center finishes. Two gas from here.
+        sources:
+          - replays:
+              players: 24
+              at: 7:52
+              range: 7:00-8:19
+              supply: 45
+              workers: 27
+              note: "Refinery #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+
+      - at: Academy 100%
+        or: 8:14
+        make:
+          building: ComSat Station
+          label: Comsat Station
+          count: 2
+        description: A Comsat on each Command Center.
+        notes: >-
+          Scan for a Starport and for hidden expansions; if they have Wraiths or Dropships, add
+          an Engineering Bay and Turrets.
+        sources:
+          - replays:
+              players: 18
+              at: 8:13
+              range: 6:59-9:13
+              supply: 51
+              workers: 32
+              note: "Comsat Station #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 13
+              at: 8:27
+              range: 8:14-9:16
+              supply: 53
+              workers: 32
+              note: "Comsat Station #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=2169
+            label: Day9TV
+          - youtube: https://youtu.be/zFpTLY4Pgpk?t=500
+            label: 흑운장TV
+
+      - at: Refinery 100%
+        or: 8:39
+        make: Factory
+        description: Third Factory, about 50 seconds after the natural gas finishes. About 34 SCVs.
+        sources:
+          - replays:
+              players: 19
+              at: 8:39
+              range: 7:29-9:41
+              supply: 55
+              workers: 34
+              note: "Factory #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+
+      - at: next
+        or: 9:09
+        make: Factory
+        description: The fourth Factory right after it.
+        notes: >-
+          Half the players add a Starport around 9:07 too. About 37 SCVs at 10:00.
+        sources:
+          - replays:
+              players: 15
+              at: 9:09
+              range: 7:56-9:51
+              supply: 57
+              workers: 37
+              note: "Factory #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 11
+              at: 9:07
+              range: 7:30-10:59
+              supply: 52
+              workers: 35
+              note: "Starport #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+
+      - at: 57 supply
+        or: 10:05
+        make:
+          upgrade: Terran Vehicle Weapons
+          label: +1 Vehicle Weapons
+        instruction: Research +1 vehicle weapons
+        description: At the Armory, around 10:00.
+        sources:
+          - replays:
+              players: 17
+              at: 10:04
+              range: 8:38-10:20
+              supply: 57
+              workers: 36
+              note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Tank-Vulture push
+                line, with TvT 2 Factory expand behind the push
+
+      - at: next
+        or: 10:06
+        make: Command Center
+        description: The third base, behind your Tank line. Half the players take it by 12:00.
+        notes: >-
+          Push your Tank line out far enough to cover it. SCVs keep going to about 47 at 12:00;
+          players who start a third base by 10:00 have about 53 SCVs at 13:00, against 48 for
+          those who don't.
+        sources:
+          - replays:
+              players: 15
+              at: 10:05
+              range: 7:44-11:11
+              supply: 64
+              workers: 39
+              note: "Command Center #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - replays:
+              players: 15
+              at: 10:05
+              range: 7:44-11:11
+              note: "Workers at Command Center #2, vs TvT fast expand (1 Factory expand or CC first), with TvT
+                2 Factory Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=405
+            label: Day9TV
+
+      - at: 73 supply
+        or: 11:09
+        make: Factory
+        description: A fifth Factory as the third base pays off.
+        sources:
+          - replays:
+              players: 9
+              at: 11:09
+              range: 10:09-11:40
+              supply: 73
+              workers: 46
+              note: "Factory #5, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Tank-Vulture push line, with TvT 2 Factory expand behind the push"
+
+  - title: After the Vultures
+    when: [ mass-vulture ]
+    choose: Expand behind them, or stay all-in?
+    options:
+      - id: vulture-expand
+        label: Expand behind
+        read: >-
+          Their natural has Tanks sieged or a Bunker that your Vultures can't break, or the
+          Vultures did their damage: take your own natural by about 5:45. Just over half of the
+          mass-Vulture players do this (9 of 16; pros 2–1).
+        steps:
+          - at: 5:09
+            make: SCV
+            use: true
+            instruction: Cut SCVs at about 23 for the Command Center
+            description: About 40 seconds without SCVs to afford the natural; 7 of the 9 players do it.
+            sources:
+              - replays:
+                  players: 7
+                  at: 5:09
+                  range: 4:46-6:01
+                  note: Worker Pause@24, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push
+
+          - at: 30 supply
+            or: 5:44
+            make: Command Center
+            description: The natural, behind the Vultures and Mines. About 22 SCVs.
+            notes: >-
+              Earlier than the Tank push line takes it. SCVs start again once it is placed. Keep
+              a few Vultures and Mines on the map between you and them.
+            sources:
+              - replays:
+                  players: 9
+                  at: 5:44
+                  range: 4:51-5:52
+                  supply: 30
+                  workers: 22
+                  note: "Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 9
+                  at: 5:44
+                  range: 4:51-5:52
+                  note: "Workers at Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT
+                    2 Factory mass Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 7
+                  at: 5:09
+                  range: 4:46-6:01
+                  note: Worker Pause@24, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push
+              - replays:
+                  players: 34
+                  at: 6:50
+                  range: 6:22-7:13
+                  supply: 38
+                  workers: 24
+                  note: "Command Center #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line"
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=308
+                label: 흑운장TV
+
+          - at: next
+            or: 5:50
+            make: Machine Shop
+            description: The second Machine Shop, for Tanks.
+            sources:
+              - replays:
+                  players: 6
+                  at: 5:50
+                  range: 4:39-6:34
+                  supply: 33
+                  workers: 24
+                  note: "Machine Shop #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 38 supply
+            or: 6:11
+            make: Armory
+            description: The Armory, for Goliaths and +1.
+            sources:
+              - replays:
+                  players: 7
+                  at: 6:11
+                  range: 4:43-6:58
+                  supply: 38
+                  workers: 26
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass Vulture line,
+                    with TvT 2 Factory expand behind the push
+
+          - at: 6:33
+            make: [ Factory, Siege Tank ]
+            instruction: Third Factory; Tanks from the Machine Shops
+            description: A third Factory and the first Tank. The Vulture run ends here.
+            notes: >-
+              From here the Machine Shop Factories make Tanks, Siege Mode comes after the first
+              Tank, and Goliaths come off the Armory from the Factory without a Machine Shop.
+            sources:
+              - replays:
+                  players: 6
+                  at: 6:33
+                  range: 6:15-7:22
+                  supply: 37
+                  workers: 26
+                  note: "Factory #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 8
+                  at: 6:33
+                  range: 3:49-7:15
+                  supply: 38
+                  workers: 24
+                  note: "Siege Tank #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 9
+                  at: 3:29
+                  range: 3:20-4:02
+                  note: Vulture production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push
+              - replays:
+                  players: 10
+                  at: 7:18
+                  range: 6:43-7:50
+                  supply: 48
+                  workers: 30
+                  note: "Siege Tank #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 8
+                  at: 7:39
+                  range: 6:35-8:25
+                  supply: 39
+                  workers: 28
+                  note: "Goliath #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 2
+                  at: 9:40
+                  range: 9:10-10:10
+                  supply: 85
+                  workers: 39
+                  note: "Machine Shop #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 7:01
+            make: SCV
+            use: true
+            instruction: Cut SCVs at 29 for Tanks
+            description: A 25-second cut on two bases while Tanks 2 and 3 and Goliaths start.
+            sources:
+              - replays:
+                  players: 7
+                  at: 7:01
+                  range: 6:50-7:29
+                  note: Worker Pause@31, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push
+
+          - at: 7:06
+            make: Academy
+            description: Academy for Comsats.
+            sources:
+              - replays:
+                  players: 5
+                  at: 7:06
+                  range: 6:29-7:22
+                  supply: 55
+                  workers: 31
+                  note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass Vulture line,
+                    with TvT 2 Factory expand behind the push
+
+          - at: 7:15
+            make: Tank Siege Mode
+            description: Siege Mode after the first Tank, much later than on the Tank line.
+            sources:
+              - replays:
+                  players: 7
+                  at: 7:15
+                  range: 6:58-8:51
+                  supply: 57
+                  workers: 31
+                  note: Tank Siege Mode, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push
+              - replays:
+                  players: 10
+                  at: 7:18
+                  range: 6:43-7:50
+                  supply: 48
+                  workers: 30
+                  note: "Siege Tank #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 50
+                  at: 4:27
+                  range: 4:03-4:55
+                  supply: 28
+                  workers: 20
+                  note: Tank Siege Mode, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    Tank-Vulture push line
+
+          - at: Armory 100%
+            or: 7:50
+            make: Goliath
+            instruction: Add Goliaths
+            description: A few Goliaths beside the Tanks, from the Factory without a Machine Shop.
+            sources:
+              - replays:
+                  players: 7
+                  at: 7:49
+                  range: 7:08-8:35
+                  supply: 41
+                  workers: 28
+                  note: "Goliath #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 8
+                  at: 7:39
+                  range: 6:35-8:25
+                  supply: 39
+                  workers: 28
+                  note: "Goliath #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line"
+              - replays:
+                  players: 2
+                  at: 9:40
+                  range: 9:10-10:10
+                  supply: 85
+                  workers: 39
+                  note: "Machine Shop #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 7:55
+            make: Starport
+            description: A Starport; about 6 in 10 on this line build one, for Dropships.
+            notes: >-
+              About 6 in 10 follow with a Control Tower around 9:45 and the first Dropship
+              around 11:30.
+            sources:
+              - replays:
+                  players: 5
+                  at: 7:55
+                  range: 6:31-9:45
+                  supply: 60
+                  workers: 35
+                  note: "Starport #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 4
+                  at: 9:43
+                  range: 8:36-11:01
+                  supply: 76
+                  workers: 38
+                  note: "Control Tower #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 3
+                  at: 11:30
+                  range: 10:26-12:14
+                  supply: 82
+                  workers: 42
+                  note: "Dropship #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: Academy 100%
+            or: 8:04
+            make:
+              building: ComSat Station
+              label: Comsat Station
+              count: 2
+            description: A Comsat on each Command Center. About 30 SCVs at 8:00.
+            sources:
+              - replays:
+                  players: 5
+                  at: 8:04
+                  range: 7:32-8:26
+                  supply: 68
+                  workers: 36
+                  note: "Comsat Station #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 5
+                  at: 8:06
+                  range: 8:06-8:27
+                  supply: 68
+                  workers: 36
+                  note: "Comsat Station #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 5
+                  at: 7:06
+                  range: 6:29-7:22
+                  supply: 55
+                  workers: 31
+                  note: "Academy #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 8:21
+            make: Refinery
+            description: Natural gas. Two gas from here.
+            sources:
+              - replays:
+                  players: 5
+                  at: 8:21
+                  range: 8:04-8:38
+                  supply: 48
+                  workers: 30
+                  note: "Refinery #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 8:38
+            make: Factory
+            description: The fourth Factory.
+            sources:
+              - replays:
+                  players: 4
+                  at: 8:38
+                  range: 8:00-9:49
+                  supply: 66
+                  workers: 35
+                  note: "Factory #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 9:00
+            make:
+              upgrade: Terran Vehicle Weapons
+              label: +1 Vehicle Weapons
+            instruction: Research +1 vehicle weapons
+            description: At the Armory, once the second gas is mining.
+            sources:
+              - replays:
+                  players: 5
+                  at: 9:00
+                  range: 8:41-9:16
+                  supply: 42
+                  workers: 32
+                  note: Terran Vehicle Weapons +1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2
+                    Factory mass Vulture line, with TvT 2 Factory expand behind the push
+              - replays:
+                  players: 5
+                  at: 8:21
+                  range: 8:04-8:38
+                  supply: 48
+                  workers: 30
+                  note: "Refinery #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory mass
+                    Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 10:16
+            make: Command Center
+            description: A third base; under half the players take it by 12:00.
+            notes: >-
+              About 34 SCVs at 10:00 and 44 at 12:00; the few games that run longer peak at
+              about 56.
+            sources:
+              - replays:
+                  players: 4
+                  at: 10:16
+                  range: 9:54-10:41
+                  supply: 75
+                  workers: 40
+                  note: "Command Center #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push"
+              - replays:
+                  players: 4
+                  at: 10:16
+                  range: 9:54-10:41
+                  note: "Workers at Command Center #2, vs TvT fast expand (1 Factory expand or CC first), with TvT
+                    2 Factory mass Vulture line, with TvT 2 Factory expand behind the push"
+
+          - at: 10:53
+            make: SCV
+            use: true
+            instruction: Cut SCVs at 44 for Tanks and tech
+            description: A short cut on two bases while Tanks and a Science Facility go down.
+            sources:
+              - replays:
+                  players: 4
+                  at: 10:53
+                  range: 10:41-11:19
+                  note: Worker Pause@43, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                    mass Vulture line, with TvT 2 Factory expand behind the push
+
+      - id: vulture-allin
+        label: Stay all-in
+        read: >-
+          Their natural is open, with no sieged Tank in front of it, and your Vultures are
+          killing SCVs: keep going instead of expanding. This rests on a handful of single
+          replays, not a group: against a fast expand, 6 of the 16 mass-Vulture players stayed
+          on one base (one dropped a late Command Center at about 8:10). The 2 pros among them,
+          Artosis and Skey, both won, and all 6 games were over by about 9:45.
+        steps:
+          - at: 5:10
+            make: Vulture
+            instruction: Skip the Command Center and keep both Factories on Vultures
+            description: No Command Center and no more production; every Vulture goes to the fight and SCVs
+              stay stopped. Artosis had about 24, Skey 17.
+            notes: >-
+              The minerals a Command Center would cost are the Vultures doing the damage, and
+              the window closes once their Tanks are sieged at the natural. Spend on Vultures
+              and Depots only.
+            sources:
+              - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+                label: Example replay
+              - replay: https://cwal.gg/viewer?match=MM-56B7595E-C248-11F1-A71E-FA167AEAB62F
+                label: Example replay
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=130
+                label: Day9TV
+
+          - at: next
+            make: 2 Supply Depot
+            description: Keep Depots ahead; Artosis put down two at once as his eighth Vulture started.
+            sources:
+              - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+                label: Example replay
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=473
+                label: 흑운장TV
+
+          - at: 5:15
+            make: Vulture
+            use: true
+            instruction: Mine their natural and mineral lines
+            description: Lay Mines inside and around their natural, where their SCVs and units walk.
+            notes: >-
+              Mines planted close to their base give vision and stop them moving out. Both pro
+              games ended before 6:00. Day9's caution applies: staying on one base delays your
+              own expansion, so a harass that is held only gets you back to even. If their Tanks
+              are sieged at the natural and your Vultures have stopped killing SCVs, the all-in
+              has stalled, and none of these replays shows a one-base game recovering from
+              there.
+            sources:
+              - replay: https://cwal.gg/viewer?match=MM-D16D55F0-B87E-11F1-8CDB-FA167A6BEE7E
+                label: Example replay
+              - replay: https://cwal.gg/viewer?match=MM-56B7595E-C248-11F1-A71E-FA167AEAB62F
+                label: Example replay
+              - youtube: https://youtu.be/zFpTLY4Pgpk?t=308
+                label: 흑운장TV
+              - youtube: https://youtu.be/QWkLvhLh0dg?t=426
+                label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+              - youtube: https://youtu.be/QQAOhCkl8Lg?t=130
+                label: Day9TV
+
+  - title: Two-base Goliath-Tank
+    when: [ goliath-expand ]
+    steps:
+      - at: next
+        or: 6:20
+        make: 2 Machine Shop
+        description: Machine Shops on both Factories, after the Command Center.
+        notes: >-
+          The Goliath run ends here; most players leave the Goliaths at about 8 and start Tanks.
+        sources:
+          - replays:
+              players: 13
+              at: 6:20
+              range: 5:25-6:50
+              supply: 40
+              workers: 24
+              note: "Machine Shop #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 13
+              at: 6:20
+              range: 5:43-6:55
+              supply: 40
+              workers: 24
+              note: "Machine Shop #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 17
+              at: 4:31
+              range: 4:25-4:42
+              note: Goliath production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion
+          - replays:
+              players: 10
+              at: 6:08
+              range: 5:52-6:13
+              supply: 43
+              workers: 24
+              note: "Goliath #8, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+
+      - at: Machine Shop 100%
+        or: 6:46
+        make: Siege Tank
+        instruction: Tanks from both Factories
+        description: The first Tanks, off two bases; about 6 by 8:20.
+        notes: >-
+          The Factories stay busy on Tanks through 8:00. Sieged Tanks are the army from here.
+        sources:
+          - replays:
+              players: 11
+              at: 6:46
+              range: 6:04-8:07
+              supply: 43
+              workers: 26
+              note: "Siege Tank #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 10
+              at: 8:22
+              range: 7:59-10:01
+              supply: 55
+              workers: 34
+              note: "Siege Tank #6, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 11
+              at: 6:46
+              range: 6:04-8:07
+              note: Siege Tank production, vs TvT fast expand (1 Factory expand or CC first), with TvT 2
+                Factory Vulture-Goliath into expansion
+          - youtube: https://youtu.be/QQAOhCkl8Lg?t=130
+            label: Day9TV
+
+      - at: 51 supply
+        or: 7:18
+        make: Spider Mines
+        instruction: Research Spider Mines
+        description: Mines, for the Vultures you make between Tanks.
+        notes: >-
+          About half also get Vulture speed, around 9:00.
+        sources:
+          - replays:
+              players: 9
+              at: 7:18
+              range: 6:42-9:40
+              supply: 51
+              workers: 32
+              note: Spider Mines, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion
+          - replays:
+              players: 10
+              at: 7:30
+              range: 6:09-9:30
+              supply: 52
+              workers: 31
+              note: "Vulture #7, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 7
+              at: 8:55
+              range: 7:21-10:04
+              supply: 59
+              workers: 36
+              note: Ion Thrusters, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion
+
+      - at: 7:40
+        make: SCV
+        use: true
+        instruction: Cut SCVs at 34
+        description: A short cut on two bases while Tanks and Comsats go down; about a third do it.
+        sources:
+          - replays:
+              players: 6
+              at: 7:39
+              range: 7:28-7:45
+              note: Worker Pause@33, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion
+
+      - at: 7:46
+        make: Refinery
+        description: Natural gas. Two gas from here. About 32 SCVs at 8:00.
+        sources:
+          - replays:
+              players: 11
+              at: 7:45
+              range: 6:54-7:54
+              supply: 47
+              workers: 29
+              note: "Refinery #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+
+      - at: Siege Tank 100%
+        or: 7:55
+        make: Tank Siege Mode
+        description: Siege Mode once the first Tanks are out.
+        sources:
+          - replays:
+              players: 10
+              at: 7:54
+              range: 6:42-9:03
+              supply: 47
+              workers: 29
+              note: vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory Vulture-Goliath into
+                expansion
+
+      - at: 7:56
+        make:
+          upgrade: Terran Vehicle Weapons
+          label: +1 Vehicle Weapons
+        instruction: Research +1 vehicle weapons
+        description: The earliest +1 of any line, right after the second gas.
+        sources:
+          - replays:
+              players: 11
+              at: 7:55
+              range: 6:18-8:20
+              supply: 47
+              workers: 26
+              note: Terran Vehicle Weapons +1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2
+                Factory Vulture-Goliath into expansion
+          - replays:
+              players: 17
+              at: 10:04
+              range: 8:38-10:20
+              supply: 57
+              workers: 36
+              note: Terran Vehicle Weapons +1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2
+                Factory Tank-Vulture push line, with TvT 2 Factory expand behind the push
+          - replays:
+              players: 5
+              at: 9:00
+              range: 8:41-9:16
+              supply: 42
+              workers: 32
+              note: Terran Vehicle Weapons +1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2
+                Factory mass Vulture line, with TvT 2 Factory expand behind the push
+
+      - at: Tank Siege Mode 100%
+        or: 8:30
+        make: [ Factory, Academy ]
+        description: A third Factory and the Academy, after Siege Mode finishes.
+        sources:
+          - replays:
+              players: 9
+              at: 8:30
+              range: 6:31-9:09
+              supply: 47
+              workers: 32
+              note: "Factory #3, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 8
+              at: 8:32
+              range: 7:44-10:52
+              supply: 53
+              workers: 35
+              note: "Academy #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 10
+              at: 7:54
+              range: 6:42-9:03
+              supply: 47
+              workers: 29
+              note: Tank Siege Mode, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion
+
+      - at: Academy 100%
+        or: 9:16
+        make:
+          building: ComSat Station
+          label: Comsat Station
+        description: Comsats on your Command Centers.
+        sources:
+          - replays:
+              players: 6
+              at: 9:16
+              range: 8:22-9:44
+              supply: 58
+              workers: 37
+              note: "Comsat Station #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 8
+              at: 8:32
+              range: 7:44-10:52
+              supply: 53
+              workers: 35
+              note: "Academy #1, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 5
+              at: 9:48
+              range: 8:24-11:09
+              supply: 59
+              workers: 39
+              note: "Comsat Station #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+
+      - at: 9:44
+        make: [ Factory, Command Center ]
+        description: A fourth Factory and a third base. About 39 SCVs at 10:00.
+        notes: >-
+          This line takes the third base most often (about half by 12:00) and has the most SCVs:
+          about 54 at 12:00. A fifth Factory follows for half the players.
+        sources:
+          - replays:
+              players: 7
+              at: 9:43
+              range: 8:34-10:11
+              supply: 51
+              workers: 39
+              note: "Factory #4, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 8
+              at: 9:44
+              range: 7:28-10:59
+              supply: 65
+              workers: 43
+              note: "Command Center #2, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+          - replays:
+              players: 5
+              at: 9:45
+              range: 9:09-11:26
+              supply: 68
+              workers: 48
+              note: "Factory #5, vs TvT fast expand (1 Factory expand or CC first), with TvT 2 Factory
+                Vulture-Goliath into expansion"
+
+  - title: "Hold their one-base tech, then expand"
+    when: [ vs-one-base ]
+    steps:
+      - at: Factory 100% @fact1
+        or: 3:22
+        make: Vulture
+        description: A Vulture as the first Factory finishes; no early Tank.
+        notes: >-
+          Against one-base tech players skip the early Tank and make Vultures first; on this
+          path the first Tank only comes at about 6:10.
+        sources:
+          - replays:
+              players: 15
+              at: 3:21
+              range: 3:19-3:51
+              supply: 23
+              workers: 18
+              note: "Vulture #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 12
+              at: 4:27
+              range: 4:16-5:11
+              supply: 33
+              workers: 21
+              note: "Vulture #6, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 6:09
+              range: 3:56-6:51
+              supply: 40
+              workers: 21
+              note: "Siege Tank #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: next
+        or: 3:26
+        make: SCV
+        use: true
+        instruction: Cut SCVs at 19
+        description: About 30 seconds without SCVs while the Vultures, Depot and Armory start.
+        notes: >-
+          Nearly 3 in 4 players take this cut. Restart SCVs after about 30 seconds.
+        sources:
+          - replays:
+              players: 11
+              at: 3:25
+              range: 3:20-3:54
+              note: Worker Pause@20, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: 23 supply
+        or: 3:31
+        make: Supply Depot
+        description: The third Depot.
+        sources:
+          - replays:
+              players: 13
+              at: 3:30
+              range: 3:25-3:48
+              supply: 23
+              workers: 18
+              note: "Supply Depot #3, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: Vulture 100%
+        or: 3:40
+        make: Vulture
+        instruction: Keep both Factories on Vultures
+        description: About 6 Vultures by 4:30, the Factories busy the whole time.
+        notes: >-
+          The run of Vultures ends around 4:30, most often into Goliaths.
+        sources:
+          - replays:
+              players: 15
+              at: 3:40
+              range: 3:38-4:15
+              supply: 25
+              workers: 19
+              note: "Vulture #2, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 12
+              at: 4:27
+              range: 4:16-5:11
+              supply: 33
+              workers: 21
+              note: "Vulture #6, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 15
+              at: 3:21
+              range: 3:19-3:51
+              note: Vulture production, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: next
+        or: 3:42
+        make: Armory
+        description: Early Armory, for Goliaths; 2 in 3 players build it here.
+        notes: >-
+          The Armory is the answer to a Starport you may not have seen yet. Seeing only
+          Factories in their main means Goliaths are less urgent, but most players get them
+          anyway.
+        sources:
+          - replays:
+              players: 10
+              at: 3:41
+              range: 3:34-4:26
+              supply: 26
+              workers: 19
+              note: "Armory #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 4:59
+              range: 4:35-5:38
+              supply: 35
+              workers: 22
+              note: "Goliath #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=308
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+      - at: Factory 100%
+        or: 4:00
+        make: Machine Shop
+        description: A Machine Shop on the second Factory as it finishes, for Ion Thrusters and Tanks later.
+        sources:
+          - replays:
+              players: 11
+              at: 3:59
+              range: 3:27-6:03
+              supply: 26
+              workers: 19
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: 4:00
+        make: SCV
+        use: true
+        instruction: Push an SCV into their main as their first Vulture leaves
+        description: Find out whether it is a Starport (Wraiths) or more Factories.
+        sources:
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=240
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+          - youtube: https://youtu.be/zFpTLY4Pgpk?t=159
+            label: 흑운장TV
+
+      - at: 28 supply
+        or: 4:03
+        make: Supply Depot
+        description: The fourth Depot. About 20 SCVs.
+        notes: >-
+          Build the next Depot ahead of time so the Factories never stop. From here keep one
+          building ahead of supply.
+        sources:
+          - replays:
+              players: 11
+              at: 4:33
+              range: 4:00-4:45
+              supply: 29
+              workers: 20
+              note: "Supply Depot #4, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 5:13
+              range: 5:07-5:48
+              supply: 38
+              workers: 23
+              note: "Supply Depot #5, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - youtube: https://youtu.be/QWkLvhLh0dg?t=263
+            label: "흑운장TV (Lee Sung-eun): 2 Factory Tank-Vulture in TvT"
+
+      - at: Armory 100%
+        or: 4:35
+        make: Goliath
+        instruction: Switch both Factories to Goliaths
+        description: Goliaths nonstop, about 8 by 6:50.
+        notes: >-
+          Vulture-Goliath and a Comsat are how most of these players hold. Stay home rather than
+          push into their Tanks; pros went 2–3 against one-base tech.
+        sources:
+          - replays:
+              players: 9
+              at: 4:59
+              range: 4:35-5:38
+              supply: 35
+              workers: 22
+              note: "Goliath #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 10
+              at: 3:41
+              range: 3:34-4:26
+              supply: 26
+              workers: 19
+              note: "Armory #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 6
+              at: 6:48
+              range: 6:04-7:44
+              supply: 41
+              workers: 24
+              note: "Goliath #8, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 4:59
+              range: 4:35-5:38
+              note: Goliath production, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+          - replays:
+              players: 8
+              at: 6:29
+              range: 6:20-6:43
+              supply: 39
+              workers: 25
+              note: "Comsat Station #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 6:09
+              range: 3:56-6:51
+              supply: 40
+              workers: 21
+              note: "Siege Tank #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: 4:57
+        make: SCV
+        use: true
+        instruction: Cut SCVs at 23
+        description: About a minute without SCVs while Goliaths, the Academy and a Depot go down.
+        notes: >-
+          About half take this cut. Restart SCVs once the hold is safe rather than waiting for
+          the natural: counts stay flat at about 23 from 6:00 to 7:00 and only reach 25 at 8:00
+          and 28 at 9:00. Six in ten players lose a few SCVs (about 3) to their Vultures around
+          6:00; replace them.
+        sources:
+          - replays:
+              players: 8
+              at: 4:57
+              range: 4:41-5:10
+              note: Worker Pause@25, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+          - replays:
+              players: 9
+              at: 5:55
+              range: 5:36-6:23
+              note: Workers Lost, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: next
+        or: 5:01
+        make: Ion Thrusters
+        instruction: Research Ion Thrusters
+        description: Vulture speed; about half get it.
+        sources:
+          - replays:
+              players: 7
+              at: 5:01
+              range: 4:08-6:53
+              supply: 33
+              workers: 22
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: 36 supply
+        or: 5:26
+        make: Academy
+        description: The Academy, for a Comsat.
+        sources:
+          - replays:
+              players: 8
+              at: 5:26
+              range: 5:15-5:40
+              supply: 36
+              workers: 23
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: 6:10
+        make: [ Machine Shop, 2 Siege Tank ]
+        description: The second Machine Shop and the first Tanks, a pair at about 6:10.
+        sources:
+          - replays:
+              players: 9
+              at: 6:09
+              range: 3:56-6:51
+              supply: 40
+              workers: 21
+              note: "Siege Tank #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 6:25
+              range: 4:13-7:18
+              supply: 39
+              workers: 24
+              note: "Machine Shop #2, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 9
+              at: 6:10
+              range: 4:32-7:30
+              supply: 40
+              workers: 22
+              note: "Siege Tank #2, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: next
+        or: 6:20
+        make: Tank Siege Mode
+        description: Siege Mode right after the second Tank.
+        sources:
+          - replays:
+              players: 9
+              at: 6:20
+              range: 4:31-7:18
+              supply: 40
+              workers: 22
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: Academy 100%
+        or: 6:29
+        make:
+          building: ComSat Station
+          label: Comsat Station
+        description: Scan their main for the Starport or the Tank count.
+        notes: >-
+          If you find a Starport and Wraiths, add an Engineering Bay and Turrets; half of these
+          players build one around 6:52.
+        sources:
+          - replays:
+              players: 8
+              at: 6:29
+              range: 6:20-6:43
+              supply: 39
+              workers: 25
+              note: "Comsat Station #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 4
+              at: 6:52
+              range: 6:35-8:29
+              supply: 37
+              workers: 26
+              note: "Engineering Bay #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - youtube: https://youtu.be/zFpTLY4Pgpk?t=159
+            label: 흑운장TV
+
+      - at: 6:39
+        make: Command Center
+        description: The natural behind Goliaths and Tanks; 7 of the 15 players take it.
+        notes: >-
+          About 25 SCVs at 8:00, 32 at 10:00 and 44 at 12:00, all on two bases by 9:00 for the
+          players whose games run that long. A third base is rare on this path.
+        sources:
+          - replays:
+              players: 7
+              at: 6:39
+              range: 5:49-7:07
+              supply: 41
+              workers: 25
+              note: "Command Center #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 7
+              at: 6:39
+              range: 5:49-7:07
+              note: "Workers at Command Center #1, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory
+                tanks)"
+          - replays:
+              players: 1
+              at: 11:32
+              range: 11:32-11:32
+              supply: 89
+              workers: 41
+              note: "Command Center #2, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: 7:36
+        make: Charon Boosters
+        instruction: Research Goliath range
+        description: Charon Boosters; most players on this path get it.
+        sources:
+          - replays:
+              players: 7
+              at: 7:35
+              range: 5:37-7:45
+              supply: 36
+              workers: 23
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: 8:25
+        make:
+          building: ComSat Station
+          label: Comsat Station
+        description: A second Comsat.
+        sources:
+          - replays:
+              players: 6
+              at: 8:25
+              range: 7:55-8:47
+              supply: 43
+              workers: 25
+              note: "Comsat Station #2, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: 8:39
+        make: Refinery
+        description: Natural gas. Two gas from here.
+        sources:
+          - replays:
+              players: 5
+              at: 8:39
+              range: 8:14-9:18
+              supply: 49
+              workers: 29
+              note: "Refinery #2, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: 9:09
+        make: Starport
+        description: A Starport; about 7 in 10 build one.
+        sources:
+          - replays:
+              players: 5
+              at: 9:09
+              range: 7:47-10:45
+              supply: 54
+              workers: 32
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
+
+      - at: 9:44
+        make: 2 Factory
+        description: Third and fourth Factories.
+        sources:
+          - replays:
+              players: 6
+              at: 9:44
+              range: 7:34-10:14
+              supply: 56
+              workers: 31
+              note: "Factory #3, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+          - replays:
+              players: 4
+              at: 9:48
+              range: 9:07-10:04
+              supply: 57
+              workers: 32
+              note: "Factory #4, vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)"
+
+      - at: 11:26
+        make:
+          upgrade: Terran Vehicle Weapons
+          label: +1 Vehicle Weapons
+        instruction: Research +1 vehicle weapons
+        description: Late on this path, around 11:30.
+        sources:
+          - replays:
+              players: 5
+              at: 11:26
+              range: 8:31-11:33
+              supply: 62
+              workers: 38
+              note: vs TvT one-base Factory tech (2 Factory, 1-1-1, 1 Factory tanks)
