@@ -136,7 +136,7 @@ stages:
     choose: What did your Probe scout see?
     options:
       - id: vs-overpool
-        label: "Overpool: Nexus at about 2:13, then the Cannon"
+        label: "Overpool"
         read: >-
           A second Overlord before the pool, and the Zerg natural Hatchery going down at about
           2:00. A 12 pool plays the same way: the second Overlord first, then the pool, and no
@@ -293,7 +293,7 @@ stages:
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
 
       - id: vs-9pool
-        label: "9 pool: two Cannons by about 2:15, Nexus at about 2:45"
+        label: "9 pool"
         read: >-
           The pool started before the second Overlord, and there is no Hatchery at the Zerg
           natural by about 2:00: six Zerglings are on the way. A 9 pool may or may not take an
@@ -544,7 +544,7 @@ stages:
                   note: "Photon Cannon #2, vs 9 Pool"
 
       - id: vs-hatch-first
-        label: "11 or 12 hatch: Nexus at about 2:25, Cannon late at about 3:05"
+        label: "11 or 12 hatch"
         read: >-
           The Zerg's Hatchery goes down at the natural (or at a third-base spot) before any
           pool. A second Overlord already ruled out a fast pool, so the Cannon can wait.
@@ -1102,7 +1102,7 @@ stages:
     choose: Spire or Hydralisks?
     options:
       - id: vs-spire
-        label: "Spire: keep the Stargate going (Corsairs 2 and 3, +1 air), Leg at about 6:13"
+        label: "Spire"
         read: >-
           By about 5:30 the Corsair sees a Lair and a Spire, or gas taken with no Hydralisk Den
           (Bisu's test). A Spire with only one gas, from a Zerg pulling its Overlord back, is
@@ -1337,7 +1337,7 @@ stages:
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
       - id: vs-hydra
-        label: "Hydras: one or two Corsairs, the second Cannon at about 5:18"
+        label: "Hydras"
         read: >-
           A Hydralisk Den, or an early fourth Hatchery with no Lair, seen by about 5:00 to 5:15.
           The Zealot pokes can find the Den before the Corsair arrives, and an Overlord that
@@ -1481,7 +1481,7 @@ stages:
     choose: Dark Templar and Corsairs first, or Storm first?
     options:
       - id: dt-first
-        label: Dark Templar first (Archives at about 6:15, then Gateway 2, DT at about 7:02)
+        label: Dark Templar first
         read: >-
           Your call, not a scout read. It suits a Zerg hiding behind Mutalisks or a greedy Zerg
           you want to punish, and it keeps the Stargate going hardest. About three in four
@@ -1689,8 +1689,7 @@ stages:
                   note: "High Templar #2, vs 3 Hatch Spire, with Forge FE Dark Templar line"
 
       - id: storm-first
-        label: Storm first (Gateway 2 at about 6:06, Archives at about 6:35, Gateways 3 and 4 by about
-          7:29)
+        label: Storm first
         read: >-
           Your call. It leans on more Gateways, Storm and Archons rather than a Dark Templar, so
           it suits a Zerg you expect to switch to Hydras: Khrane wants Templar out in time for a
@@ -1876,8 +1875,7 @@ stages:
     choose: Dark Templar first, or Storm first?
     options:
       - id: dt-first
-        label: Dark Templar first (Archives at about 6:10, then Gateway 2 and Cannon 3, DT at about
-          7:02)
+        label: Dark Templar first
         read: >-
           Your call. Bisu's answer to a Hydra read is 4 Gateways, armor, then one Dark Templar
           and one High Templar.
@@ -2120,7 +2118,7 @@ stages:
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
 
       - id: storm-first
-        label: Storm first (Cannons 3 to 5 by about 7:02, Archives at about 6:39, Storm at about 7:34)
+        label: Storm first
         read: >-
           Your call. The most defensive line: the most Cannons, the most second Forges, and the
           earliest Robotics Facility.
@@ -3199,7 +3197,7 @@ stages:
     choose: Which Archives line?
     options:
       - id: dt-first
-        label: Dark Templar line (third Nexus at about 10:52)
+        label: Dark Templar line
         read: The line you picked at the Templar Archives.
         steps:
           - at: 8:28
@@ -3491,7 +3489,7 @@ stages:
                 label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
 
       - id: storm-first
-        label: Storm line (Archons, third Nexus earlier at about 10:35)
+        label: Storm line
         read: The line you picked at the Templar Archives.
         steps:
           - at: 8:25
@@ -3749,7 +3747,7 @@ stages:
     choose: Which Archives line?
     options:
       - id: dt-first
-        label: Dark Templar line (Robotics Facility at about 9:00, third Nexus for half at about 10:58)
+        label: Dark Templar line
         read: The line you picked at the Templar Archives.
         steps:
           - at: 8:22
@@ -4027,8 +4025,7 @@ stages:
                   note: "Observer #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
 
       - id: storm-first
-        label: Storm line (Robotics Facility at about 8:43, +2 weapons for half, third Nexus for 4 in 10
-          at about 11:03)
+        label: Storm line
         read: The line you picked at the Templar Archives.
         steps:
           - at: 8:32

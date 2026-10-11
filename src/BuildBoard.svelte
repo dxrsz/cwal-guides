@@ -521,7 +521,14 @@
 		background: var(--bg-elev);
 		border: 1px solid var(--border-strong);
 	}
+	.choice .opts {
+		justify-content: center;
+	}
+	/* options share their row and stretch to fill it, so a row of short tabs
+	   and a wrapped long one line up the same way */
 	.choice .opts button {
+		flex: 1 1 auto;
+		text-align: center;
 		appearance: none;
 		border: none;
 		cursor: pointer;
