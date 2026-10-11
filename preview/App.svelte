@@ -43,6 +43,9 @@
 		seed?: string;
 		editing?: string | null;
 		mode?: 'visual' | 'yaml';
+		/** The text the draft started from, to tell real edits from a guide
+		 *  that changed underneath it. */
+		base?: string;
 	};
 	const load = (): Draft => {
 		try {
@@ -54,7 +57,17 @@
 		return { text: BLANK, source: '__blank' };
 	};
 	const initial = load();
+	// A draft of a published guide that wasn't edited follows the guide: when
+	// the article has changed since (a new version was merged), show the new
+	// one rather than the copy saved in this browser. Drafts saved before
+	// `base` existed can't tell, and are refreshed too.
+	if (initial.source && !initial.source.startsWith('__')) {
+		const now = pristine(initial.source);
+		if (now && (initial.base === undefined || initial.text === initial.base)) initial.text = now;
+		if (now) initial.base = now;
+	}
 	let text = $state(initial.text);
+	let base = $state(initial.base ?? initial.text);
 	let seed = $state(initial.seed ?? '');
 	// The slug of the published article being edited, or null for a new one.
 	let source = $state<Source>(initial.source ?? initial.editing ?? '__example');
@@ -63,7 +76,7 @@
 	// Visual (form) or YAML editing. Both edit the same article text.
 	let mode = $state<'visual' | 'yaml'>(initial.mode ?? 'visual');
 	$effect(() => {
-		const d: Draft = { text, source, seed, mode };
+		const d: Draft = { text, source, seed, mode, base };
 		try {
 			localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
 		} catch {
@@ -177,11 +190,11 @@
 	};
 
 	// Only ask when there are edits that would be lost.
-	const okToReplace = () =>
-		text === pristine(source) || confirm('Discard your changes and switch?');
+	const okToReplace = () => text === base || confirm('Discard your changes and switch?');
 	const switchTo = (v: Source, newText: string) => {
 		source = v;
 		text = newText;
+		base = newText;
 		// Don't keep showing the previous guide while the new one is incomplete.
 		good = null;
 		goodKey = '';
