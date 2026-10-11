@@ -79,7 +79,7 @@ for (const kind of ORDER) {
 	for (const [id, name] of TABLES[kind]) {
 		const key = norm(name);
 		const hits = INDEX.get(key) ?? [];
-		// Photon Cannon is listed twice (161/162); keep the first.
+		// A name listed twice in one table resolves to its first id.
 		if (!hits.some((h) => h.kind === kind)) hits.push({ kind, id, name });
 		INDEX.set(key, hits);
 	}

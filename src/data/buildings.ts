@@ -46,7 +46,6 @@ export const BUILDINGS: ReadonlyMap<number, string> = new Map([
 	[157, 'Assimilator'],
 	[159, 'Observatory'],
 	[160, 'Gateway'],
-	[161, 'Photon Cannon'],
 	[162, 'Photon Cannon'],
 	[163, 'Citadel of Adun'],
 	[164, 'Cybernetics Core'],
