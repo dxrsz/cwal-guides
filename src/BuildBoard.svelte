@@ -493,6 +493,12 @@
 		gap: 6px;
 		max-width: min(640px, 100%);
 		text-align: center;
+		/* an opaque panel, like the section title pills, so the spine and the
+		   connectors pass behind the question and its tabs, not through them */
+		padding: 8px 14px 10px;
+		border-radius: 14px;
+		background: var(--bg);
+		border: 1px solid var(--border);
 	}
 	.choice.narrow {
 		left: 22px;
