@@ -1,5 +1,10 @@
 # cwal-guides
 
+> [!WARNING]
+> **This is in alpha state. Any information in this repo should be considered
+> test data.** The guides, their timings, statistics and sources are experimental
+> and may be wrong, incomplete or change without notice. Don't rely on them yet.
+
 The build-order guides on [cwal.gg/builds](https://cwal.gg/builds) live here, one
 YAML file per guide in [`articles/`](articles). Anyone can add or improve one.
 
