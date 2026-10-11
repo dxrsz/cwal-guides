@@ -81,6 +81,18 @@
 	};
 	// An option's id follows its label until someone edits the id by hand.
 	const autoId = new WeakSet<object>();
+	// `when` edited as comma-separated ids: "spire, 2hatch-muta"
+	const whenText = (w: string | string[] | undefined) =>
+		Array.isArray(w) ? w.join(', ') : (w ?? '');
+	const setWhen = (o: { when?: string | string[] }, v: string) => {
+		const ids = v
+			.split(',')
+			.map((x) => x.trim())
+			.filter(Boolean);
+		if (ids.length) o.when = ids.length === 1 ? ids[0] : ids;
+		else delete o.when;
+		onchange();
+	};
 	const slug = (t: string) =>
 		t
 			.toLowerCase()
@@ -481,6 +493,14 @@
 					<span class="lbl">Stage title</span>
 					<input bind:value={stage.title} oninput={onchange} placeholder="Opener, Mid game…" />
 				</label>
+				<label class="field">
+					<span class="lbl">Only after <em>option ids picked earlier; empty = every path</em></span>
+					<input
+						value={whenText(stage.when)}
+						oninput={(e) => setWhen(stage, e.currentTarget.value)}
+						placeholder="e.g. vs-spire"
+					/>
+				</label>
 				{#if stage.options}
 					<label class="field">
 						<span class="lbl">The choice <em>the question the reader answers</em></span>
@@ -513,6 +533,16 @@
 										onchange();
 									}}
 									placeholder="pool-first"
+								/>
+							</label>
+							<label class="field wide">
+								<span class="lbl"
+									>Only after <em>option ids picked earlier; empty = always offered</em></span
+								>
+								<input
+									value={whenText(o.when)}
+									oninput={(e) => setWhen(o, e.currentTarget.value)}
+									placeholder="e.g. vs-spire"
 								/>
 							</label>
 							<label class="field wide">

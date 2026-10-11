@@ -1,25 +1,46 @@
 // A path through a guide with choices: which option the reader picked at each
 // choice stage. Options that share an id across stages are one choice, so a
-// pick carries forward (and back) through every stage that offers it.
-import type { BuildOrder, ChoiceStage, Step } from './types';
+// pick carries forward (and back) through every stage that offers it. Stages
+// and options with `when` only apply on paths that picked one of those ids
+// earlier, so a path can stay split where the guide says it differs.
+import type { BuildOrder, ChoiceStage, Stage, StageOption, Step } from './types';
 
 /** The picked option id per stage index (shared stages have none). */
 export type Path = Record<number, string>;
 
 const isChoice = (s: unknown): s is ChoiceStage => !!s && typeof s === 'object' && 'options' in s;
+const applies = (when: string[] | undefined, picked: Set<string>) =>
+	!when || when.some((w) => picked.has(w));
+
+type Walked = { si: number; stage: Stage; option?: StageOption };
+
+/** The stages a path walks through, in order, with the option shown at each
+ *  choice: the one picked if it applies, else an earlier pick it offers, else
+ *  its first applicable option. Stages whose `when` misses are skipped. */
+const walk = (build: BuildOrder, path: Path, want: string[] = []): Walked[] => {
+	const out: Walked[] = [];
+	const picked = new Set<string>();
+	build.stages?.forEach((st, si) => {
+		if (!applies(st.when, picked)) return;
+		if (!isChoice(st)) return void out.push({ si, stage: st });
+		const offered = st.options.filter((o) => applies(o.when, picked));
+		const list = offered.length ? offered : st.options;
+		const option =
+			list.find((o) => o.id === path[si]) ??
+			list.find((o) => want.includes(o.id)) ??
+			list.find((o) => picked.has(o.id)) ??
+			list[0];
+		picked.add(option.id);
+		out.push({ si, stage: st, option });
+	});
+	return out;
+};
 
 /** The default path: the first option of each choice, unless an earlier pick
  *  with the same id is on offer. `want` (e.g. from a url) wins where it fits. */
 export const defaultPath = (build: BuildOrder, want: string[] = []): Path => {
 	const path: Path = {};
-	const picked: string[] = [];
-	build.stages?.forEach((st, si) => {
-		if (!isChoice(st)) return;
-		const ids = st.options.map((o) => o.id);
-		const id = want.find((w) => ids.includes(w)) ?? picked.find((p) => ids.includes(p)) ?? ids[0];
-		path[si] = id;
-		picked.push(id);
-	});
+	for (const w of walk(build, {}, want)) if (w.option) path[w.si] = w.option.id;
 	return path;
 };
 
@@ -29,32 +50,36 @@ export const pick = (build: BuildOrder, path: Path, si: number, id: string): Pat
 	build.stages?.forEach((st, sj) => {
 		if (sj !== si && isChoice(st) && st.options.some((o) => o.id === id)) next[sj] = id;
 	});
+	// settle the stages a different pick brings in or out
+	for (const w of walk(build, next)) if (w.option) next[w.si] = w.option.id;
 	return next;
 };
 
 /** The steps along a path, in order. A guide without stages has one path. */
 export const stepsOn = (build: BuildOrder, path: Path): Step[] =>
 	build.stages
-		? build.stages.flatMap((st, si) =>
-				isChoice(st) ? (st.options.find((o) => o.id === path[si]) ?? st.options[0]).steps : st.steps
-			)
+		? walk(build, path).flatMap((w) => (w.option ?? (w.stage as { steps: Step[] })).steps)
 		: build.steps;
 
-/** The ids picked along a path, for a shareable url (`?path=pool-first,muta`). */
+/** The ids picked along a path, for a shareable url (`#path=pool-first,muta`). */
 export const pathIds = (path: Path): string[] => [...new Set(Object.values(path))];
 
-/** For each choice stage on the path: which stage, the question, the options,
- *  and the step it heads (its index along the path). */
+/** For each choice stage on the path: which stage, the question, the options
+ *  on offer there, and the step it heads (its index along the path). */
 export const choicesOn = (build: BuildOrder, path: Path) => {
 	const out: { si: number; at: number; stage: ChoiceStage; picked: string }[] = [];
+	const picked = new Set<string>();
 	let at = 0;
-	build.stages?.forEach((st, si) => {
-		if (isChoice(st)) {
-			const picked = path[si] ?? st.options[0].id;
-			out.push({ si, at, stage: st, picked });
-			at += (st.options.find((o) => o.id === picked) ?? st.options[0]).steps.length;
-		} else at += st.steps.length;
-	});
+	for (const w of walk(build, path)) {
+		if (w.option && isChoice(w.stage)) {
+			const offered = w.stage.options.filter((o) => applies(o.when, picked));
+			// one option left on this path: nothing to choose, it reads as a stage
+			if (offered.length > 1)
+				out.push({ si: w.si, at, stage: { ...w.stage, options: offered }, picked: w.option.id });
+			picked.add(w.option.id);
+			at += w.option.steps.length;
+		} else at += (w.stage as { steps: Step[] }).steps.length;
+	}
 	return out;
 };
 
@@ -70,11 +95,10 @@ const slug = (t: string) =>
  *  just `<n>` in a guide without stages (n counts from 1 within its list). */
 export const anchorsOn = (build: BuildOrder, path: Path): string[] =>
 	build.stages
-		? build.stages.flatMap((st, si) => {
-				const t = slug(st.title) || `stage-${si + 1}`;
-				if (!isChoice(st)) return st.steps.map((_, k) => `${t}.${k + 1}`);
-				const o = st.options.find((x) => x.id === path[si]) ?? st.options[0];
-				return o.steps.map((_, k) => `${t}.${o.id}.${k + 1}`);
+		? walk(build, path).flatMap(({ si, stage, option }) => {
+				const t = slug(stage.title) || `stage-${si + 1}`;
+				if (!option) return (stage as { steps: Step[] }).steps.map((_, k) => `${t}.${k + 1}`);
+				return option.steps.map((_, k) => `${t}.${option.id}.${k + 1}`);
 			})
 		: build.steps.map((_, k) => String(k + 1));
 

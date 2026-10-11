@@ -6,6 +6,7 @@
 // mistake with the line it is on so the preview can point at it.
 import { LineCounter, parseDocument, isMap, type Node } from 'yaml';
 import { lev, lookup, suggest, type Kind } from './names';
+import { defaultPath, stepsOn } from './path';
 import type { BuildOrder, Produce, Reference, Source, Stage, Step, Trigger } from './types';
 
 export type Issue = { message: string; line?: number; path: (string | number)[] };
@@ -128,12 +129,26 @@ export function parseArticle(text: string): ParseResult {
 	type Entry = { o: unknown; p: (string | number)[]; stage: number; opt?: string; first: boolean };
 	const entries: Entry[] = [];
 	type RawStage =
-		| { title: string; shared: number[] }
+		| { title: string; when?: string[]; shared: number[] }
 		| {
 				title: string;
+				when?: string[];
 				choose: string;
-				options: { id: string; label: string; read?: string; idx: number[] }[];
+				options: { id: string; label: string; read?: string; when?: string[]; idx: number[] }[];
 		  };
+	// `when: [ids]` (or one id): applies only after one of those options was
+	// picked at an earlier choice stage.
+	const whenOf = (path: (string | number)[], v: unknown): string[] | undefined => {
+		if (v === undefined) return undefined;
+		const list = (Array.isArray(v) ? v : [v]).map(String);
+		const earlier = new Set(
+			rawStages.flatMap((st) => ('options' in st ? st.options.map((o) => o.id) : []))
+		);
+		for (const id of list)
+			if (!earlier.has(id))
+				err(path, `\`when: ${id}\` names no option of an earlier choice stage.`);
+		return list.length ? list : undefined;
+	};
 	const rawStages: RawStage[] = [];
 
 	const takeSteps = (
@@ -169,14 +184,15 @@ export function parseArticle(text: string): ParseResult {
 			}
 			const o = st as Record<string, unknown>;
 			for (const k of Object.keys(o))
-				if (!['title', 'steps', 'choose', 'options'].includes(k))
+				if (!['title', 'when', 'steps', 'choose', 'options'].includes(k))
 					err(
 						[...p, k],
-						`Unknown stage field \`${k}\`.${hint(k, ['title', 'steps', 'choose', 'options'])}`
+						`Unknown stage field \`${k}\`.${hint(k, ['title', 'when', 'steps', 'choose', 'options'])}`
 					);
 			const title = str([...p, 'title'], o.title, true) ?? '';
+			const when = whenOf([...p, 'when'], o.when);
 			if (o.choose === undefined && o.options === undefined) {
-				rawStages.push({ title, shared: takeSteps([...p, 'steps'], o.steps, si) });
+				rawStages.push({ title, when, shared: takeSteps([...p, 'steps'], o.steps, si) });
 				return;
 			}
 			if (o.steps !== undefined)
@@ -195,10 +211,10 @@ export function parseArticle(text: string): ParseResult {
 				}
 				const oo = op as Record<string, unknown>;
 				for (const k of Object.keys(oo))
-					if (!['id', 'label', 'read', 'steps'].includes(k))
+					if (!['id', 'label', 'read', 'when', 'steps'].includes(k))
 						err(
 							[...q, k],
-							`Unknown option field \`${k}\`.${hint(k, ['id', 'label', 'read', 'steps'])}`
+							`Unknown option field \`${k}\`.${hint(k, ['id', 'label', 'read', 'when', 'steps'])}`
 						);
 				const id = str([...q, 'id'], oo.id, true) ?? '';
 				if (id && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id))
@@ -207,9 +223,12 @@ export function parseArticle(text: string): ParseResult {
 				seen.add(id);
 				const label = str([...q, 'label'], oo.label, true) ?? '';
 				const read = str([...q, 'read'], oo.read);
-				return [{ id, label, read, idx: takeSteps([...q, 'steps'], oo.steps, si, id) }];
+				const owhen = whenOf([...q, 'when'], oo.when);
+				return [
+					{ id, label, read, when: owhen, idx: takeSteps([...q, 'steps'], oo.steps, si, id) }
+				];
 			});
-			rawStages.push({ title, choose, options });
+			rawStages.push({ title, when, choose, options });
 		});
 	} else {
 		const stepsIn = root.steps;
@@ -311,13 +330,23 @@ export function parseArticle(text: string): ParseResult {
 		if (e.stage < 0) return Array.from({ length: gi }, (_, k) => gi - 1 - k);
 		const own = segOf(gi);
 		const out = own.slice(0, own.indexOf(gi)).reverse();
+		// The picks this step's path is known to have made: its own option, and
+		// whatever its stage and option are conditioned on (`when`).
+		const here = rawStages[e.stage];
+		const ctx = new Set<string>([
+			...(e.opt ? [e.opt] : []),
+			...(here?.when ?? []),
+			...((here && 'options' in here ? here.options.find((o) => o.id === e.opt)?.when : []) ?? [])
+		]);
 		for (let si = e.stage - 1; si >= 0; si--) {
 			const st = rawStages[si];
 			if (!st) continue;
+			// a conditioned stage that this path can't have walked
+			if (st.when && !st.when.some((w) => ctx.has(w)) && ctx.size) continue;
 			const idx =
 				'shared' in st
 					? st.shared
-					: ((st.options.find((op) => op.id === e.opt) ?? st.options[0])?.idx ?? []);
+					: ((st.options.find((op) => ctx.has(op.id)) ?? st.options[0])?.idx ?? []);
 			out.push(...[...idx].reverse());
 		}
 		return out;
@@ -409,19 +438,26 @@ export function parseArticle(text: string): ParseResult {
 	if (rawStages.length) {
 		stages = rawStages.map((st) =>
 			'shared' in st
-				? { title: st.title, steps: st.shared.map((i) => steps[i]) }
+				? {
+						title: st.title,
+						...(st.when ? { when: st.when } : {}),
+						steps: st.shared.map((i) => steps[i])
+					}
 				: {
 						title: st.title,
+						...(st.when ? { when: st.when } : {}),
 						choose: st.choose,
 						options: st.options.map((op) => ({
 							id: op.id,
 							label: op.label,
 							...(op.read ? { read: op.read } : {}),
+							...(op.when ? { when: op.when } : {}),
 							steps: op.idx.map((i) => steps[i])
 						}))
 					}
 		);
-		path = stages.flatMap((st) => ('steps' in st ? st.steps : (st.options[0]?.steps ?? [])));
+		const tmp = { stages } as BuildOrder;
+		path = stepsOn(tmp, defaultPath(tmp));
 	}
 
 	errors.sort((a, b) => (a.line ?? 0) - (b.line ?? 0));

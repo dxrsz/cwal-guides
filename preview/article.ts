@@ -39,9 +39,16 @@ export type SourceIn = {
 	};
 };
 /** A stage in its YAML shape: shared steps, or a choice between options. */
-export type RawOption = { id?: string; label?: string; read?: string; steps?: RawStep[] };
+export type RawOption = {
+	id?: string;
+	label?: string;
+	read?: string;
+	when?: string | string[];
+	steps?: RawStep[];
+};
 export type RawStage = {
 	title?: string;
+	when?: string | string[];
 	steps?: RawStep[];
 	choose?: string;
 	options?: RawOption[];
@@ -138,10 +145,10 @@ export const writeArticle = (a: Article): string => {
 						...st,
 						steps: st.options ? undefined : st.steps?.map(step),
 						options: st.options?.map((o) =>
-							clean({ ...o, steps: o.steps?.map(step) }, ['id', 'label', 'read', 'steps'])
+							clean({ ...o, steps: o.steps?.map(step) }, ['id', 'label', 'read', 'when', 'steps'])
 						)
 					},
-					['title', 'choose', 'options', 'steps']
+					['title', 'when', 'choose', 'options', 'steps']
 				)
 			)
 		},

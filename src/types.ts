@@ -116,9 +116,12 @@ export type BuildOrder = {
 
 /** A stretch of the guide: the same for everyone, or a choice between options. */
 export type Stage = SharedStage | ChoiceStage;
-export type SharedStage = { title: string; steps: Step[] };
+/** `when`: the stage (or option) only applies on paths that picked one of
+ *  these option ids at an earlier choice. Without it, it applies everywhere. */
+export type SharedStage = { title: string; when?: string[]; steps: Step[] };
 export type ChoiceStage = {
 	title: string;
+	when?: string[];
 	/** The question the reader answers, e.g. "What did your scout see?" */
 	choose: string;
 	options: StageOption[];
@@ -130,5 +133,6 @@ export type StageOption = {
 	label: string;
 	/** How you know you're on this path ("lings arrive before the Nexus is done"). */
 	read?: string;
+	when?: string[];
 	steps: Step[];
 };

@@ -101,6 +101,12 @@ stages:
   top with every choice on the path. The cheat sheet shows the picked path.
 - Options with the **same `id`** in two stages are one choice: picking it once
   carries through. Use that to keep a path split across several stages.
+- **Paths that stay apart:** a stage or an option with `when:` only applies
+  on paths that picked one of those ids earlier (`when: vs-spire`, or a list).
+  Use it instead of forcing paths back into a shared stage they don't really
+  share: a `+1 timing` stage `when: vs-spire` and a `Robo` stage
+  `when: vs-hydra` can follow the same tech choice. A choice left with one
+  option on a path reads as a plain stage there.
 - A stage's title heads its steps, so the first step of a stage (or option)
   has no `section:`. Later steps can still start sub-sections.
 - `Academy 100%` cues look back along the reader's path: within the option,
