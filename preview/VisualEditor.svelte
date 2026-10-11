@@ -5,7 +5,15 @@
 	import type { Issue } from '../src';
 	import { iconFor } from '../src/icons';
 	import { lookup } from '../src/names';
-	import { namesFor, newStep, syncStep, type Article, type Cue, type RawStep } from './article';
+	import {
+		namesFor,
+		newStep,
+		syncStep,
+		type Article,
+		type Cue,
+		type RawStep,
+		type SourceIn
+	} from './article';
 
 	let { article, errors, onchange }: { article: Article; errors: Issue[]; onchange: () => void } =
 		$props();
@@ -127,6 +135,26 @@
 				r.count && +r.count > 1 ? `${r.count}× ${r.label || r.name}` : r.label || r.name
 			)
 			.join(' + ');
+
+	// Step sources: where a step's timing or advice comes from.
+	type SrcKind = 'youtube' | 'replay' | 'replays';
+	const srcKind = (x: SourceIn): SrcKind =>
+		x.replays ? 'replays' : 'replay' in x ? 'replay' : 'youtube';
+	const addSource = (s: RawStep) => {
+		(s.sources ??= []).push({ youtube: '' });
+		onchange();
+	};
+	const setSrcKind = (s: RawStep, j: number, kind: string) => {
+		const x = s.sources![j];
+		const url = x.youtube ?? x.replay ?? '';
+		s.sources![j] =
+			kind === 'replays'
+				? { replays: {} }
+				: kind === 'replay'
+					? { replay: url, label: x.label }
+					: { youtube: url, label: x.label };
+		onchange();
+	};
 
 	const refs = $derived(article.references ?? []);
 	const addRef = () => {
@@ -464,6 +492,90 @@
 							<button class="add small" onclick={() => (showNotes[i] = true)}>+ Add details</button>
 						{/if}
 
+						<div class="field">
+							<span class="lbl">Sources <em>where this comes from; shown behind a toggle</em></span>
+							{#each s.sources ?? [] as x, j (j)}
+								<div class="refrow source">
+									<select
+										value={srcKind(x)}
+										onchange={(e) => setSrcKind(s, j, e.currentTarget.value)}
+										aria-label="Source type"
+									>
+										<option value="youtube">Video</option>
+										<option value="replay">Replay</option>
+										<option value="replays">Replay stats</option>
+									</select>
+									{#if x.replays}
+										<input
+											class="num"
+											type="number"
+											min="1"
+											placeholder="players"
+											title="How many players took this step"
+											bind:value={x.replays.players}
+											oninput={onchange}
+										/>
+										<input
+											class="clock"
+											placeholder="5:52"
+											title="Median time it was started"
+											bind:value={x.replays.at}
+											oninput={onchange}
+										/>
+										<input
+											class="clock"
+											placeholder="5:43-6:00"
+											title="Where the middle half fell"
+											bind:value={x.replays.range}
+											oninput={onchange}
+										/>
+										<input
+											class="num"
+											type="number"
+											min="0"
+											placeholder="supply"
+											title="Median supply"
+											bind:value={x.replays.supply}
+											oninput={onchange}
+										/>
+									{:else if srcKind(x) === 'replay'}
+										<input
+											bind:value={x.replay}
+											oninput={onchange}
+											placeholder="https://cwal.gg/viewer?match=…"
+										/>
+										<input
+											class="label"
+											bind:value={x.label}
+											oninput={onchange}
+											placeholder="label"
+										/>
+									{:else}
+										<input
+											bind:value={x.youtube}
+											oninput={onchange}
+											placeholder="https://youtu.be/…?t=95 (link at the moment)"
+										/>
+										<input
+											class="label"
+											bind:value={x.label}
+											oninput={onchange}
+											placeholder="label"
+										/>
+									{/if}
+									<button
+										class="icon"
+										title="Remove source"
+										onclick={() => {
+											s.sources!.splice(j, 1);
+											onchange();
+										}}>✕</button
+									>
+								</div>
+							{/each}
+							<button class="add small" onclick={() => addSource(s)}>+ Add a source</button>
+						</div>
+
 						<div class="tools">
 							{#if !s.section}
 								<button
@@ -611,6 +723,20 @@
 	}
 	.refrow input {
 		flex: 1;
+	}
+	.refrow + .refrow {
+		margin-top: 4px;
+	}
+	.refrow.source {
+		margin-bottom: 4px;
+	}
+	.refrow.source input.num,
+	.refrow.source input.clock {
+		flex: 0 1 5.5em;
+		min-width: 0;
+	}
+	.refrow.source input.label {
+		flex: 0 1 9em;
 	}
 	.meta .add {
 		align-self: flex-start;

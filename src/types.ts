@@ -60,7 +60,26 @@ export type Step = {
 	notes?: string;
 	/** A note shown before the action line. */
 	before?: string;
+	/** Where the step comes from, behind its own toggle. */
+	sources?: Source[];
 };
+
+/** Evidence for a step: what players do in replays, or a moment in a video
+ *  or a replay that shows or says it. */
+export type Source =
+	| {
+			kind: 'replays';
+			/** How many players in the replay sample took this step. */
+			players: number;
+			/** Median game time it was started, and the middle half's spread. */
+			at?: number;
+			range?: [number, number];
+			supply?: number;
+			workers?: number;
+			/** Anything else worth saying about the sample. */
+			note?: string;
+	  }
+	| { kind: 'youtube' | 'replay'; url: string; label?: string; /** from `?t=` */ seconds?: number };
 
 /** A link out to source material for a build. */
 export type Reference = {

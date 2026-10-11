@@ -77,6 +77,7 @@ steps:
 | `before`      | A note shown above the step.                                                                                                                                          |
 | `section`     | Starts a new titled part of the timeline (`Opener`, `Follow-up`…).                                                                                                    |
 | `id`          | Only needed for `@id` cues (below).                                                                                                                                   |
+| `sources`     | Where the step comes from: replay numbers, or the moment in a video. Shown behind a **sources** toggle. See [Sources](#sources).                                      |
 
 A step needs `make`, an `instruction`, or both.
 
@@ -92,6 +93,31 @@ A step needs `make`, an `instruction`, or both.
 A `100%` cue links to the most recent earlier step that builds that thing, and
 the guide draws an arrow between them. To point at a different one, give that
 step an `id` and add it to the cue: `at: Barracks 100% @rax1`.
+
+### Sources
+
+A step can say where it comes from, so a reader can check it. Each source is
+the numbers from replays, or a link to the moment in a video (or a replay)
+where it's shown or said:
+
+```yaml
+- at: Control Tower 100%
+  make: Valkyrie
+  sources:
+    - replays: # what players actually did
+        players: 69 # how many of the replays' players took this step
+        at: 5:52 # median time it was started
+        range: 5:43-6:00 # where the middle half fell
+        supply: 46 # optional
+        workers: 34 # optional
+        note: First Valkyrie # optional
+    - youtube: https://youtu.be/DTiVu7wNKkQ?t=398 # link at the moment; the guide shows "@ 6:38"
+      label: 'FanTaSy: TvZ Lesson 5'
+    - replay: https://cwal.gg/viewer?match=MM-…
+      label: Speed vs Zerg
+```
+
+In the builder, each step has **+ Add a source**.
 
 ### Names
 

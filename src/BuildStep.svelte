@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fmtClock } from './format';
 	import { iconFor } from './icons';
-	import type { Step, Trigger } from './types';
+	import type { Source, Step, Trigger } from './types';
 
 	// `side` places the card relative to the central spine: builds sit on the
 	// left, "do this" (use) steps on the right. The layout mirrors so that each
@@ -11,6 +11,7 @@
 	// notes are collapsed by default; expanding grows the card, which the page's
 	// ResizeObserver picks up to re-pack the columns.
 	let showNotes = $state(false);
+	let showSources = $state(false);
 
 	// The second cue reads "or 4:50", "or 39 supply", or "or Engineering Bay 100%".
 	const altOf = (t: Trigger) =>
@@ -21,6 +22,18 @@
 				: t.kind === 'percent'
 					? `${t.of} ${t.percent}%`
 					: '';
+	// "69 replays: started 5:52 (most 5:43–6:00), ~46 supply, ~34 workers"
+	const replaysLine = (s: Extract<Source, { kind: 'replays' }>) => {
+		const bits = [];
+		if (s.at != null)
+			bits.push(
+				`started ${fmtClock(s.at)}` +
+					(s.range ? ` (most ${fmtClock(s.range[0])}–${fmtClock(s.range[1])})` : '')
+			);
+		if (s.supply != null) bits.push(`~${s.supply} supply`);
+		if (s.workers != null) bits.push(`~${s.workers} workers`);
+		return bits.join(', ');
+	};
 	const built = (): string =>
 		(step.produce ?? [])
 			.map((p) => (p.count && p.count > 1 ? `${p.count}× ${p.name}` : p.name))
@@ -81,16 +94,56 @@
 		</div>
 
 		{#if step.description}<p class="note attached">{step.description}</p>{/if}
-		{#if step.notes}
-			<button
-				class="notes-toggle"
-				aria-expanded={showNotes}
-				onclick={() => (showNotes = !showNotes)}
-			>
-				<span class="caret">{showNotes ? '▾' : '▸'}</span>
-				{showNotes ? 'hide notes' : 'notes'}
-			</button>
-			{#if showNotes}<p class="note detail">{step.notes}</p>{/if}
+		{#if step.notes || step.sources?.length}
+			<div class="toggles">
+				{#if step.notes}
+					<button
+						class="notes-toggle"
+						aria-expanded={showNotes}
+						onclick={() => (showNotes = !showNotes)}
+					>
+						<span class="caret">{showNotes ? '▾' : '▸'}</span>
+						{showNotes ? 'hide notes' : 'notes'}
+					</button>
+				{/if}
+				{#if step.sources?.length}
+					<button
+						class="notes-toggle"
+						aria-expanded={showSources}
+						onclick={() => (showSources = !showSources)}
+					>
+						<span class="caret">{showSources ? '▾' : '▸'}</span>
+						{showSources ? 'hide sources' : `sources · ${step.sources.length}`}
+					</button>
+				{/if}
+			</div>
+			{#if showNotes && step.notes}<p class="note detail">{step.notes}</p>{/if}
+			{#if showSources && step.sources}
+				<ul class="note detail sources">
+					{#each step.sources as s, i (i)}
+						<li>
+							{#if s.kind === 'replays'}
+								<span class="src-kind">replays</span>
+								<span
+									><b>{s.players}</b>
+									{s.players === 1 ? 'player' : 'players'}{#if replaysLine(s)}: {replaysLine(
+											s
+										)}{/if}{#if s.note}. {s.note}{/if}</span
+								>
+							{:else}
+								<span class="src-kind">{s.kind === 'youtube' ? 'video' : 'replay'}</span>
+								<a href={s.url} target="_blank" rel="noopener noreferrer"
+									>{s.label ??
+										(s.kind === 'youtube'
+											? 'YouTube'
+											: 'Watch the replay')}{#if s.seconds != null && !(s.label ?? '').includes(fmtClock(s.seconds))}
+										@ {fmtClock(s.seconds)}{/if}</a
+								>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			{/if}
 		{/if}
 	</div>
 </div>
@@ -293,6 +346,44 @@
 	.step.use .note {
 		font-size: 0.82rem;
 		color: var(--text-3);
+	}
+
+	.toggles {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+	.step.left .toggles {
+		justify-content: flex-end;
+	}
+	.sources {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+	.sources li {
+		display: flex;
+		gap: 8px;
+		align-items: baseline;
+	}
+	.step.left .sources li {
+		flex-direction: row-reverse;
+	}
+	.src-kind {
+		flex: none;
+		font-size: 0.6rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--text-3);
+	}
+	.sources a {
+		color: var(--link);
+		text-decoration: none;
+	}
+	.sources a:hover {
+		text-decoration: underline;
 	}
 
 	/* collapsible "why/timing" detail, hidden by default */

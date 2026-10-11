@@ -6,7 +6,7 @@
 // mistake with the line it is on so the preview can point at it.
 import { LineCounter, parseDocument, isMap, type Node } from 'yaml';
 import { lev, lookup, suggest, type Kind } from './names';
-import type { BuildOrder, Produce, Reference, Step, Trigger } from './types';
+import type { BuildOrder, Produce, Reference, Source, Step, Trigger } from './types';
 
 export type Issue = { message: string; line?: number; path: (string | number)[] };
 export type ParseResult = { build?: BuildOrder; errors: Issue[] };
@@ -31,7 +31,8 @@ const STEP_KEYS = [
 	'instruction',
 	'description',
 	'notes',
-	'before'
+	'before',
+	'sources'
 ];
 const KINDS: Kind[] = ['building', 'unit', 'upgrade', 'tech'];
 
@@ -184,6 +185,10 @@ export function parseArticle(text: string): ParseResult {
 			const v = str([...p, k], o[k]);
 			if (v) step[k] = v;
 		}
+		if (o.sources !== undefined) {
+			const list = sources([...p, 'sources'], o.sources, err);
+			if (list.length) step.sources = list;
+		}
 		if (step.use && !step.instruction) {
 			err(p, 'A `use: true` step needs an `instruction` saying what to do (e.g. "Move out").');
 		}
@@ -333,6 +338,100 @@ function item(path: (string | number)[], v: unknown, err: Err): Produce | undefi
 		return void err(path, `Don't know ${kind ? `the ${kind} ` : ''}"${name}".${didYouMean(name)}`);
 	const out: Produce = { kind: hit.kind, id: hit.id, name: label || hit.name };
 	if (count !== undefined) out.count = count;
+	return out;
+}
+
+const clockOf = (v: unknown): number | undefined => {
+	const m = typeof v === 'string' ? v.trim().match(/^(\d+):([0-5]\d)$/) : null;
+	return m ? +m[1] * 60 + +m[2] : undefined;
+};
+
+/** `?t=398`, `?t=6m38s` or `&t=398s` on a YouTube link -> seconds. */
+const youtubeSeconds = (url: string): number | undefined => {
+	const m = url.match(/[?&#]t=(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s?)?(?:&|$)/);
+	if (!m || !(m[1] || m[2] || m[3])) return undefined;
+	return (+(m[1] ?? 0) * 60 + +(m[2] ?? 0)) * 60 + +(m[3] ?? 0);
+};
+
+/**
+ * A step's `sources:` list. Each entry is one of
+ *   - replays: { players: 69, at: 5:52, range: 5:43-6:00, supply: 46, workers: 34, note: … }
+ *   - youtube: https://youtu.be/…?t=398   (label: optional)
+ *   - replay: https://cwal.gg/viewer?match=…   (label: optional)
+ */
+function sources(path: (string | number)[], v: unknown, err: Err): Source[] {
+	if (!Array.isArray(v)) {
+		err(path, '`sources` is a list (each line starting with `- `).');
+		return [];
+	}
+	const out: Source[] = [];
+	v.forEach((e, i) => {
+		const p = [...path, i];
+		if (!e || typeof e !== 'object' || Array.isArray(e))
+			return err(p, 'Each source is `- replays: {…}`, `- youtube: <url>` or `- replay: <url>`.');
+		const o = e as Record<string, unknown>;
+		if ('replays' in o) {
+			for (const k of Object.keys(o))
+				if (k !== 'replays') err([...p, k], `Unknown source field \`${k}\`.`);
+			const r = o.replays as Record<string, unknown>;
+			if (!r || typeof r !== 'object' || Array.isArray(r))
+				return err(
+					[...p, 'replays'],
+					'`replays` is a set of fields: `players`, `at`, `range`, `supply`, `workers`, `note`.'
+				);
+			const known = ['players', 'at', 'range', 'supply', 'workers', 'note'];
+			for (const k of Object.keys(r))
+				if (!known.includes(k))
+					err([...p, 'replays', k], `Unknown field \`${k}\`.${hint(k, known)}`);
+			const whole = (k: string) => {
+				const x = r[k];
+				if (x === undefined) return undefined;
+				if (typeof x !== 'number' || !Number.isInteger(x) || x < 0)
+					return void err([...p, 'replays', k], `\`${k}\` is a whole number.`);
+				return x;
+			};
+			const players = whole('players');
+			if (players === undefined)
+				return err([...p, 'replays'], 'Say how many players: `players: 69`.');
+			const src: Source = { kind: 'replays', players };
+			if (r.at !== undefined) {
+				const at = clockOf(r.at);
+				if (at === undefined) err([...p, 'replays', 'at'], '`at` is a game time like `5:52`.');
+				else src.at = at;
+			}
+			if (r.range !== undefined) {
+				const m = typeof r.range === 'string' ? r.range.split(/\s*[-–]\s*/) : [];
+				const [a, b] = m.map(clockOf);
+				if (m.length !== 2 || a === undefined || b === undefined || a > b)
+					err([...p, 'replays', 'range'], '`range` is two game times, like `5:43-6:00`.');
+				else src.range = [a, b];
+			}
+			const supply = whole('supply');
+			const workers = whole('workers');
+			if (supply !== undefined) src.supply = supply;
+			if (workers !== undefined) src.workers = workers;
+			if (r.note !== undefined) {
+				if (typeof r.note !== 'string') err([...p, 'replays', 'note'], '`note` is text.');
+				else if (r.note.trim()) src.note = r.note.trim();
+			}
+			return void out.push(src);
+		}
+		const kind = 'youtube' in o ? 'youtube' : 'replay' in o ? 'replay' : undefined;
+		if (!kind)
+			return err(p, 'Each source is `- replays: {…}`, `- youtube: <url>` or `- replay: <url>`.');
+		for (const k of Object.keys(o))
+			if (k !== kind && k !== 'label') err([...p, k], `Unknown source field \`${k}\`.`);
+		const url = typeof o[kind] === 'string' ? (o[kind] as string).trim() : '';
+		if (!/^https?:\/\//.test(url)) return err([...p, kind], 'The link should start with https://');
+		const src: Source = { kind, url };
+		if (o.label !== undefined) {
+			if (typeof o.label !== 'string') err([...p, 'label'], '`label` is text.');
+			else if (o.label.trim()) src.label = o.label.trim();
+		}
+		const t = kind === 'youtube' ? youtubeSeconds(url) : undefined;
+		if (t !== undefined) src.seconds = t;
+		out.push(src);
+	});
 	return out;
 }
 

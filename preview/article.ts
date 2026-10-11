@@ -22,6 +22,21 @@ export type RawStep = {
 	description?: string;
 	notes?: string;
 	before?: string;
+	sources?: SourceIn[];
+};
+/** A step's source in its YAML shape: a video, a replay, or replay statistics. */
+export type SourceIn = {
+	youtube?: string;
+	replay?: string;
+	label?: string;
+	replays?: {
+		players?: number | null;
+		at?: string;
+		range?: string;
+		supply?: number | null;
+		workers?: number | null;
+		note?: string;
+	};
 };
 export type Article = {
 	title?: string;
@@ -64,7 +79,8 @@ const STEP_ORDER = [
 	'instruction',
 	'description',
 	'notes',
-	'before'
+	'before',
+	'sources'
 ];
 const LONG = ['objective', 'notes', 'description', 'tagline'];
 
@@ -90,7 +106,12 @@ export const writeArticle = (a: Article): string => {
 			steps: a.steps?.map((s) => {
 				if (!s || typeof s !== 'object') return s;
 				const make = Array.isArray(s.make) && s.make.length === 1 ? s.make[0] : s.make;
-				return clean({ ...s, make }, STEP_ORDER);
+				const sources = s.sources?.map((x) =>
+					x.replays
+						? { replays: clean(x.replays, ['players', 'at', 'range', 'supply', 'workers', 'note']) }
+						: clean(x, ['youtube', 'replay', 'label'])
+				);
+				return clean({ ...s, make, sources }, STEP_ORDER);
 			})
 		},
 		FIELD_ORDER
