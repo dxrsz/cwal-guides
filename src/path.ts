@@ -57,3 +57,49 @@ export const choicesOn = (build: BuildOrder, path: Path) => {
 	});
 	return out;
 };
+
+const slug = (t: string) =>
+	t
+		.toLowerCase()
+		.replace(/['’]/g, '')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '');
+
+/** A readable anchor for each step on a path, for links to a step:
+ *  `<stage>.<option>.<n>` in a choice, `<stage>.<n>` in a shared stage, and
+ *  just `<n>` in a guide without stages (n counts from 1 within its list). */
+export const anchorsOn = (build: BuildOrder, path: Path): string[] =>
+	build.stages
+		? build.stages.flatMap((st, si) => {
+				const t = slug(st.title) || `stage-${si + 1}`;
+				if (!isChoice(st)) return st.steps.map((_, k) => `${t}.${k + 1}`);
+				const o = st.options.find((x) => x.id === path[si]) ?? st.options[0];
+				return o.steps.map((_, k) => `${t}.${o.id}.${k + 1}`);
+			})
+		: build.steps.map((_, k) => String(k + 1));
+
+/** The page url's `#a=1&b=2` as a map (empty outside a browser). */
+export const readHash = (): Record<string, string> => {
+	if (typeof location === 'undefined') return {};
+	const out: Record<string, string> = {};
+	for (const [k, v] of new URLSearchParams(location.hash.slice(1))) out[k] = v;
+	return out;
+};
+
+/** Set (or with null, remove) `#` params without navigating or scrolling.
+ *  Commas and dots stay readable rather than percent-encoded. */
+export const writeHash = (set: Record<string, string | null | undefined>) => {
+	if (typeof history === 'undefined') return;
+	const h = { ...readHash() };
+	for (const [k, v] of Object.entries(set)) {
+		if (v) h[k] = v;
+		else delete h[k];
+	}
+	const enc = (s: string) => encodeURIComponent(s).replace(/%2C/gi, ',');
+	const str = Object.entries(h)
+		.map(([k, v]) => `${enc(k)}=${enc(v)}`)
+		.join('&');
+	const u = new URL(location.href);
+	u.hash = str;
+	history.replaceState(history.state, '', u.href.endsWith('#') ? u.href.slice(0, -1) : u.href);
+};

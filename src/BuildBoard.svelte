@@ -18,14 +18,21 @@
 	};
 	let {
 		steps: stepsIn,
+		anchors = [],
+		target = null,
 		choices: choicesIn = [],
 		onpick,
+		onstep,
 		onmeasured
 	}: {
 		steps: Step[];
+		/** Each step's link anchor (BuildGuide's anchorsOn), and the one picked out. */
+		anchors?: string[];
+		target?: string | null;
 		choices?: BoardChoice[];
 		onpick?: (si: number, id: string, el: HTMLElement) => void;
-		onmeasured?: () => void;
+		onstep?: (anchor: string) => void;
+		onmeasured?: (first: boolean) => void;
 	} = $props();
 
 	// Fixed for this instance (see above): snapshot once.
@@ -160,7 +167,9 @@
 		links = out;
 		const first = !measured;
 		measured = true;
-		if (first) onmeasured?.();
+		// Let the new positions reach the page before anyone scrolls to them.
+		// Later passes (icons and fonts loading) report too, flagged not-first.
+		tick().then(() => onmeasured?.(first));
 	};
 
 	const activeKeys = $derived.by(() => {
@@ -260,15 +269,25 @@
 	</svg>
 
 	{#each steps as step, i (i)}
+		<!-- Clicking a step picks it out (highlight + link in the url). A
+		     convenience on top of the card; its own links and toggles stay
+		     buttons. -->
+		<!-- svelte-ignore a11y_no_noninteractive_element_interactions, a11y_click_events_have_key_events -->
 		<div
 			class="node {sideOf(i)}"
 			class:active={activeKeys.has(stepKey(i))}
+			class:target={!!target && anchors[i] === target}
 			data-step-id={stepKey(i)}
+			data-anchor={anchors[i]}
 			style="top:{tops[i]}px"
 			bind:this={cardEls[i]}
 			onmouseenter={() => (hover = stepKey(i))}
 			onmouseleave={() => (hover = null)}
 			role="listitem"
+			onclick={(e) => {
+				// a click on a link or toggle inside the card isn't a pick
+				if (!(e.target as HTMLElement).closest('a, button') && anchors[i]) onstep?.(anchors[i]);
+			}}
 		>
 			<span
 				class="dot {dotClass(i)}"
@@ -519,5 +538,14 @@
 		font-size: 0.8rem;
 		font-style: italic;
 		color: var(--text-3);
+	}
+
+	/* the step a link points at (or the last one clicked) */
+	.node.target .card :global(.step) {
+		background: color-mix(in srgb, var(--accent) 10%, transparent);
+		box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 70%, transparent);
+	}
+	.node .card {
+		cursor: pointer;
 	}
 </style>

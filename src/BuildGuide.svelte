@@ -2,14 +2,26 @@
 	import { untrack } from 'svelte';
 	import BuildBoard, { type BoardChoice } from './BuildBoard.svelte';
 	import BuildCheatSheet from './BuildCheatSheet.svelte';
-	import { choicesOn, defaultPath, pathIds, pick, stepsOn, type Path } from './path';
+	import {
+		anchorsOn,
+		choicesOn,
+		defaultPath,
+		pathIds,
+		pick,
+		readHash,
+		stepsOn,
+		writeHash,
+		type Path
+	} from './path';
 	import type { BuildOrder } from './types';
 
 	// `backHref` is the "All builds" link; null hides it (the preview site has
 	// no browse page to go back to).
 	// `view` is bindable so a host (the preview site) can drive the toggle.
-	// `syncUrl` keeps the picked path in the page url (`?path=…`), so a shared
-	// link opens the same path; hosts with their own routing leave it off.
+	// `syncUrl` keeps the picked path and the selected step in the url's `#`
+	// (`#path=vs-9pool,vs-spire&step=mid-game.vs-spire.3`), so a link opens the
+	// same path, scrolled to and highlighting that step. Other `#` params (the
+	// builder's `guide=`) are left alone.
 	let {
 		build,
 		backHref = '/builds',
@@ -24,14 +36,18 @@
 
 	// The route remounts this component via {#key} on every slug change, so
 	// `build` never changes for a given instance.
-	const fromUrl = () =>
-		syncUrl && typeof location !== 'undefined'
-			? (new URLSearchParams(location.search).get('path') ?? '').split(',').filter(Boolean)
-			: [];
-	let path = $state<Path>(untrack(() => defaultPath(build, fromUrl())));
+	const fromUrl = untrack(() => (syncUrl ? readHash() : {}));
+	let path = $state<Path>(
+		untrack(() => defaultPath(build, (fromUrl.path ?? '').split(',').filter(Boolean)))
+	);
 	const steps = $derived(stepsOn(build, path));
+	const anchors = $derived(anchorsOn(build, path));
 	const choices = $derived(choicesOn(build, path));
 	const pathKey = $derived(JSON.stringify(path));
+	// The step a link points at (or the last one clicked): highlighted, and on
+	// first load scrolled to.
+	let target = $state<string | null>(fromUrl.step ?? null);
+	let jumpTo: string | null = fromUrl.step ?? null;
 	const boardChoices = $derived<BoardChoice[]>(
 		choices.map((c) => ({
 			si: c.si,
@@ -52,24 +68,71 @@
 		})
 	});
 
-	// Switching an option re-lays the board; keep the clicked tabs where they
-	// were on screen so the page doesn't jump.
-	let anchor: { si: number; top: number } | null = null;
-	const choose = (si: number, id: string, el?: HTMLElement) => {
-		const box = el?.closest('.choice') as HTMLElement | null;
-		anchor = box ? { si, top: box.getBoundingClientRect().top } : null;
-		path = pick(build, path, si, id);
-		if (syncUrl && typeof history !== 'undefined') {
-			const u = new URL(location.href);
-			u.searchParams.set('path', pathIds(path).join(','));
-			history.replaceState(history.state, '', u);
-		}
+	const sync = () => {
+		if (!syncUrl) return;
+		writeHash({
+			path: build.stages ? pathIds(path).join(',') : null,
+			step: target && anchors.includes(target) ? target : null
+		});
 	};
-	const restoreScroll = () => {
-		if (!anchor || typeof document === 'undefined') return;
-		const box = document.querySelector(`.choice[data-si="${anchor.si}"]`);
-		if (box) window.scrollBy(0, box.getBoundingClientRect().top - anchor.top);
-		anchor = null;
+
+	// The nearest scrolling box: the window on a page, the preview panel in
+	// the builder.
+	const scroller = (el: Element): Element => {
+		for (let p = el.parentElement; p; p = p.parentElement) {
+			const o = getComputedStyle(p).overflowY;
+			if ((o === 'auto' || o === 'scroll') && p.scrollHeight > p.clientHeight) return p;
+		}
+		return document.scrollingElement ?? document.documentElement;
+	};
+
+	// Switching an option re-lays the board. Its old height is held while the
+	// new path is measured (so the page can't collapse and jump to the top),
+	// then whatever was clicked is put back where it was on screen.
+	let held = $state(0);
+	let wrap: HTMLDivElement | undefined = $state();
+	let anchor: { sel: string; top: number; at: number } | null = null;
+	const choose = (si: number, id: string, el?: HTMLElement) => {
+		const box = (el?.closest('.choice, .pathbar') as HTMLElement | null) ?? null;
+		const sel = box?.classList.contains('choice') ? `.choice[data-si="${si}"]` : '.pathbar';
+		anchor = box ? { sel, top: box.getBoundingClientRect().top, at: Date.now() } : null;
+		held = wrap?.offsetHeight ?? 0;
+		path = pick(build, path, si, id);
+		sync();
+	};
+	const pickStep = (a: string) => {
+		target = a;
+		sync();
+	};
+	// A linked step is scrolled to on the first layout and kept in view
+	// through the re-layouts right after it (icons and fonts loading grow the
+	// cards), until the reader scrolls themselves.
+	const loadedAt = Date.now();
+	const measured = (first: boolean) => {
+		held = 0;
+		if (typeof document === 'undefined') return;
+		// The clicked tabs stay pinned through the re-layouts that follow a
+		// switch (the new path's icons loading), for about a second.
+		if (anchor && Date.now() - anchor.at < 1200) {
+			const box = document.querySelector(anchor.sel);
+			if (box) scroller(box).scrollTop += box.getBoundingClientRect().top - anchor.top;
+		} else anchor = null;
+		if (!first && !(jumpTo && Date.now() - loadedAt < 2000)) return;
+		if (jumpTo) {
+			const el = document.querySelector(`[data-anchor="${CSS.escape(jumpTo)}"]`);
+			if (!el) return void (jumpTo = null);
+			el.scrollIntoView({ block: 'center' });
+			if (first) {
+				const box = scroller(el);
+				const stop = () => (jumpTo = null);
+				(box === document.scrollingElement ? window : box).addEventListener('wheel', stop, {
+					once: true
+				});
+				(box === document.scrollingElement ? window : box).addEventListener('touchmove', stop, {
+					once: true
+				});
+			}
+		}
 	};
 </script>
 
@@ -105,7 +168,10 @@
 			{#each choices as c (c.si)}
 				<label>
 					<span>{c.stage.title}</span>
-					<select value={c.picked} onchange={(e) => choose(c.si, e.currentTarget.value)}>
+					<select
+						value={c.picked}
+						onchange={(e) => choose(c.si, e.currentTarget.value, e.currentTarget)}
+					>
 						{#each c.stage.options as o (o.id)}<option value={o.id}>{o.label}</option>{/each}
 					</select>
 				</label>
@@ -138,14 +204,19 @@
 			<span class="lg percent">when built</span>
 		</div>
 
-		{#key pathKey}
-			<BuildBoard
-				{steps}
-				choices={boardChoices}
-				onpick={(si, id, el) => choose(si, id, el)}
-				onmeasured={restoreScroll}
-			/>
-		{/key}
+		<div class="boardwrap" bind:this={wrap} style="min-height:{held ? `${held}px` : 'auto'}">
+			{#key pathKey}
+				<BuildBoard
+					{steps}
+					{anchors}
+					{target}
+					choices={boardChoices}
+					onpick={(si, id, el) => choose(si, id, el)}
+					onstep={pickStep}
+					onmeasured={measured}
+				/>
+			{/key}
+		</div>
 	{/if}
 </div>
 

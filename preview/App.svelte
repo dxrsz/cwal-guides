@@ -3,6 +3,7 @@
 	import { parseArticle, builds, type BuildOrder, type Issue } from '../src';
 	import BuildGuide from '../src/BuildGuide.svelte';
 	import BuildSearch from '../src/BuildSearch.svelte';
+	import { readHash, writeHash } from '../src/path';
 	import VisualEditor from './VisualEditor.svelte';
 	import template from './template.yaml?raw';
 	import { hydrate, readArticle, writeArticle, type Article } from './article';
@@ -57,6 +58,16 @@
 		return { text: BLANK, source: '__blank' };
 	};
 	const initial = load();
+	// A link to a guide (`#guide=<slug>`, written below) opens that guide,
+	// along with the path and step the rest of the `#` picks out.
+	const linked = readHash().guide;
+	if (linked && linked !== initial.source && existing.some((x) => x.slug === linked)) {
+		const edited = initial.base !== undefined && initial.text !== initial.base;
+		if (!edited || confirm(`This link opens ${linked}. Discard your draft?`)) {
+			initial.source = linked;
+			initial.text = initial.base = existing.find((x) => x.slug === linked)!.text;
+		}
+	}
 	// A draft of a published guide that wasn't edited follows the guide: when
 	// the article has changed since (a new version was merged), show the new
 	// one rather than the copy saved in this browser. Drafts saved before
@@ -191,7 +202,13 @@
 
 	// Only ask when there are edits that would be lost.
 	const okToReplace = () => text === base || confirm('Discard your changes and switch?');
+	// Keep `#guide=` naming the published guide on screen, so the url can be
+	// shared (BuildGuide adds the path and step).
+	$effect(() => {
+		writeHash({ guide: source.startsWith('__') ? null : source });
+	});
 	const switchTo = (v: Source, newText: string) => {
+		writeHash({ path: null, step: null });
 		source = v;
 		text = newText;
 		base = newText;
@@ -479,7 +496,7 @@
 					</div>
 				{:else}
 					{#key goodKey}
-						<BuildGuide build={good} backHref={null} bind:view={guideView} />
+						<BuildGuide build={good} backHref={null} bind:view={guideView} syncUrl />
 					{/key}
 				{/if}
 			</div>

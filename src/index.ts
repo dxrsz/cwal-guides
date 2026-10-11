@@ -13,7 +13,17 @@ export type {
 	SharedStage,
 	StageOption
 } from './types';
-export { defaultPath, pick, stepsOn, choicesOn, pathIds, type Path } from './path';
+export {
+	defaultPath,
+	pick,
+	stepsOn,
+	choicesOn,
+	pathIds,
+	anchorsOn,
+	readHash,
+	writeHash,
+	type Path
+} from './path';
 export { default as BuildGuide } from './BuildGuide.svelte';
 export { default as BuildCheatSheet } from './BuildCheatSheet.svelte';
 export { default as BuildSearch } from './BuildSearch.svelte';
