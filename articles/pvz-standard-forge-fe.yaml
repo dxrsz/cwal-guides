@@ -1,774 +1,1854 @@
 title: Standard Forge FE
 matchup: PvZ
-tagline: Forge, Nexus, Cannon into Corsairs and +1 speedlots that hit the Zerg natural around 7:30.
+tagline: Forge, Nexus, Cannon into Corsairs, +1 speedlots and Templar, branching on what the
+  Zerg opens and techs to.
 objective: >-
-  The standard Protoss answer to Zerg: wall the natural with a Forge and take the Nexus on about
-  14 supply behind one Cannon. With a scout and the right Cannon count it answers every common
-  Zerg opener except a 4 or 5 pool. From there the build sets up a timing. A Stargate keeps one
-  or two Corsairs scouting and hunting Overlords, the Forge runs +1 weapons, and the Citadel
-  gets leg speed, so that 7 or 8 +1 speed Zealots reach the Zerg natural around 7:30, before the
-  Hydralisk count gets out of hand. A Templar Archives at about 6:45 and 3 to 4 Gateways mean
-  High Templar and Storm follow the Zealots, and the game grows into an 8-Gateway Dragoon,
-  Zealot and Templar army on two bases. About 300 players in our replay set, pros included, open
-  this way against Zerg, most often against overpool into 3-hatch Spire or 3-hatch Hydra.
+  The standard Protoss answer to Zerg. A Forge walls the natural at 11 supply and the Nexus goes
+  down at about 13 to 14 behind a Cannon, so a scout and the right Cannon count hold every
+  common Zerg opener except a 4 or 5 pool. The Probe scout decides the first fork: against an
+  overpool play the standard order, against a 9 pool put two Cannons down before the Nexus, and
+  against a hatch first take the Nexus early and the Cannon late. Then a Stargate, +1 weapons
+  and a Citadel go down, and the first Corsair finds out whether the Zerg is going Spire or
+  Hydralisks. Against a Spire the Stargate keeps working; against Hydras you stop at a Corsair
+  or two and build Cannons and Gateways instead. A Templar Archives at about 6:15 to 6:45 gives
+  you a choice between a Dark Templar with Corsairs before Storm, or Storm first with more
+  Gateways. Either way +1 speed Zealots pressure around 7:30 to 8:00 while High Templar come out
+  behind them, and the game grows into an 8-Gateway Zealot, Dragoon and Templar army with a
+  third Nexus around 11:00. In our replay set 456 players open this way against Zerg; the pros
+  among them went 239–103 in those games.
 references:
   - youtube: https://www.youtube.com/watch?v=WFt1reU1cCU
     label: "Khrane: PvZ FFE into +1/+1 Opening"
   - youtube: https://www.youtube.com/watch?v=5wprChZSI-Y
     label: "PADOTUBE: Forge double lecture, in detail"
   - youtube: https://www.youtube.com/watch?v=ew7GJM2SydM
-    label: "Song Byung-goo TV: Forge double Nexus lecture"
+    label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
   - youtube: https://www.youtube.com/watch?v=xcPC_BqNiFw
     label: "BISUTUBE: Bisu's Forge double for PvZ"
   - youtube: https://www.youtube.com/watch?v=esOAfXH7Xy4
     label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+  - youtube: https://www.youtube.com/watch?v=kbo2QGOtVIg
+    label: "KhalaTV: Forge double into a 2-Forge long game"
+  - youtube: https://www.youtube.com/watch?v=bkBgN_oUOKE
+    label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+  - replay: https://cwal.gg/viewer?match=MM-8DE360C8-AE9B-11F1-866E-FA167B5461B6
+    label: "Snow vs overpool into 3-hatch Spire, KnockOut 1.4 (Dark Templar line)"
+  - replay: https://cwal.gg/viewer?match=MM-0ACD8814-A6B0-11F1-866E-FA167B5461B6
+    label: "Noob13 vs 9 pool"
+  - replay: https://cwal.gg/viewer?match=MM-3EC2335C-BCC4-11F1-A71E-FA167AEAB62F
+    label: "Core vs 12 hatch"
   - replay: https://cwal.gg/viewer?match=MM-6E956E30-BE6A-11F1-A71E-FA167AEAB62F
-    label: "Sky vs overpool on Backrooms 1.1 (closest to the consensus)"
+    label: "Sky, Storm-first line"
+  - replay: https://cwal.gg/viewer?match=MM-532710B0-BE68-11F1-A71E-FA167AEAB62F
+    label: "Sky vs 3-hatch Hydra"
 
-steps:
-  - section: Opener
-    at: 8 supply
-    or: 0:49
-    make: Pylon
-    description: At the natural, placed for the Forge wall.
-    notes: >-
-      Send the Probe a little before the 8th Probe pops, at about 42 minerals, so it arrives
-      with the money; Khrane mines once with the 6th Probe and walks it over to land on exactly
-      100. There is no single correct wall: lay out your own sim-city on each map so it holds
-      both Zerglings and a 3-hatch Hydra push.
-    sources:
-      - replays:
-          players: 297
-          at: 0:49
-          range: 0:48-0:50
-          supply: 8
-          workers: 7
-      - youtube: https://youtu.be/WFt1reU1cCU?t=70
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=21
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=45
-        label: "PADOTUBE: Forge double lecture, in detail"
+stages:
+  - title: "Opener: Pylon and Forge"
+    steps:
+      - at: 8 supply
+        or: 0:48
+        make: Pylon
+        description: At the natural, placed for the Forge wall.
+        notes: >-
+          Send the Probe at about 42 minerals, just before the 8th Probe pops, so it arrives
+          with the money; Khrane mines once with the 6th Probe and walks it over to land on
+          exactly 100. There is no fixed wall: lay out your own sim-city on each map so it holds
+          both Zerglings and a later Hydralisk push.
+        sources:
+          - replays:
+              players: 456
+              at: 0:48
+              range: 0:48-0:50
+              supply: 8
+              workers: 7
+          - youtube: https://youtu.be/ew7GJM2SydM?t=799
+            label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=70
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=45
+            label: "PADOTUBE: Forge double lecture, in detail"
 
-  - at: 8 supply
-    make: Probe
-    use: true
-    instruction: Scout with the Pylon Probe
-    description: The same Probe goes straight on to find the Zerg.
-    notes: >-
-      On four-player maps check the clockwise spawn first: a Zerg there can mine faster, so its
-      lings reach you soonest and it is the spawn that can punish a 13 Nexus. Turn back as soon
-      as you see the creep edge rather than walking in. Park the Probe near the larvae: three
-      larvae morphing the same shape at once before the Zerg has scouted is Zerglings, so get
-      the Cannon ready. After an overpool the Zerg natural Hatchery goes down at about 2:00; if
-      it is not there by then, it is a 9 pool (see the variant at the end). Don't harass the
-      drones before the Zerg has 300 minerals for its Hatchery; you gain nothing before then.
-      Keep the Probe alive as long as you can for the tech read. Gas but no Hydralisk Den means
-      Mutalisks: keep the Corsairs coming and get a Cannon in the main. An early Den means
-      Hydras: plan for 4 Cannons at the natural.
-    sources:
-      - replays:
-          players: 297
-          at: 0:49
-          range: 0:48-0:50
-          supply: 8
-          workers: 7
-      - youtube: https://youtu.be/ew7GJM2SydM?t=21
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=93
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=45
-        label: "PADOTUBE: Forge double lecture, in detail"
+      - at: 8 supply
+        make: Probe
+        use: true
+        instruction: Scout with the Pylon Probe
+        description: The same Probe goes straight on to find the Zerg.
+        notes: >-
+          On four-player maps check the clockwise spawn first. A Zerg there can boost its
+          mining, so its early lings may beat a 13 Nexus and Cannon, and Zergs at that spot also
+          often go hatch first, which lets you put the Nexus down first. Turn back as soon as
+          you see the edge of its creep rather than walking in. Park near the larvae: three
+          larvae morphing the same shape at once, before the Zerg has scouted, are Zerglings. A
+          second Overlord before the pool rules out a 9 pool or anything faster. Don't bother
+          the Zerg before it has its 300 minerals for the Hatchery: by then you have about the
+          same money, so harassing earlier gains you nothing. What you see here is the first
+          choice below.
+        sources:
+          - replays:
+              players: 456
+              at: 0:48
+              range: 0:48-0:50
+              supply: 8
+              workers: 7
+          - youtube: https://youtu.be/ew7GJM2SydM?t=21
+            label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=93
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=45
+            label: "PADOTUBE: Forge double lecture, in detail"
 
-  - at: 11 supply
-    or: 1:33
-    make: Forge
-    description: At the natural, with the 10th or 11th Probe.
-    notes: >-
-      Coaches say 10 or 11 Forge; replays put it on 11. If the first scout missed, send the
-      10-supply Probe to the natural, build the Forge on 11 anyway, then scout the other spot: a
-      12-13 Forge after a late scout loses to fast pools. Against an overpool found on the first
-      try a 12 Forge is fine. A 4 or 5 pool is basically not holdable with this opener.
-    sources:
-      - replays:
-          players: 297
-          at: 1:33
-          range: 1:30-1:38
-          supply: 11
-          workers: 10
-      - youtube: https://youtu.be/ew7GJM2SydM?t=65
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=114
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=100
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+      - at: 11 supply
+        or: 1:33
+        make: Forge
+        description: At the natural, with the 10th or 11th Probe.
+        notes: >-
+          Replays put it on 11 and almost never later than 12. If the first scout missed, send
+          the 10-supply Probe to the natural and build on 11 anyway, then scout the other spot:
+          a later Forge loses to a fast pool. Against an overpool you have already found, a 12
+          Forge is fine. Against a hatch first, keep the Forge; don't cancel it. A 4 or 5 pool
+          (lings at your natural before the Forge is done) basically can't be held with this
+          opener, PADOTUBE says. The on-time Forge is the only insurance: get a Cannon down the
+          moment it finishes, fight with Probes, and accept losing some.
+        sources:
+          - replays:
+              players: 456
+              at: 1:33
+              range: 1:30-1:38
+              supply: 11
+              workers: 10
+          - youtube: https://youtu.be/WFt1reU1cCU?t=114
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/ew7GJM2SydM?t=65
+            label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+          - youtube: https://youtu.be/esOAfXH7Xy4?t=100
+            label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
-  - at: 14 supply
-    or: 2:18
-    make: Nexus
-    description: The natural Nexus. Coaches call it the 13 Nexus.
-    notes: >-
-      Against overpool this is the default: Khrane cuts Probes noticeably and sends the builder
-      at 250 minerals so it arrives on 400. Read the Zerg before you commit. Against 11 or 12
-      hatch you can put the Nexus down before the Forge (Nexus first); against a 9 pool the
-      Cannons come first.
-    sources:
-      - replays:
-          players: 297
-          at: 2:18
-          range: 2:12-2:42
-          supply: 14
-          workers: 14
-      - youtube: https://youtu.be/ew7GJM2SydM?t=0
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=78
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=155
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
+  - title: Against the Zerg opener
+    choose: What did your Probe scout see?
+    options:
+      - id: vs-overpool
+        label: Overpool (Overlord, then the pool)
+        read: >-
+          A second Overlord before the pool, and the Zerg natural Hatchery going down at about
+          2:00. A 12 pool plays the same way: the second Overlord first, then the pool and an
+          Extractor together at about 12 supply, and no natural yet. The Extractor and the
+          Overlord before the pool are what tell it apart from a 9 pool.
+        steps:
+          - at: 13 supply
+            or: 2:14
+            make: Nexus
+            description: The natural Nexus, with a short Probe cut to afford it.
+            notes: >-
+              The coaches' 13 Nexus. Khrane sends the builder at 250 minerals so it arrives as
+              you reach 400. On a short rush distance, or after a 12 Forge, 14 Nexus and 14
+              Cannon is also fine.
+            sources:
+              - replays:
+                  players: 280
+                  at: 2:14
+                  range: 2:11-2:20
+                  supply: 13
+                  workers: 13
+                  note: vs Overpool
+              - youtube: https://youtu.be/WFt1reU1cCU?t=155
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=99
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=139
+                label: "KhalaTV: Forge double into a 2-Forge long game"
 
-  - at: 14 supply
-    or: 2:22
-    make: Photon Cannon
-    description: Right after the Nexus, then Probes up to 15.
-    notes: >-
-      The window before this Cannon finishes is the tightest moment against overpool: if the
-      first lings arrive early, body-block them at the wall with the Probe. Six lings at your
-      natural mean a second Cannon now, not a greedy Gateway. If they drift away from the
-      natural instead of sitting outside it, suspect a run-by, watch the minimap and be ready to
-      surround them with Probes.
-    sources:
-      - replays:
-          players: 297
-          at: 2:22
-          range: 2:13-2:27
-          supply: 14
-          workers: 13
-      - youtube: https://youtu.be/5wprChZSI-Y?t=232
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=65
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=196
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - at: 13 supply
+            or: 2:23
+            make: Photon Cannon
+            description: Right after the Nexus, then Probes up to 15.
+            notes: >-
+              The tightest window of the build is until this Cannon finishes: if the first lings
+              arrive, body-block the wall gap with a Probe. Coaches split on six lings. Bisu
+              puts a second Cannon down at once, while Stork goes Gateway off one Cannon: if
+              lings run past it into the mineral line he pulls Probes and fights, and losing
+              about 3 is fine because the Cannon you saved keeps your tech ahead. KhalaTV takes
+              a second Cannon or a quick Zealot. Pros mostly play it like Stork: against
+              overpool their second Cannon only comes around 5:25. Lings that sit outside the
+              natural are fine; lings that vanish may be heading in, so watch the minimap.
+              Against a 12 pool the pros add the second Cannon at about 4:25 and build Cannons
+              more heavily after that.
+            sources:
+              - replays:
+                  players: 280
+                  at: 2:23
+                  range: 2:19-2:26
+                  supply: 13
+                  workers: 13
+                  note: "Photon Cannon #1, vs Overpool"
+              - replays:
+                  players: 272
+                  at: 5:24
+                  range: 5:00-6:02
+                  supply: 41
+                  workers: 32
+                  note: "Photon Cannon #2, vs Overpool"
+              - replays:
+                  players: 17
+                  at: 4:26
+                  range: 3:06-4:52
+                  supply: 26
+                  workers: 22
+                  note: "Photon Cannon #2, vs 12 Pool"
+              - replays:
+                  players: 15
+                  at: 6:19
+                  range: 6:13-7:13
+                  supply: 49
+                  workers: 34
+                  note: "Photon Cannon #6, vs 12 Pool"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=175
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=91
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=119
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
 
-  - at: 15 supply
-    or: 2:47
-    make: Gateway
-    description: At the natural, completing the wall.
-    sources:
-      - replays:
-          players: 297
-          at: 2:47
-          range: 2:43-2:58
-          supply: 15
-          workers: 15
-      - youtube: https://youtu.be/WFt1reU1cCU?t=196
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=799
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+          - at: 15 supply
+            or: 2:46
+            make: Gateway
+            description: At the natural, completing the wall.
+            notes: >-
+              Keep watching the Zerg while it goes up. If drones come out of the larvae after
+              the lings leave, it made only six lings and you can play comfortably. Six lings
+              plus gas means ling speed is coming, so keep a unit placed for lings that run past
+              the Cannon. Four lings chasing your Probe may be a bluff hiding a Hydra or Lair
+              follow-up, but if the Zerg also left two main larvae unused it can still be a ling
+              all-in, so watch the natural entrance.
+            sources:
+              - replays:
+                  players: 280
+                  at: 2:46
+                  range: 2:43-2:49
+                  supply: 15
+                  workers: 14
+                  note: vs Overpool
+              - youtube: https://youtu.be/WFt1reU1cCU?t=196
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=336
+                label: "PADOTUBE: Forge double lecture, in detail"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=165
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
-  - at: 16 supply
-    or: 2:56
-    make: Pylon
-    description: In the main.
-    sources:
-      - replays:
-          players: 297
-          at: 2:56
-          range: 2:45-3:01
-          supply: 16
-          workers: 15
-          note: "Pylon #2"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=196
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - at: 16 supply
+            or: 2:57
+            make: Pylon
+            description: In the main.
+            sources:
+              - replays:
+                  players: 280
+                  at: 2:57
+                  range: 2:54-3:00
+                  supply: 16
+                  workers: 15
+                  note: "Pylon #2, vs Overpool"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=217
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-  - at: 17 supply
-    or: 3:09
-    make: Assimilator
-    description: Main gas. Move 4 or 5 Probes to the natural.
-    notes: >-
-      Leave about 12 in the main (9 on minerals, 3 on gas) and send the rest to the new Nexus,
-      then rally the next Probes there too. Keep Probes constant apart from the short,
-      deliberate cuts this guide notes; the replays have 15 Probes at 3:00 and 28 at 5:00.
-    sources:
-      - replays:
-          players: 297
-          at: 3:09
-          range: 3:04-3:17
-          supply: 17
-          workers: 16
-          note: "Assimilator #1"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=358
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=155
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=188
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+      - id: vs-9pool
+        label: 9 pool (no natural Hatchery by ~2:00)
+        read: >-
+          The pool started before the second Overlord, with no Extractor, and there is no
+          Hatchery at the Zerg natural by about 2:00: six Zerglings are on the way. No natural
+          at 2:00 means a 9 pool only when the pool came before the second Overlord; an Overlord
+          first and then a pool with an Extractor is a 12 pool, which is the overpool option.
+        steps:
+          - at: 14 supply
+            or: 2:09
+            make: Photon Cannon
+            description: Cannon first, before the Nexus.
+            sources:
+              - replays:
+                  players: 73
+                  at: 2:09
+                  range: 2:06-2:14
+                  supply: 14
+                  workers: 13
+                  note: "Photon Cannon #1, vs 9 Pool"
+              - replays:
+                  players: 73
+                  at: 2:45
+                  range: 2:36-2:49
+                  supply: 15
+                  workers: 15
+                  note: "Nexus #1, vs 9 Pool"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=840
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - at: Gateway 100%
-    or: 3:40
-    make: Cybernetics Core
-    description: As soon as the Gateway finishes, about 20 supply.
-    sources:
-      - replays:
-          players: 297
-          at: 3:40
-          range: 3:30-3:59
-          supply: 20
-          workers: 18
-      - youtube: https://youtu.be/5wprChZSI-Y?t=440
-        label: "PADOTUBE: Forge double lecture, in detail"
+          - at: 14 supply
+            or: 2:15
+            make: Photon Cannon
+            description: A second Cannon right behind the first.
+            notes: >-
+              Every coach agrees on two Cannons against a 9 pool, and Stork calls this a happy
+              situation for Protoss; nearly every pro builds both.
+            sources:
+              - replays:
+                  players: 71
+                  at: 2:15
+                  range: 2:10-2:35
+                  supply: 14
+                  workers: 13
+                  note: "Photon Cannon #2, vs 9 Pool"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=840
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=143
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
 
-  - at: 22 supply
-    or: 3:42
-    make: Zealot
-    description: First Zealot, with a second around 28 supply (4:14).
-    notes: >-
-      Run the first Zealot into the Zerg base to see what it is making, Hydralisk Den or Lair.
-      Even when they do no damage, early Zealots force the Zerg to make lings instead of drones;
-      only take fights that trade well and pull back when the lings arrive.
-    sources:
-      - replays:
-          players: 295
-          at: 3:42
-          range: 3:32-3:55
-          supply: 22
-          workers: 18
-          note: "Zealot #1"
-      - replays:
-          players: 292
-          at: 4:14
-          range: 4:02-4:30
-          supply: 28
-          workers: 22
-          note: "Zealot #2"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=262
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=259
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=200
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+          - at: 15 supply
+            or: 2:45
+            make: Nexus
+            description: The Nexus at 15 or 16, half a minute later than usual.
+            sources:
+              - replays:
+                  players: 73
+                  at: 2:45
+                  range: 2:36-2:49
+                  supply: 15
+                  workers: 15
+                  note: "Nexus #1, vs 9 Pool"
+              - replays:
+                  players: 456
+                  at: 2:16
+                  range: 2:12-2:40
+                  supply: 14
+                  workers: 14
+                  note: "Nexus #1"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=862
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - section: Follow-up
-    at: Cybernetics Core 100%
-    or: 4:24
-    make: Stargate
-    description: On the 150 gas you have when the Core finishes.
-    notes: >-
-      The Stargate and the natural gas go down as a pair. Taking gas and Gateway on time is what
-      keeps your tech level with the Zerg; if you were late, your first Corsair finds a Spire
-      already finished. About one player in six skips the Stargate entirely and goes straight to
-      Citadel and Gateways, but the Corsair line is the standard.
-    sources:
-      - replays:
-          players: 246
-          at: 4:24
-          range: 4:15-4:41
-          supply: 28
-          workers: 23
-          note: "Stargate #1"
-      - replays:
-          players: 275
-          at: 5:24
-          range: 5:00-5:54
-          supply: 39
-          workers: 30
-          note: "Citadel Of Adun #1"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=285
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=883
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=440
-        label: "PADOTUBE: Forge double lecture, in detail"
+          - at: 16 supply
+            or: 2:58
+            make: Gateway
+            description: With the main gas close behind.
+            notes: >-
+              Gas and Gateway go up together so your tech keeps pace with the Zerg. From here
+              the build is the standard one, just 10 to 20 seconds later at every step: Core
+              about 3:45, Stargate 4:30, Citadel 5:30. Templar tech is a little later and less
+              certain, and only about 6 in 10 build a Robotics Facility by 12:00. The third
+              Nexus still comes at about 11:00.
+            sources:
+              - replays:
+                  players: 73
+                  at: 2:58
+                  range: 2:54-3:03
+                  supply: 16
+                  workers: 15
+                  note: "Gateway #1, vs 9 Pool"
+              - replays:
+                  players: 73
+                  at: 3:19
+                  range: 3:13-3:27
+                  supply: 17
+                  workers: 16
+                  note: "Assimilator #1, vs 9 Pool"
+              - replays:
+                  players: 73
+                  at: 3:45
+                  range: 3:39-4:04
+                  supply: 19
+                  workers: 18
+                  note: "Cybernetics Core #1, vs 9 Pool"
+              - replays:
+                  players: 60
+                  at: 4:31
+                  range: 4:24-4:48
+                  supply: 28
+                  workers: 22
+                  note: "Stargate #1, vs 9 Pool"
+              - replays:
+                  players: 68
+                  at: 5:29
+                  range: 5:11-5:57
+                  supply: 39
+                  workers: 29
+                  note: "Citadel Of Adun #1, vs 9 Pool"
+              - replays:
+                  players: 53
+                  at: 7:01
+                  range: 6:28-8:07
+                  supply: 58
+                  workers: 38
+                  note: "Templar Archives #1, vs 9 Pool"
+              - replays:
+                  players: 43
+                  at: 8:15
+                  range: 7:30-9:00
+                  supply: 68
+                  workers: 44
+                  note: Psionic Storm, vs 9 Pool
+              - replays:
+                  players: 31
+                  at: 9:23
+                  range: 8:45-10:51
+                  supply: 90
+                  workers: 49
+                  note: "Robotics Facility #1, vs 9 Pool"
+              - replays:
+                  players: 28
+                  at: 10:59
+                  range: 9:53-11:44
+                  supply: 105
+                  workers: 52
+                  note: "Nexus #2, vs 9 Pool"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=883
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - at: 29 supply
-    or: 4:30
-    make: Assimilator
-    description: Natural gas, alongside the Stargate.
-    notes: >-
-      Saturate the natural so it has a Probe per mineral patch plus 3 on gas when this
-      Assimilator finishes; once the main has 9 on minerals, rally everything new to the
-      natural.
-    sources:
-      - replays:
-          players: 278
-          at: 4:30
-          range: 4:09-4:54
-          supply: 29
-          workers: 23
-          note: "Assimilator #2"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=440
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=306
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=203
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
+          - at: 16 supply
+            or: 3:05
+            make: Pylon
+            description: In the main.
+            sources:
+              - replays:
+                  players: 73
+                  at: 3:05
+                  range: 2:56-3:11
+                  supply: 16
+                  workers: 15
+                  note: "Pylon #2, vs 9 Pool"
 
-  - at: 30 supply
-    make:
-      upgrade: Protoss Ground Weapons
-      label: +1 Attack
-    instruction: Research +1 ground weapons
-    description: At the Forge, as the Stargate goes down.
-    notes: >-
-      Started now, +1 is done or nearly done when the Zealots move out at about 7:05, and leg
-      speed completes on the way, so both are in place as the Zealots reach the Zerg. Ground +1
-      or air +1 first is partly taste: Jung Yoon Jong goes air first if he trusts his Corsairs,
-      Khrane and PADOTUBE go ground first.
-    sources:
-      - youtube: https://youtu.be/WFt1reU1cCU?t=306
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=484
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=970
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+      - id: vs-hatch-first
+        label: 11 or 12 hatch (Hatchery before the pool)
+        read: >-
+          The Zerg's Hatchery goes down at the natural (or at a third-base spot) before any pool.
+        steps:
+          - at: 15 supply
+            or: 2:25
+            make: Nexus
+            description: The Nexus comes before the Cannon against a greedy hatch.
+            notes: >-
+              Keep the Forge and just put the Nexus down; KhalaTV goes 14 Nexus. Coaches differ
+              on the hatch drone. KhalaTV says harassing it gains nothing, since you see the
+              Hatchery anyway and your Probe isn't mining. Stork says that on a two-player map
+              an on-time Pylon Probe can harass the drone and push the Zerg into an overpool
+              instead.
+            sources:
+              - replays:
+                  players: 37
+                  at: 2:25
+                  range: 2:15-3:08
+                  supply: 15
+                  workers: 14
+                  note: "Nexus #1, vs 12 Hatch"
+              - replays:
+                  players: 37
+                  at: 3:01
+                  range: 2:35-3:07
+                  supply: 17
+                  workers: 16
+                  note: "Photon Cannon #1, vs 12 Hatch"
+              - replays:
+                  players: 41
+                  at: 2:26
+                  range: 2:15-3:21
+                  supply: 15
+                  workers: 14
+                  note: "Nexus #1, vs 11 Hatch"
+              - replays:
+                  players: 41
+                  at: 2:58
+                  range: 2:25-3:04
+                  supply: 16
+                  workers: 15
+                  note: "Photon Cannon #1, vs 11 Hatch"
+              - youtube: https://youtu.be/bkBgN_oUOKE?t=118
+                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=43
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - at: 34 supply
-    or: 4:47
-    make: Zealot
-    description: >-
-      Third Zealot. From here one comes off the Gateway about every 30 seconds: the fourth at
-      about 5:20, the fifth at 5:50, the sixth at 6:20.
-    sources:
-      - replays:
-          players: 287
-          at: 4:47
-          range: 4:34-5:10
-          supply: 34
-          workers: 26
-          note: "Zealot #3"
-      - replays:
-          players: 272
-          at: 5:19
-          range: 5:02-5:46
-          supply: 40
-          workers: 30
-          note: "Zealot #4"
-      - replays:
-          players: 251
-          at: 5:49
-          range: 5:32-6:19
-          supply: 45
-          workers: 33
-          note: "Zealot #5"
-      - replays:
-          players: 223
-          at: 6:21
-          range: 6:01-6:51
-          supply: 50
-          workers: 35
-          note: "Zealot #6"
+          - at: 16 supply
+            or: 2:32
+            make: Pylon
+            description: In the main.
+            sources:
+              - replays:
+                  players: 37
+                  at: 2:32
+                  range: 2:07-2:44
+                  supply: 16
+                  workers: 15
+                  note: "Pylon #2, vs 12 Hatch"
+              - replays:
+                  players: 41
+                  at: 2:33
+                  range: 2:01-2:45
+                  supply: 15
+                  workers: 14
+                  note: "Pylon #2, vs 11 Hatch"
 
-  - at: 5:10
-    make: Photon Cannon
-    description: Second Cannon, and a third by about 6:00.
-    notes: >-
-      Cannon count follows the Zerg: about half the players have 3 by 6:00 and just over half
-      have 4 by about 7:00, more against 3-hatch Hydra. Bisu tells beginners 4 against a Hydra
-      build; Song stops at 4 even when Storm is late, because more puts you behind.
-    sources:
-      - replays:
-          players: 289
-          at: 5:10
-          range: 3:29-5:47
-          supply: 37
-          workers: 29
-          note: "Photon Cannon #2"
-      - replays:
-          players: 266
-          at: 5:56
-          range: 5:25-6:29
-          supply: 44
-          workers: 34
-          note: "Photon Cannon #3"
-      - replays:
-          players: 215
-          at: 6:14
-          range: 5:46-6:56
-          supply: 46
-          workers: 35
-          note: "Photon Cannon #4"
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=450
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=739
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=1142
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+          - at: 16 supply
+            or: 2:50
+            make: Gateway
+            description: At the natural, before the first Cannon.
+            sources:
+              - replays:
+                  players: 37
+                  at: 2:50
+                  range: 2:37-3:25
+                  supply: 16
+                  workers: 16
+                  note: "Gateway #1, vs 12 Hatch"
+              - replays:
+                  players: 41
+                  at: 2:50
+                  range: 2:36-3:40
+                  supply: 16
+                  workers: 15
+                  note: "Gateway #1, vs 11 Hatch"
+              - replays:
+                  players: 37
+                  at: 3:01
+                  range: 2:35-3:07
+                  supply: 17
+                  workers: 16
+                  note: "Photon Cannon #1, vs 12 Hatch"
 
-  - at: Stargate 100%
-    or: 5:12
-    make: Corsair
-    description: >-
-      First Corsair goes to the Zerg base; a second follows around 5:41. Most players stop at 2
-      to 4 Corsairs.
-    notes: >-
-      Scout first, hunt Overlords second. Khrane's benchmark: if Lair started about when your
-      Core did, the first Corsair has time to kill one Overlord and get home before Scourge;
-      Lair later means more Overlords, earlier means scout and leave. Keep Corsairs moving and
-      never lose them for nothing; trading one for two Scourge and two Overlords is fine. If the
-      Corsair finds a Spire, add a Cannon in the main.
-    sources:
-      - replays:
-          players: 238
-          at: 5:12
-          range: 5:04-5:30
-          supply: 39
-          workers: 30
-          note: "Corsair #1"
-      - replays:
-          players: 183
-          at: 5:41
-          range: 5:33-5:59
-          supply: 45
-          workers: 33
-          note: "Corsair #2"
-      - replays:
-          players: 132
-          at: 6:11
-          range: 5:59-6:34
-          supply: 52
-          workers: 36
-          note: "Corsair #3"
-      - replays:
-          players: 111
-          at: 6:39
-          range: 6:27-6:59
-          supply: 58
-          workers: 38
-          note: "Corsair #4"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=497
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=393
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=568
-        label: "PADOTUBE: Forge double lecture, in detail"
+          - at: 17 supply
+            or: 3:01
+            make: Photon Cannon
+            description: The first Cannon, about 40 seconds later than against a pool.
+            notes: >-
+              With no early pool there is time for the Gateway first, and the Cannon still beats
+              the first lings. The rest of the build is the standard one. Against a 12 hatch the
+              Stargate and the Dark Templar are less common, and the third Nexus can come
+              earlier, at about 10:25 to 10:40, though only about two thirds take it by 12:00.
+            sources:
+              - replays:
+                  players: 37
+                  at: 3:01
+                  range: 2:35-3:07
+                  supply: 17
+                  workers: 16
+                  note: "Photon Cannon #1, vs 12 Hatch"
+              - replays:
+                  players: 41
+                  at: 2:58
+                  range: 2:25-3:04
+                  supply: 16
+                  workers: 15
+                  note: "Photon Cannon #1, vs 11 Hatch"
+              - replays:
+                  players: 280
+                  at: 2:23
+                  range: 2:19-2:26
+                  supply: 13
+                  workers: 13
+                  note: "Photon Cannon #1, vs Overpool"
+              - replays:
+                  players: 26
+                  at: 4:32
+                  range: 4:17-5:02
+                  supply: 30
+                  workers: 25
+                  note: "Stargate #1, vs 12 Hatch"
+              - replays:
+                  players: 16
+                  at: 7:12
+                  range: 6:56-7:43
+                  supply: 59
+                  workers: 42
+                  note: "Dark Templar #1, vs 12 Hatch"
+              - replays:
+                  players: 17
+                  at: 10:23
+                  range: 9:55-11:19
+                  supply: 95
+                  workers: 50
+                  note: "Nexus #2, vs 12 Hatch"
+              - replays:
+                  players: 20
+                  at: 10:42
+                  range: 9:59-11:35
+                  supply: 111
+                  workers: 53
+                  note: "Nexus #2, vs 11 Hatch"
+              - replays:
+                  players: 41
+                  at: 3:52
+                  range: 3:32-4:42
+                  supply: 21
+                  workers: 19
+                  note: "Cybernetics Core #1, vs 11 Hatch"
+              - youtube: https://youtu.be/bkBgN_oUOKE?t=169
+                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-  - at: 5:24
-    make: Citadel of Adun
-    description: With the next 100 gas, around 39 supply.
-    notes: >-
-      PADOTUBE takes it at 100 gas even though it delays a Corsair by a second. Around 5:30 is
-      the most dangerous moment for this build, when an early Hydra push can arrive. Four
-      Hatcheries and natural gas mean it is not a Hydra bust. Fewer Hatcheries and an early
-      Hydralisk Den mean one may be coming: get to 4 Cannons at the natural before then.
-    sources:
-      - replays:
-          players: 275
-          at: 5:24
-          range: 5:00-5:54
-          supply: 39
-          workers: 30
-      - youtube: https://youtu.be/5wprChZSI-Y?t=484
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=454
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=362
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
+  - title: "Follow-up: Core, Stargate, +1, Citadel"
+    steps:
+      - at: 17 supply
+        or: 3:08
+        make: Assimilator
+        description: Main gas. Move 4 or 5 Probes to the natural.
+        notes: >-
+          Leave about 12 in the main (9 on minerals, 3 on gas) and send the rest to the new
+          Nexus; once the main has its 9 or 10 on minerals, rally new Probes to the natural.
+          Never stop Probes apart from the short cuts the guide names: about 28 at 5:00 and 44
+          at 8:00.
+        sources:
+          - replays:
+              players: 456
+              at: 3:08
+              range: 3:05-3:16
+              supply: 17
+              workers: 16
+              note: "Assimilator #1"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=358
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=240
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/esOAfXH7Xy4?t=216
+            label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
-  - at: Citadel of Adun 100%
-    make: Leg Enhancements
-    instruction: Research leg speed
-    description: The moment the Citadel finishes.
-    sources:
-      - youtube: https://youtu.be/WFt1reU1cCU?t=561
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=304
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+      - at: Gateway 100%
+        or: 3:39
+        make: Cybernetics Core
+        description: As soon as the Gateway finishes, at about 20 supply.
+        notes: >-
+          A benchmark from Khrane: the Core should go down at about the moment your Probe sees
+          the Lair start. If yours is earlier, the first Corsair can afford to hunt more
+          Overlords; if it is later, scout with it and come home before Scourge.
+        sources:
+          - replays:
+              players: 456
+              at: 3:39
+              range: 3:29-3:54
+              supply: 20
+              workers: 18
+          - youtube: https://youtu.be/5wprChZSI-Y?t=440
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/ew7GJM2SydM?t=157
+            label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=540
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-  - at: 6:08
-    make: Gateway
-    description: Second Gateway.
-    notes: >-
-      PADOTUBE instead cuts Probes and drops three Gateways at once here, then resumes Probes
-      once they are placed. The replays add the second Gateway alone around 6:10, then the third
-      and fourth close together between about 6:50 and 7:05.
-    sources:
-      - replays:
-          players: 258
-          at: 6:08
-          range: 5:40-6:39
-          supply: 46
-          workers: 34
-          note: "Gateway #2"
-      - replays:
-          players: 207
-          at: 6:49
-          range: 6:15-7:17
-          supply: 50
-          workers: 38
-          note: "Gateway #3"
-      - replays:
-          players: 185
-          at: 7:05
-          range: 6:37-7:29
-          supply: 56
-          workers: 40
-          note: "Gateway #4"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=519
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=527
-        label: "PADOTUBE: Forge double lecture, in detail"
+      - at: 22 supply
+        or: 3:41
+        make: Zealot
+        description: First Zealot, with a second at about 4:15.
+        notes: >-
+          Run the first Zealot into the Zerg base to see what it is making, Hydralisk Den or
+          Lair. Even with no damage done, early Zealot pokes make the Zerg build lings instead
+          of drones. Only fight where it trades well, and pull back once the extra lings show
+          up: getting the Zealots trapped is the worst outcome.
+        sources:
+          - replays:
+              players: 455
+              at: 3:41
+              range: 3:32-3:52
+              supply: 22
+              workers: 18
+              note: "Zealot #1"
+          - replays:
+              players: 451
+              at: 4:14
+              range: 4:02-4:27
+              supply: 28
+              workers: 22
+              note: "Zealot #2"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=285
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/esOAfXH7Xy4?t=259
+            label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+          - youtube: https://youtu.be/ew7GJM2SydM?t=200
+            label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - at: 6:45
-    make: Templar Archives
-    description: Spend the minerals that pile up before the Gateways finish.
-    notes: >-
-      Khrane wants it by 6:30 at the latest to be safe against a 4 or 5 hatch Hydra
-      counterattack; Song puts it down once gas banks to about 200. Keep making Zealots until it
-      finishes.
-    sources:
-      - replays:
-          players: 202
-          at: 6:45
-          range: 6:14-7:09
-          supply: 54
-          workers: 38
-      - youtube: https://youtu.be/5wprChZSI-Y?t=568
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=582
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=394
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+      - at: Cybernetics Core 100%
+        or: 4:23
+        make: Stargate
+        description: On the 150 gas you have when the Core finishes, about 28 supply.
+        notes: >-
+          A Stargate a few seconds late can cost you an Overlord kill with the first Corsair.
+          Build it before the Citadel even when you plan speed Zealots, because the Corsair is
+          how you learn the Zerg's tech. About 85% of players build one.
+        sources:
+          - replays:
+              players: 388
+              at: 4:23
+              range: 4:14-4:40
+              supply: 28
+              workers: 23
+          - youtube: https://youtu.be/WFt1reU1cCU?t=306
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/kbo2QGOtVIg?t=15
+            label: "KhalaTV: Forge double into a 2-Forge long game"
+          - youtube: https://youtu.be/bkBgN_oUOKE?t=265
+            label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-  - at: 6:49
-    make: 2 Gateway
-    description: >-
-      Third and fourth Gateways, between about 6:50 and 7:05, for the roughly 60% of players who
-      take both; many are on 3 Gateways at the 7:30 hit.
-    sources:
-      - replays:
-          players: 207
-          at: 6:49
-          range: 6:15-7:17
-          supply: 50
-          workers: 38
-          note: "Gateway #3"
-      - replays:
-          players: 185
-          at: 7:05
-          range: 6:37-7:29
-          supply: 56
-          workers: 40
-          note: "Gateway #4"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=646
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
+      - at: 29 supply
+        or: 4:29
+        make: Assimilator
+        description: Natural gas, as a pair with the Stargate.
+        notes: >-
+          Time the natural's mineral line so it has a Probe on each patch and 3 ready for gas
+          when this finishes.
+        sources:
+          - replays:
+              players: 433
+              at: 4:29
+              range: 4:07-4:54
+              supply: 29
+              workers: 23
+              note: "Assimilator #2"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=463
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=348
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-  - section: The 7:30 timing
-    at: 7:05
-    make: Zealot
-    use: true
-    instruction: Move out with the speedlots
-    description: >-
-      Leave with about 6 Zealots and the 7th or 8th on the way, so 7 or 8 +1 speed Zealots reach
-      the Zerg natural around 7:30.
-    notes: >-
-      Arrive at 7:30, don't leave at 7:30: at 7:30 the Zerg has barely enough Hydras to hold, by
-      8:00 it can have a dozen more. Follow Khrane: go at about 7:05 with +1 done or nearly done
-      and legs about to finish, so speed completes on the way. Waiting at home until both
-      upgrades are finished (PADOTUBE's cue) makes a later, slower hit. The first run also tells
-      you whether the Zerg is on Hydras or Scourge and Mutalisks.
-    sources:
-      - replays:
-          players: 223
-          at: 6:21
-          range: 6:01-6:51
-          supply: 50
-          workers: 35
-          note: "Zealot #6"
-      - replays:
-          players: 190
-          at: 6:46
-          range: 6:22-7:12
-          supply: 55
-          workers: 38
-          note: "Zealot #7"
-      - replays:
-          players: 152
-          at: 7:07
-          range: 6:40-7:22
-          supply: 59
-          workers: 39
-          note: "Zealot #8"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=24
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=612
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=1096
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+      - at: 33 supply
+        or: 4:46
+        make:
+          upgrade: Protoss Ground Weapons
+          label: +1 Attack
+        instruction: Research +1 ground weapons
+        description: At the Forge, just after the Stargate.
+        notes: >-
+          Nearly everyone gets ground +1 here. Jung Yoon Jong calls ground or air first a matter
+          of taste and takes air first if he trusts his Corsairs, but in the replays nearly
+          every player takes ground first. With a single Forge, +1 armor can only start once
+          this finishes. Run the upgrade at the natural Forge, and add a spare Pylon there so
+          one dead Pylon can't unpower the Forge and Cannons.
+        sources:
+          - replays:
+              players: 435
+              at: 4:46
+              range: 4:34-5:13
+              supply: 33
+              workers: 26
+              note: Protoss Ground Weapons +1
+          - replays:
+              players: 241
+              at: 5:21
+              range: 5:05-5:44
+              supply: 40
+              workers: 30
+              note: Protoss Air Weapons +1
+          - replays:
+              players: 361
+              at: 7:50
+              range: 7:28-8:22
+              supply: 68
+              workers: 44
+              note: Protoss Ground Armor +1
+          - youtube: https://youtu.be/5wprChZSI-Y?t=484
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/bkBgN_oUOKE?t=244
+            label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+          - youtube: https://youtu.be/esOAfXH7Xy4?t=284
+            label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
-  - at: 7:19
-    make: Gateway
-    description: Keep adding Gateways toward 8 on two bases.
-    notes: >-
-      Eight Gateways at the natural is the standard follow-up, ten once the third base is up.
-      Take the third behind the attack at about 6 to 8 Gateways, later against Hydra speed plus
-      Lurkers. With weapons and armor, get 3 to 4 Templar and a Robotics Facility for Observers
-      when the Zerg goes quiet (Lurkers). Attack when an upgrade finishes and the trade is even,
-      but don't force fights before the Zerg has Hive. Replays show about 42 Probes at 8:00.
-    sources:
-      - replays:
-          players: 121
-          at: 7:19
-          range: 6:54-7:40
-          supply: 56
-          workers: 40
-          note: "Gateway #5"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=1233
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=471
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=733
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
+      - at: Stargate 100%
+        or: 5:13
+        make: Corsair
+        description: The first Corsair goes straight to the Zerg main to scout.
+        notes: >-
+          Scout first and hunt Overlords second. Look for gas at several bases with no Hydralisk
+          Den, which means Mutalisks, against a Hydralisk Den or an early fourth Hatchery with
+          no Lair, which means Hydras. That read is the next choice.
+        sources:
+          - replays:
+              players: 380
+              at: 5:13
+              range: 5:04-5:31
+              supply: 39
+              workers: 30
+          - youtube: https://youtu.be/WFt1reU1cCU?t=497
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/xcPC_BqNiFw?t=362
+            label: "BISUTUBE: Bisu's Forge double for PvZ"
+          - youtube: https://youtu.be/bkBgN_oUOKE?t=289
+            label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-  - at: Templar Archives 100%
-    or: 7:27
-    make: 2 High Templar
-    description: The first two High Templar.
-    notes: >-
-      PADOTUBE goes to 4 Templar so each has two Storms by the time his Dragoons are out. If gas
-      is short, either delay Storm or make one fewer Templar.
-    sources:
-      - replays:
-          players: 120
-          at: 7:27
-          range: 7:06-7:40
-          supply: 64
-          workers: 43
-          note: "High Templar #1"
-      - replays:
-          players: 94
-          at: 7:32
-          range: 7:10-7:43
-          supply: 64
-          workers: 44
-          note: "High Templar #2"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=646
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=634
-        label: "PADOTUBE: Forge double lecture, in detail"
+      - at: 38 supply
+        or: 5:18
+        make: Citadel of Adun
+        description: With the next 100 gas, even if it delays a Corsair.
+        notes: >-
+          The Citadel is for leg speed. PADOTUBE accepts the first Corsair coming a second late
+          to get it; Khrane builds it at about 42 supply. In the Dark Templar line it goes down
+          earlier, at about 5:00.
+        sources:
+          - replays:
+              players: 430
+              at: 5:18
+              range: 4:55-5:50
+              supply: 38
+              workers: 29
+              note: "Citadel Of Adun #1"
+          - replays:
+              players: 130
+              at: 5:01
+              range: 4:44-5:21
+              supply: 36
+              workers: 28
+              note: "Citadel Of Adun #1, with Forge FE, Dark Templar line"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=484
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/WFt1reU1cCU?t=454
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-  - at: Templar Archives 100%
-    make: Psionic Storm
-    instruction: Research Storm
-    description: Straight after the first Templar.
-    notes: >-
-      Storm is the damage dealer in this matchup. Use it on Hydras; save it on Zerglings and
-      Lurkers unless it catches two or more Lurkers or some Hydras too. The moment just before
-      Lurkers hatch is an ideal Storm window.
-    sources:
-      - youtube: https://youtu.be/WFt1reU1cCU?t=646
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=634
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=631
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
+  - title: What the Zerg is teching to
+    choose: What did the first Corsair find?
+    options:
+      - id: vs-spire
+        label: Spire (Mutalisks)
+        read: >-
+          By about 5:30 the Corsair sees a Lair and a Spire, or gas taken at several bases with
+          no Hydralisk Den. More lings plus ling speed on an early poke also points to Lair. If
+          the Lair or Spire comes with only two Hatcheries (a 2-hatch Spire), Mutalisks come
+          sooner: get Dragoons and extra Cannons early (see the Cannon step).
+        steps:
+          - at: 40 supply
+            or: 5:21
+            make:
+              upgrade: Protoss Air Weapons
+              label: +1 Air Attack
+            instruction: Research +1 air weapons
+            description: Most players get air +1 when a Spire is coming.
+            notes: >-
+              Khrane starts it before the first Corsair finishes. With +1, five Corsairs that
+              are split well survive Scourge; four need very careful control. Stork starts air
+              +1 on seeing the Spire.
+            sources:
+              - replays:
+                  players: 161
+                  at: 5:21
+                  range: 5:06-5:41
+                  supply: 40
+                  workers: 30
+                  note: vs 3 Hatch Spire
+              - youtube: https://youtu.be/WFt1reU1cCU?t=390
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=448
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=1013
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - at: 7:30
-    make: Zealot
-    use: true
-    instruction: Hit the Zerg natural
-    description: The Zealots fight at the natural; your one or two Corsairs stay alive over them.
-    notes: >-
-      Against a careless Zerg this wave can end the game. Use the Corsairs on Overlords only
-      when no Scourge are near: they are your Mutalisk deterrent, so keep them alive. Afterwards
-      keep the Zealots outside rather than pulling them home, so they can hit Hydras from behind
-      or run into the Zerg base when its army moves onto your natural; just don't let them get
-      trapped.
-    sources:
-      - youtube: https://youtu.be/WFt1reU1cCU?t=24
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=674
-        label: "PADOTUBE: Forge double lecture, in detail"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=609
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+          - at: 5:42
+            make: Corsair
+            description: Keep the Stargate busy, toward 5 or 6 Corsairs by 7:30.
+            notes: >-
+              Against a Spire, 4 Corsairs by 6:40 is the norm and two thirds of players have 6
+              by 7:30. PADOTUBE's two Corsairs are a deterrent he builds before he knows the
+              Zerg's tech; once a Spire is confirmed, keep producing them, as Khrane and KhalaTV
+              do. Corsairs are the lifeline: keep them moving away from Scourge, though trading
+              one for 2 Scourge and 2 Overlords is fine. Stack them on a Probe trapped behind
+              your minerals to clump them.
+            sources:
+              - replays:
+                  players: 188
+                  at: 5:42
+                  range: 5:32-5:59
+                  supply: 45
+                  workers: 33
+                  note: "Corsair #2, vs 3 Hatch Spire"
+              - replays:
+                  players: 166
+                  at: 6:39
+                  range: 6:27-6:57
+                  supply: 58
+                  workers: 39
+                  note: "Corsair #4, vs 3 Hatch Spire"
+              - replays:
+                  players: 134
+                  at: 7:33
+                  range: 7:17-7:58
+                  supply: 70
+                  workers: 43
+                  note: "Corsair #6, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=454
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=1270
+                label: "PADOTUBE: Forge double lecture, in detail"
+              - youtube: https://youtu.be/bkBgN_oUOKE?t=346
+                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-  - section: Five-Corsair line (Khrane)
-    at: Stargate 50%
-    make:
-      upgrade: Protoss Air Weapons
-      label: +1 Air Attack
-    instruction: Research +1 air weapons
-    description: >-
-      Five-Corsair version only: at the Core, ideally started before the first Corsair finishes,
-      with Corsairs made nonstop to five.
-    notes: >-
-      Khrane's line: five +1 Corsairs, split, can fight small Scourge groups and survive, which
-      is what lets them join the 7:30 attack. His production priority until the timing is
-      Corsairs, then tech, then Probes, then Zealots, with just enough Pylons. Jung Yoon Jong
-      also runs his Corsairs in once air +1 finishes, and notes that four need very good
-      control. Skip this if you are playing the standard one- or two-Corsair version.
-    sources:
-      - youtube: https://youtu.be/WFt1reU1cCU?t=390
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=427
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
-      - youtube: https://youtu.be/5wprChZSI-Y?t=1270
-        label: "PADOTUBE: Forge double lecture, in detail"
+          - at: 5:44
+            make: Photon Cannon
+            description: A second Cannon, and a third at about 6:30, in the mineral lines.
+            notes: >-
+              On seeing the Spire, PADOTUBE adds a Cannon in the main and ideally one at the
+              natural, and Stork puts one in the mineral line. These are later than against
+              Hydras because they guard against Mutalisks, not a ground push. Against a 2-hatch
+              Spire (a small group of 11 games) players react sooner: 4 Cannons by about 6:25,
+              and every one of them made Dragoons, half by about 6:20.
+            sources:
+              - replays:
+                  players: 204
+                  at: 5:44
+                  range: 5:01-6:10
+                  supply: 44
+                  workers: 33
+                  note: "Photon Cannon #2, vs 3 Hatch Spire"
+              - replays:
+                  players: 199
+                  at: 6:28
+                  range: 6:08-6:52
+                  supply: 55
+                  workers: 38
+                  note: "Photon Cannon #3, vs 3 Hatch Spire"
+              - replays:
+                  players: 161
+                  at: 5:05
+                  range: 4:01-5:23
+                  supply: 36
+                  workers: 29
+                  note: "Photon Cannon #2, vs 3 Hatch Hydra"
+              - replays:
+                  players: 10
+                  at: 6:24
+                  range: 5:53-7:19
+                  supply: 47
+                  workers: 36
+                  note: "Photon Cannon #4, vs 2 Hatch Spire"
+              - replays:
+                  players: 10
+                  at: 6:19
+                  range: 5:28-9:20
+                  supply: 47
+                  workers: 33
+                  note: "Dragoon #1, vs 2 Hatch Spire"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=568
+                label: "PADOTUBE: Forge double lecture, in detail"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=484
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-  - at: 7:30
-    make: Corsair
-    use: true
-    instruction: Send the Corsairs in
-    description: >-
-      In Khrane's version, five +1 Corsairs hunt Overlords while the Zealots fight. Most players
-      arrive with 2 to 4 Corsairs instead.
-    notes: >-
-      About one player in seven has five Corsairs by 7:00 (about a third by 8:00). With four it
-      takes very good control. When Hydras attack, go for the Overlords at the back so the
-      Hydras stay home to guard them.
-    sources:
-      - replays:
-          players: 183
-          at: 5:41
-          range: 5:33-5:59
-          supply: 45
-          workers: 33
-          note: "Corsair #2"
-      - replays:
-          players: 98
-          at: 7:03
-          range: 6:51-7:19
-          supply: 62
-          workers: 41
-          note: "Corsair #5"
-      - youtube: https://youtu.be/WFt1reU1cCU?t=710
-        label: "Khrane: PvZ FFE into +1/+1 Opening"
-      - youtube: https://youtu.be/esOAfXH7Xy4?t=427
-        label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
-      - youtube: https://youtu.be/ew7GJM2SydM?t=1165
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
+          - at: Citadel of Adun 100%
+            or: 6:10
+            make: Leg Enhancements
+            description: Zealot speed as the Citadel finishes.
+            sources:
+              - replays:
+                  players: 200
+                  at: 6:10
+                  range: 5:51-6:56
+                  supply: 50
+                  workers: 36
+                  note: vs 3 Hatch Spire
+              - youtube: https://youtu.be/WFt1reU1cCU?t=561
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-  - section: Variants
-    at: Forge 100%
-    make: 2 Photon Cannon
-    description: Against a 9 pool, two Cannons before the Nexus; the Nexus then goes on about 16.
-    notes: >-
-      No natural Hatchery by about 2:00 means 9 pool, so get two Cannons. Plenty of players also
-      put a single Cannon before the Nexus just to be safe. A 9 pool into a Forge FE is
-      manageable with two Cannons. Song gets away with one Cannon and an earlier Gateway,
-      pulling Probes when the lings run past, but Bisu warns beginners against it.
-    sources:
-      - replay: https://cwal.gg/viewer?match=MM-0DA19232-BDF9-11F1-A71E-FA167AEAB62F
-        label: Example replay
-      - youtube: https://youtu.be/ew7GJM2SydM?t=115
-        label: "Song Byung-goo TV: Forge double Nexus lecture"
-      - replay: https://cwal.gg/viewer?match=MM-19746BE0-BD52-11F1-A71E-FA167AEAB62F
-        label: Example replay
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=143
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
+          - at: 6:28
+            make: Gateway
+            description: The second Gateway; the third and fourth come with the Templar tech.
+            sources:
+              - replays:
+                  players: 204
+                  at: 6:28
+                  range: 5:45-6:56
+                  supply: 52
+                  workers: 37
+                  note: "Gateway #2, vs 3 Hatch Spire"
+              - replays:
+                  players: 195
+                  at: 7:34
+                  range: 7:01-8:07
+                  supply: 67
+                  workers: 44
+                  note: "Gateway #3, vs 3 Hatch Spire"
 
-  - at: Templar Archives 100%
-    or: 7:10
-    make: Dark Templar
-    description: A Dark Templar, in about a quarter of games, often next to a High Templar.
-    notes: >-
-      Bisu's answer when the Zerg shows Hydras and no Mutalisks: 4 Gateways, armor, then one
-      Dark Templar and one High Templar.
-    sources:
-      - replays:
-          players: 84
-          at: 7:10
-          range: 6:34-7:43
-          supply: 62
-          workers: 41
-      - youtube: https://youtu.be/xcPC_BqNiFw?t=429
-        label: "BISUTUBE: Bisu's Forge double for PvZ"
+      - id: vs-3hatch-hydra
+        label: Hydralisks (Hydralisk Den, 3 or more Hatcheries)
+        read: >-
+          A Hydralisk Den, or an early fourth Hatchery with no Lair, by about 5:00. An Overlord
+          that pretends to leave your natural but parks just out of sight is another hint. The
+          most dangerous Hydra timing is about 5:30.
+        steps:
+          - at: 5:05
+            make: Photon Cannon
+            description: A second Cannon at the natural, then a third at 5:40.
+            notes: >-
+              Pros build Cannons fast here: 4 by about 6:00 and 5 by about 6:15. Bisu seems to
+              say 3 are enough and 4 for beginners (the unit is unclear in the recording), Stork
+              never goes past 4 before Storm, and KhalaTV goes up to 5. Once you see the Zerg
+              droning instead of attacking, cancel a spare Cannon and put the minerals into a
+              Gateway. Four Hatcheries and natural gas with no Hydras by 5:30 mean no early
+              bust.
+            sources:
+              - replays:
+                  players: 161
+                  at: 5:05
+                  range: 4:01-5:23
+                  supply: 36
+                  workers: 29
+                  note: "Photon Cannon #2, vs 3 Hatch Hydra"
+              - replays:
+                  players: 157
+                  at: 5:42
+                  range: 5:24-6:02
+                  supply: 42
+                  workers: 32
+                  note: "Photon Cannon #3, vs 3 Hatch Hydra"
+              - replays:
+                  players: 152
+                  at: 5:58
+                  range: 5:39-6:30
+                  supply: 45
+                  workers: 34
+                  note: "Photon Cannon #4, vs 3 Hatch Hydra"
+              - replays:
+                  players: 143
+                  at: 6:15
+                  range: 6:01-7:34
+                  supply: 48
+                  workers: 36
+                  note: "Photon Cannon #5, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=450
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=1142
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=348
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+
+          - at: 5:48
+            make: Corsair
+            description: Usually one or two Corsairs, and usually no air +1.
+            notes: >-
+              Only about half make a second Corsair and a quarter reach 4. KhalaTV cancels the
+              Corsair and air weapons when Hydras show up, and against greedy no-Lair Hydra he
+              stops at about three. The Corsairs that you have hunt Overlords behind the Hydras.
+            sources:
+              - replays:
+                  players: 87
+                  at: 5:48
+                  range: 5:35-6:13
+                  supply: 46
+                  workers: 33
+                  note: "Corsair #2, vs 3 Hatch Hydra"
+              - replays:
+                  players: 61
+                  at: 5:17
+                  range: 4:58-5:43
+                  supply: 40
+                  workers: 30
+                  note: Protoss Air Weapons +1, vs 3 Hatch Hydra
+              - replays:
+                  players: 38
+                  at: 7:13
+                  range: 6:43-9:35
+                  supply: 62
+                  workers: 41
+                  note: "Corsair #4, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=348
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+              - youtube: https://youtu.be/bkBgN_oUOKE?t=337
+                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=1165
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+
+          - at: 6:05
+            make: Gateway
+            description: Second Gateway, then a third at 6:40 and a fourth at 7:10.
+            notes: >-
+              Four Gateways is the common step. Bisu adds armor and a Dark Templar and High
+              Templar; PADOTUBE cuts Probes for three Gateways as leg speed starts; Stork keeps
+              adding toward 6. Against no-Lair Hydra, KhalaTV hits early with 4-Gateway +1 speed
+              Zealots.
+            sources:
+              - replays:
+                  players: 151
+                  at: 6:05
+                  range: 5:35-6:29
+                  supply: 45
+                  workers: 34
+                  note: "Gateway #2, vs 3 Hatch Hydra"
+              - replays:
+                  players: 146
+                  at: 6:37
+                  range: 6:12-7:19
+                  supply: 48
+                  workers: 37
+                  note: "Gateway #3, vs 3 Hatch Hydra"
+              - replays:
+                  players: 142
+                  at: 7:10
+                  range: 6:35-7:41
+                  supply: 53
+                  workers: 40
+                  note: "Gateway #4, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=429
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=527
+                label: "PADOTUBE: Forge double lecture, in detail"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=349
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+
+          - at: Citadel of Adun 100%
+            or: 6:41
+            make: Leg Enhancements
+            description: Zealot speed, a bit later than against a Spire.
+            sources:
+              - replays:
+                  players: 141
+                  at: 6:41
+                  range: 6:04-7:17
+                  supply: 50
+                  workers: 36
+                  note: Leg Enhancements, vs 3 Hatch Hydra
+              - replays:
+                  players: 200
+                  at: 6:10
+                  range: 5:51-6:56
+                  supply: 50
+                  workers: 36
+                  note: Leg Enhancements, vs 3 Hatch Spire
+
+          - at: 7:01
+            make: Forge
+            description: A second Forge, so weapons and armor run together.
+            notes: >-
+              More than half the players add it against Hydras. KhalaTV also moves Probes off
+              gas onto minerals while he holds the Hydras, and plans an 8-Gateway army with two
+              Forges' worth of upgrades.
+            sources:
+              - replays:
+                  players: 85
+                  at: 7:01
+                  range: 6:16-7:44
+                  supply: 50
+                  workers: 37
+                  note: "Forge #2, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=375
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+
+  - title: Templar Archives
+    choose: Dark Templar and Corsairs first, or Storm first?
+    options:
+      - id: dt-first
+        label: Dark Templar and Corsairs, then Storm
+        read: >-
+          Your call, not a scout read. It suits a Zerg on Mutalisks (three in four players get a
+          Dark Templar against a Spire) or a greedy Zerg you want to punish, and it has the best
+          record of the two lines in pro games.
+        steps:
+          - at: 6:14
+            make: Templar Archives
+            description: About 20 seconds earlier than in the Storm line.
+            notes: >-
+              Khrane wants the Archives down by 6:30 at the latest so Templar are out in time
+              for a 4- or 5-hatch Hydra counter. PADOTUBE builds it with the minerals that pile
+              up before the new Gateways finish.
+            sources:
+              - replays:
+                  players: 130
+                  at: 6:14
+                  range: 5:37-6:38
+                  supply: 50
+                  workers: 36
+                  note: "Templar Archives #1, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 94
+                  at: 6:34
+                  range: 6:06-6:50
+                  supply: 52
+                  workers: 37
+                  note: "Templar Archives #1, with Forge FE, High Templar line"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=582
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=590
+                label: "PADOTUBE: Forge double lecture, in detail"
+
+          - at: 6:40
+            make: Corsair
+            description: Toward 5 Corsairs by about 7:05.
+            notes: >-
+              This line keeps the Stargate going: two thirds of players have 4 Corsairs and most
+              get air +1. Five +1 Corsairs can go into a small Scourge group.
+            sources:
+              - replays:
+                  players: 87
+                  at: 6:40
+                  range: 6:27-6:54
+                  supply: 58
+                  workers: 40
+                  note: "Corsair #4, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 83
+                  at: 7:07
+                  range: 6:54-7:25
+                  supply: 64
+                  workers: 42
+                  note: "Corsair #5, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 91
+                  at: 5:19
+                  range: 5:06-5:42
+                  supply: 41
+                  workers: 31
+                  note: Protoss Air Weapons +1, with Forge FE, Dark Templar line
+              - youtube: https://youtu.be/WFt1reU1cCU?t=710
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+
+          - at: Templar Archives 100%
+            or: 7:02
+            make: Dark Templar
+            description: One Dark Templar as the Archives finishes.
+            notes: >-
+              A Dark Templar, or a Zealot attack, is how KhalaTV punishes a greedy Hydra Zerg.
+              The line is not Dark Templar only: almost everyone follows with High Templar and
+              Storm straight after.
+            sources:
+              - replays:
+                  players: 130
+                  at: 7:02
+                  range: 6:27-7:28
+                  supply: 62
+                  workers: 40
+                  note: "Dark Templar #1, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 123
+                  at: 7:27
+                  range: 7:03-7:45
+                  supply: 65
+                  workers: 43
+                  note: "High Templar #1, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 120
+                  at: 7:38
+                  range: 7:12-8:14
+                  supply: 66
+                  workers: 44
+                  note: Psionic Storm, with Forge FE, Dark Templar line
+              - youtube: https://youtu.be/bkBgN_oUOKE?t=302
+                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+
+          - at: 7:16
+            make: Gateway
+            description: Gateways up to four, a third at about 7:16 and a fourth by about 7:30.
+            notes: >-
+              Nearly everyone in this line has four Gateways by about 7:30. Against Hydras you
+              may already have them from the tech step; then skip this.
+            sources:
+              - replays:
+                  players: 127
+                  at: 7:16
+                  range: 6:48-7:59
+                  supply: 63
+                  workers: 43
+                  note: "Gateway #3, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 122
+                  at: 7:29
+                  range: 7:00-8:08
+                  supply: 64
+                  workers: 44
+                  note: "Gateway #4, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 142
+                  at: 7:10
+                  range: 6:35-7:41
+                  supply: 53
+                  workers: 40
+                  note: "Gateway #4, vs 3 Hatch Hydra"
+
+          - at: 7:27
+            make: 2 High Templar
+            description: Two High Templar right after the Dark Templar.
+            sources:
+              - replays:
+                  players: 123
+                  at: 7:27
+                  range: 7:03-7:45
+                  supply: 65
+                  workers: 43
+                  note: "High Templar #1, with Forge FE, Dark Templar line"
+              - replays:
+                  players: 120
+                  at: 7:45
+                  range: 7:16-8:12
+                  supply: 70
+                  workers: 45
+                  note: "High Templar #2, with Forge FE, Dark Templar line"
+
+          - at: 7:38
+            make: Psionic Storm
+            instruction: Research Storm
+            description: Storm, about the same time as in the Storm line.
+            sources:
+              - replays:
+                  players: 120
+                  at: 7:38
+                  range: 7:12-8:14
+                  supply: 66
+                  workers: 44
+                  note: Psionic Storm, with Forge FE, Dark Templar line
+              - replays:
+                  players: 92
+                  at: 7:35
+                  range: 7:18-7:55
+                  supply: 64
+                  workers: 44
+                  note: Psionic Storm, with Forge FE, High Templar line
+
+      - id: storm-first
+        label: Storm first, more Gateways
+        read: >-
+          Your call. It leans on ground army and upgrades rather than air, and fits a Zerg on
+          Hydralisks: fewer Corsairs, a fourth Gateway by about 7:10 and often a second Forge.
+        steps:
+          - at: 6:34
+            make: Templar Archives
+            description: About 6:35, with the minerals left over from the new Gateways.
+            sources:
+              - replays:
+                  players: 94
+                  at: 6:34
+                  range: 6:06-6:50
+                  supply: 52
+                  workers: 37
+                  note: with Forge FE, High Templar line
+              - youtube: https://youtu.be/5wprChZSI-Y?t=590
+                label: "PADOTUBE: Forge double lecture, in detail"
+
+          - at: 6:53
+            make: Gateway
+            description: Gateways up to four by about 7:10.
+            notes: >-
+              Every player in this line has 4 Gateways by about 7:10. Against Hydras you already
+              built the third and fourth in the tech step, so skip this. Khrane adds two
+              Gateways to reach four once his first 7 or 8 Zealots are out.
+            sources:
+              - replays:
+                  players: 94
+                  at: 6:53
+                  range: 6:25-7:25
+                  supply: 57
+                  workers: 40
+                  note: "Gateway #3, with Forge FE, High Templar line"
+              - replays:
+                  players: 94
+                  at: 7:12
+                  range: 6:47-7:37
+                  supply: 59
+                  workers: 42
+                  note: "Gateway #4, with Forge FE, High Templar line"
+              - replays:
+                  players: 142
+                  at: 7:10
+                  range: 6:35-7:41
+                  supply: 53
+                  workers: 40
+                  note: "Gateway #4, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=646
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+
+          - at: Templar Archives 100%
+            or: 7:26
+            make: 2 High Templar
+            description: Two High Templar as soon as the Archives finishes.
+            notes: >-
+              Khrane starts with two Templar; PADOTUBE builds Pylons first and goes to four. If
+              gas is short because the Archives went down early, make one fewer Templar rather
+              than delay Storm.
+            sources:
+              - replays:
+                  players: 94
+                  at: 7:26
+                  range: 7:05-7:42
+                  supply: 64
+                  workers: 42
+                  note: "High Templar #1, with Forge FE, High Templar line"
+              - replays:
+                  players: 94
+                  at: 7:34
+                  range: 7:16-7:49
+                  supply: 65
+                  workers: 44
+                  note: "High Templar #2, with Forge FE, High Templar line"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=646
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=634
+                label: "PADOTUBE: Forge double lecture, in detail"
+
+          - at: 7:33
+            make: Forge
+            description: About half add a second Forge for weapons and armor at once.
+            notes: >-
+              Nearly half of this line goes on to +2 weapons by about 10:45. Dark Templar are
+              rarer and later here, about half of players at 8:00.
+            sources:
+              - replays:
+                  players: 46
+                  at: 7:33
+                  range: 6:23-10:54
+                  supply: 57
+                  workers: 39
+                  note: "Forge #2, with Forge FE, High Templar line"
+              - replays:
+                  players: 34
+                  at: 10:45
+                  range: 9:36-11:46
+                  supply: 104
+                  workers: 51
+                  note: Protoss Ground Weapons +2, with Forge FE, High Templar line
+              - replays:
+                  players: 45
+                  at: 8:00
+                  range: 7:38-8:53
+                  supply: 73
+                  workers: 45
+                  note: "Dark Templar #1, with Forge FE, High Templar line"
+
+          - at: 7:35
+            make: Psionic Storm
+            instruction: Research Storm
+            description: Storm right behind the Templar.
+            sources:
+              - replays:
+                  players: 92
+                  at: 7:35
+                  range: 7:18-7:55
+                  supply: 64
+                  workers: 44
+                  note: with Forge FE, High Templar line
+
+  - title: The +1 speedlot timing
+    steps:
+      - at: Leg Enhancements 100%
+        or: 7:50
+        make: Zealot
+        use: true
+        instruction: Move out with the +1 speed Zealots
+        description: About 8 Zealots, with the Corsairs going for Overlords.
+        notes: >-
+          Khrane wants 7 or 8 Zealots with +1 and leg speed to arrive at the Zerg natural by
+          7:30, so he leaves at about 7:05: at 7:30 the Zerg has just enough Hydras to defend,
+          and 30 seconds later it can have a dozen more. PADOTUBE moves out when +1 and leg
+          speed finish, which in his build happens together. In the replays leg speed starts at
+          about 6:27 and takes about 84 seconds, so it finishes around 7:50, when +1 armor
+          starts (the earliest a single Forge is free); the eighth Zealot comes at about 7:30,
+          so most players hit around 7:30 to 8:00. Pick the weaker of the natural and the other
+          bases and pick off drones and Hydras; the Corsairs kill Overlords meanwhile. Keep the
+          Zealots outside the Zerg's reach afterwards so they can hit Hydras from behind, but
+          don't let them get trapped. If the Zerg commits to your natural, counterattack its
+          base.
+        sources:
+          - replays:
+              players: 380
+              at: 7:30
+              range: 6:57-8:21
+              supply: 64
+              workers: 42
+              note: "Zealot #8"
+          - replays:
+              players: 361
+              at: 7:50
+              range: 7:28-8:22
+              supply: 68
+              workers: 44
+              note: Protoss Ground Armor +1
+          - replays:
+              players: 395
+              at: 6:27
+              range: 5:56-7:13
+              supply: 50
+              workers: 36
+              note: Leg Enhancements
+          - youtube: https://youtu.be/WFt1reU1cCU?t=603
+            label: "Khrane: PvZ FFE into +1/+1 Opening"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=634
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/bkBgN_oUOKE?t=441
+            label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+
+      - at: 7:50
+        make:
+          upgrade: Protoss Ground Armor
+          label: +1 Armor
+        instruction: Research +1 armor
+        description: As soon as +1 weapons finishes.
+        notes: >-
+          PADOTUBE starts armor right after weapons if gas allows; Stork also goes +1 attack
+          then +1 armor.
+        sources:
+          - replays:
+              players: 361
+              at: 7:50
+              range: 7:28-8:22
+              supply: 68
+              workers: 44
+          - youtube: https://youtu.be/5wprChZSI-Y?t=634
+            label: "PADOTUBE: Forge double lecture, in detail"
+          - youtube: https://youtu.be/ew7GJM2SydM?t=553
+            label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+
+      - at: 7:55
+        make: Gateway
+        description: Fifth Gateway, and a sixth by about 8:15.
+        notes: >-
+          Add Gateways while the Zealots pressure, and get the Templar tech going behind them.
+          PADOTUBE cuts Probes again while his High Templar come out and goes up to 8.
+        sources:
+          - replays:
+              players: 365
+              at: 7:55
+              range: 7:20-8:35
+              supply: 67
+              workers: 45
+              note: "Gateway #5"
+          - replays:
+              players: 348
+              at: 8:13
+              range: 7:42-8:55
+              supply: 72
+              workers: 47
+              note: "Gateway #6"
+          - youtube: https://youtu.be/bkBgN_oUOKE?t=486
+            label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+          - youtube: https://youtu.be/5wprChZSI-Y?t=674
+            label: "PADOTUBE: Forge double lecture, in detail"
+
+  - title: Mid game
+    choose: What is the Zerg teching to?
+    options:
+      - id: vs-spire
+        label: Spire (Mutalisks)
+        read: The same read as before; Mutalisks or Scourge are out.
+        steps:
+          - at: 9:02
+            make: Gateway
+            description: Seventh Gateway at about 9:00, and 8 by about 9:20.
+            notes: >-
+              8 Gateways on two bases is the standard size; running them is tight on minerals,
+              so add a 9th or 10th only when money piles up.
+            sources:
+              - replays:
+                  players: 158
+                  at: 9:02
+                  range: 8:30-9:47
+                  supply: 84
+                  workers: 50
+                  note: "Gateway #7, vs 3 Hatch Spire"
+              - replays:
+                  players: 143
+                  at: 9:20
+                  range: 8:45-10:04
+                  supply: 88
+                  workers: 52
+                  note: "Gateway #8, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=471
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=982
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+
+          - at: 9:12
+            make: High Templar
+            description: Up to 4 High Templar by about 9:10.
+            notes: >-
+              Against Mutalisks, Dragoons stay close to protect the Templar. Stork leaves one
+              Templar slightly exposed near the Cannons as bait: the Mutalisks come in once, and
+              you move out after they are spent.
+            sources:
+              - replays:
+                  players: 152
+                  at: 9:12
+                  range: 8:26-10:07
+                  supply: 86
+                  workers: 50
+                  note: "High Templar #4, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=553
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+
+          - at: 9:19
+            make: Singularity Charge
+            instruction: Research Dragoon range
+            description: Dragoon range, then Dragoons.
+            notes: >-
+              Against a Mutalisk opening PADOTUBE gets range and Dragoons earlier, because the
+              Hydras will be late.
+            sources:
+              - replays:
+                  players: 143
+                  at: 9:19
+                  range: 8:43-10:01
+                  supply: 86
+                  workers: 50
+                  note: Singularity Charge, vs 3 Hatch Spire
+              - replays:
+                  players: 143
+                  at: 9:41
+                  range: 8:51-10:24
+                  supply: 92
+                  workers: 50
+                  note: "Dragoon #1, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=1443
+                label: "PADOTUBE: Forge double lecture, in detail"
+
+          - at: 9:41
+            make: 8 Dragoon
+            description: About 8 Dragoons between 9:40 and 10:20.
+            notes: >-
+              Keep Zealots and Dragoons in separate control groups, with the Dragoons in front.
+            sources:
+              - replays:
+                  players: 143
+                  at: 9:41
+                  range: 8:51-10:24
+                  supply: 92
+                  workers: 50
+                  note: "Dragoon #1, vs 3 Hatch Spire"
+              - replays:
+                  players: 130
+                  at: 10:22
+                  range: 9:48-11:08
+                  supply: 104
+                  workers: 52
+                  note: "Dragoon #8, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=941
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+
+          - at: 9:49
+            make: Robotics Facility
+            description: Then an Observatory at about 10:40, for Observers.
+            notes: >-
+              Stork gets his first Observer out so he is ready for Lurkers when they come.
+            sources:
+              - replays:
+                  players: 139
+                  at: 9:49
+                  range: 9:07-10:48
+                  supply: 96
+                  workers: 51
+                  note: "Robotics Facility #1, vs 3 Hatch Spire"
+              - replays:
+                  players: 111
+                  at: 10:38
+                  range: 10:13-11:38
+                  supply: 106
+                  workers: 52
+                  note: "Observatory #1, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=553
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+
+          - at: 10:57
+            make:
+              upgrade: Protoss Ground Armor
+              label: +2 Armor
+            instruction: Research +2 armor
+            description: +2 armor; a second Forge is rare against a Spire.
+            sources:
+              - replays:
+                  players: 107
+                  at: 10:57
+                  range: 10:28-11:29
+                  supply: 110
+                  workers: 52
+                  note: Protoss Ground Armor +2, vs 3 Hatch Spire
+              - replays:
+                  players: 42
+                  at: 10:50
+                  range: 8:27-11:41
+                  supply: 89
+                  workers: 50
+                  note: "Forge #2, vs 3 Hatch Spire"
+
+          - at: 11:02
+            make: Nexus
+            description: The third Nexus, taken by three in four players.
+            notes: >-
+              Khrane takes the third behind a push at about 12:00 with 1 or 2 groups of
+              Dragoons, 4 to 6 High Templar, Observers and Zealots, which often wins outright.
+              Stork attacks each time an upgrade finishes.
+            sources:
+              - replays:
+                  players: 119
+                  at: 11:02
+                  range: 9:56-11:57
+                  supply: 110
+                  workers: 52
+                  note: "Nexus #2, vs 3 Hatch Spire"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=754
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=1276
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+
+      - id: vs-3hatch-hydra
+        label: Hydralisks (Hydralisk Den, 3 or more Hatcheries)
+        read: The same read as before; Hydras, and Lurkers soon after.
+        steps:
+          - at: 8:26
+            make: Gateway
+            description: Seventh Gateway, and 8 by about 9:10.
+            notes: >-
+              8 Gateways on two bases, 9 or 10 once a third is up. Running 8 on two bases is
+              tight, so add more only when minerals pile up.
+            sources:
+              - replays:
+                  players: 117
+                  at: 8:26
+                  range: 7:51-9:06
+                  supply: 70
+                  workers: 47
+                  note: "Gateway #7, vs 3 Hatch Hydra"
+              - replays:
+                  players: 105
+                  at: 9:10
+                  range: 8:29-9:53
+                  supply: 80
+                  workers: 49
+                  note: "Gateway #8, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=471
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=982
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+
+          - at: 8:52
+            make: High Templar
+            description: Up to 4 High Templar by about 8:50.
+            notes: >-
+              Storm is the damage against Hydras, so save it for them. Storm Lurkers only when
+              it hits 2 or more, and Storm lings only when it also catches Hydras. Stork wins
+              the big fight with about 6 Templar; the moment just before Lurkers come out is the
+              best time to fight. Losing the Templar to Hydras usually loses the game.
+            sources:
+              - replays:
+                  players: 110
+                  at: 8:52
+                  range: 8:16-9:42
+                  supply: 80
+                  workers: 48
+                  note: "High Templar #4, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=969
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=505
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=775
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+
+          - at: 9:12
+            make: Singularity Charge
+            instruction: Research Dragoon range
+            description: Dragoon range, then Dragoons.
+            sources:
+              - replays:
+                  players: 99
+                  at: 9:12
+                  range: 8:36-9:55
+                  supply: 82
+                  workers: 50
+                  note: Singularity Charge, vs 3 Hatch Hydra
+              - replays:
+                  players: 108
+                  at: 9:30
+                  range: 8:39-10:07
+                  supply: 84
+                  workers: 50
+                  note: "Dragoon #1, vs 3 Hatch Hydra"
+
+          - at: 9:16
+            make: Robotics Facility
+            description: Earlier than against a Spire, for Observers against Lurkers.
+            notes: >-
+              A Hydra Zerg that stops moving is probably getting Lurkers, so Bisu gets the
+              Robotics Facility early. About 1 in 5 players also make a Shuttle.
+            sources:
+              - replays:
+                  players: 102
+                  at: 9:16
+                  range: 8:21-9:53
+                  supply: 83
+                  workers: 49
+                  note: "Robotics Facility #1, vs 3 Hatch Hydra"
+              - replays:
+                  players: 139
+                  at: 9:49
+                  range: 9:07-10:48
+                  supply: 96
+                  workers: 51
+                  note: "Robotics Facility #1, vs 3 Hatch Spire"
+              - replays:
+                  players: 24
+                  at: 9:08
+                  range: 8:23-10:16
+                  supply: 77
+                  workers: 48
+                  note: "Shuttle #1, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=518
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+
+          - at: 9:30
+            make: 8 Dragoon
+            description: About 8 Dragoons by 10:20, and an Observatory at about 10:35.
+            notes: >-
+              PADOTUBE makes one round of Zealots to save gas, then two rounds of Dragoons, and
+              moves out once each of his 4 Templar has energy for two Storms. Keep Zealots and
+              Dragoons in separate control groups, with the Dragoons in front.
+            sources:
+              - replays:
+                  players: 108
+                  at: 9:30
+                  range: 8:39-10:07
+                  supply: 84
+                  workers: 50
+                  note: "Dragoon #1, vs 3 Hatch Hydra"
+              - replays:
+                  players: 92
+                  at: 10:21
+                  range: 9:43-11:01
+                  supply: 98
+                  workers: 51
+                  note: "Dragoon #8, vs 3 Hatch Hydra"
+              - replays:
+                  players: 89
+                  at: 10:34
+                  range: 9:38-10:57
+                  supply: 96
+                  workers: 51
+                  note: "Observatory #1, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=780
+                label: "PADOTUBE: Forge double lecture, in detail"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=941
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+
+          - at: 10:56
+            make:
+              upgrade: Protoss Ground Armor
+              label: +2 Armor
+            instruction: Research +2 armor
+            description: +2 armor, with +2 weapons from the second Forge for about 4 in 10.
+            notes: >-
+              Stork attacks each time an upgrade finishes, and KhalaTV hits when the second
+              upgrades finish, before Defilers and adrenal lings. Never attack into Sunken
+              Colonies.
+            sources:
+              - replays:
+                  players: 73
+                  at: 10:56
+                  range: 10:21-11:25
+                  supply: 106
+                  workers: 51
+                  note: Protoss Ground Armor +2, vs 3 Hatch Hydra
+              - replays:
+                  players: 46
+                  at: 10:37
+                  range: 9:41-11:16
+                  supply: 95
+                  workers: 50
+                  note: Protoss Ground Weapons +2, vs 3 Hatch Hydra
+              - youtube: https://youtu.be/ew7GJM2SydM?t=1276
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=817
+                label: "KhalaTV: Forge double into a 2-Forge long game"
+
+          - at: 11:28
+            make: Nexus
+            description: The third Nexus, later here and taken by fewer players.
+            notes: >-
+              Only about 6 in 10 have a third by 12:00. Against Hydra speed and Lurkers, Jung
+              Yoon Jong absorbs the push before he expands, and against Hydras with no Hive he
+              says to play slowly: Dragoons and Templar win over time. KhalaTV takes the third
+              while he waits for +2/+2.
+            sources:
+              - replays:
+                  players: 64
+                  at: 11:28
+                  range: 10:21-12:17
+                  supply: 112
+                  workers: 51
+                  note: "Nexus #2, vs 3 Hatch Hydra"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=589
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=728
+                label: "KhalaTV: Forge double into a 2-Forge long game"
