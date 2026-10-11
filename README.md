@@ -63,6 +63,51 @@ steps:
       The deeper why. Hidden behind a "notes" toggle in the guide.
 ```
 
+### Stages and choices
+
+A guide can be written in **stages** instead of one `steps:` list. A stage is
+either shared (everyone plays it) or a **choice**: a question the reader
+answers, with a few options, each with its own steps. Paths split at a choice
+and rejoin at the next shared stage. Keep choices to the big forks (what the
+scout saw, what the opponent techs to); a guide is not a full decision tree.
+
+```yaml
+stages:
+  - title: Opener
+    steps:
+      - at: 8 supply
+        make: Pylon
+  - title: Against the Zerg opener
+    choose: What did your scout see?
+    options:
+      - id: pool-first # lowercase words joined by -
+        label: 9 pool / overpool
+        read: Lings arrive before the Nexus finishes # how you know (optional)
+        steps:
+          - at: Forge 100%
+            make: 2 Photon Cannon
+      - id: hatch-first
+        label: 12 hatch
+        steps:
+          - at: 14 supply
+            make: Nexus
+  - title: Tech # shared again: the paths rejoin
+    steps:
+      - at: Nexus 100%
+        make: Gateway
+```
+
+- The guide shows each choice as tabs under its stage title, and a bar at the
+  top with every choice on the path. The cheat sheet shows the picked path.
+- Options with the **same `id`** in two stages are one choice: picking it once
+  carries through. Use that to keep a path split across several stages.
+- A stage's title heads its steps, so the first step of a stage (or option)
+  has no `section:`. Later steps can still start sub-sections.
+- `Academy 100%` cues look back along the reader's path: within the option,
+  then earlier stages (the option with the same id, else the first option).
+- In the builder, **Split into stages** turns a guide's sections into stages;
+  **Make this a choice** turns a stage into options.
+
 ### Step fields
 
 | Field         | What it does                                                                                                                                                          |

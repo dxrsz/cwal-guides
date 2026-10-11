@@ -9,8 +9,10 @@
 		namesFor,
 		newStep,
 		syncStep,
+		stepLists,
 		type Article,
 		type Cue,
+		type RawStage,
 		type RawStep,
 		type SourceIn
 	} from './article';
@@ -31,12 +33,138 @@
 	};
 
 	const names = $derived(namesFor(myRace));
-	const steps = $derived(article.steps ?? []);
+
+	// ---- stages ----------------------------------------------------------------
+	// A guide in stages is edited one segment at a time: a shared stage, or one
+	// option of a choice. The step list below always edits the current segment.
+	let seg = $state({ si: 0, oi: 0 });
+	const stages = $derived(article.stages);
+	const stage = $derived<RawStage | undefined>(
+		stages?.[Math.min(seg.si, (stages?.length ?? 1) - 1)]
+	);
+	const segSteps = (): RawStep[] => {
+		if (!article.stages) return (article.steps ??= []);
+		const st = article.stages[seg.si];
+		if (!st) return [];
+		if (st.options) return ((st.options[seg.oi] ??= { steps: [] }).steps ??= []);
+		return (st.steps ??= []);
+	};
+	const steps = $derived.by(() => {
+		void seg.si;
+		void seg.oi;
+		void article.stages;
+		void article.steps;
+		return segSteps();
+	});
+	/** The yaml path of the current segment's step list, for matching errors. */
+	const segPath = $derived<(string | number)[]>(
+		!article.stages
+			? ['steps']
+			: stage?.options
+				? ['stages', seg.si, 'options', seg.oi, 'steps']
+				: ['stages', seg.si, 'steps']
+	);
+	const startsWith = (p: (string | number)[], pre: (string | number)[]) =>
+		pre.every((x, k) => p[k] === x);
+	const stageErrors = $derived(
+		article.stages
+			? errors.filter(
+					(e) =>
+						startsWith(e.path, ['stages', seg.si]) &&
+						!(e.path.includes('steps') && e.path.length > e.path.indexOf('steps') + 1)
+				)
+			: []
+	);
+	const goto = (si: number, oi = 0) => {
+		seg = { si, oi };
+		openIdx = null;
+	};
+	// An option's id follows its label until someone edits the id by hand.
+	const autoId = new WeakSet<object>();
+	const slug = (t: string) =>
+		t
+			.toLowerCase()
+			.replace(/[^a-z0-9]+/g, '-')
+			.replace(/^-|-$/g, '');
+	/** Turn a flat guide into stages, one per section (the first, if unnamed, is "Opener"). */
+	const splitIntoStages = () => {
+		const out: RawStage[] = [];
+		for (const st of article.steps ?? []) {
+			if (st.section || out.length === 0) {
+				out.push({ title: st.section || 'Opener', steps: [] });
+				delete st.section;
+			}
+			out[out.length - 1].steps!.push(st);
+		}
+		article.stages = out.length ? out : [{ title: 'Opener', steps: [newStep()] }];
+		delete article.steps;
+		goto(0);
+		onchange();
+	};
+	const addStage = (at: number) => {
+		(article.stages ??= []).splice(at, 0, { title: 'New stage', steps: [newStep()] });
+		goto(at);
+		onchange();
+	};
+	const removeStage = (si: number) => {
+		article.stages!.splice(si, 1);
+		goto(Math.max(0, si - 1));
+		onchange();
+	};
+	const moveStage = (si: number, d: number) => {
+		const list = article.stages!;
+		const j = si + d;
+		if (j < 0 || j >= list.length) return;
+		[list[si], list[j]] = [list[j], list[si]];
+		goto(j);
+		onchange();
+	};
+	const makeChoice = (st: RawStage) => {
+		st.choose = 'What do you see?';
+		st.options = [
+			{ id: 'option-1', label: 'Option 1', steps: st.steps ?? [newStep()] },
+			{ id: 'option-2', label: 'Option 2', steps: [newStep()] }
+		];
+		st.options.forEach((o) => autoId.add(o));
+		delete st.steps;
+		seg = { ...seg, oi: 0 };
+		onchange();
+	};
+	const makeShared = (st: RawStage) => {
+		st.steps = st.options?.[seg.oi]?.steps ?? [newStep()];
+		delete st.choose;
+		delete st.options;
+		seg = { ...seg, oi: 0 };
+		onchange();
+	};
+	const addOption = (st: RawStage) => {
+		const n = (st.options ??= []).length + 1;
+		const o = { id: `option-${n}`, label: `Option ${n}`, steps: [newStep()] };
+		autoId.add(o);
+		st.options.push(o);
+		seg = { ...seg, oi: n - 1 };
+		onchange();
+	};
+	const removeOption = (st: RawStage, oi: number) => {
+		st.options!.splice(oi, 1);
+		seg = { ...seg, oi: 0 };
+		onchange();
+	};
 
 	// Things built by earlier (non-use) steps: what a "when built" cue can wait on.
 	const builtBefore = (i: number): string[] => {
 		const seen: string[] = [];
-		for (const s of steps.slice(0, i)) {
+		// earlier stages along this path: shared steps, or the same option
+		// (by id) of an earlier choice, else its first option
+		const optId = stage?.options?.[seg.oi]?.id;
+		const prior = (article.stages ?? [])
+			.slice(0, seg.si)
+			.flatMap((st) =>
+				st.options
+					? ((st.options.find((o) => o.id === optId) ?? st.options[0])?.steps ?? [])
+					: (st.steps ?? [])
+			);
+		for (const s of [...prior, ...steps.slice(0, i)]) {
 			if (s.use) continue;
 			for (const it of s._items ?? []) {
 				const n = lookup(it.name)?.name;
@@ -46,7 +174,8 @@
 		return seen.reverse();
 	};
 
-	const stepErrors = (i: number) => errors.filter((e) => e.path[0] === 'steps' && e.path[1] === i);
+	const stepErrors = (i: number) =>
+		errors.filter((e) => startsWith(e.path, segPath) && e.path[segPath.length] === i);
 
 	const edit = (s: RawStep) => {
 		syncStep(s);
@@ -80,7 +209,7 @@
 		edit(s);
 	};
 
-	const ensure = () => (article.steps ??= []);
+	const ensure = segSteps;
 	const insert = (at: number) => {
 		const list = ensure();
 		const s = newStep();
@@ -323,6 +452,119 @@
 	</section>
 
 	<h3>Steps</h3>
+	{#if !stages}
+		<button class="add small" onclick={splitIntoStages}
+			>Split into stages <em>for choices: what the scout saw, what the opponent techs to</em
+			></button
+		>
+	{:else}
+		<div class="stagebar">
+			{#each stages as st, si (si)}
+				<div class="stagechip" class:current={si === seg.si}>
+					<button class="title" onclick={() => goto(si)}>{st.title || 'Untitled'}</button>
+					{#if st.options}
+						<div class="optchips">
+							{#each st.options as o, oi (oi)}
+								<button class:current={si === seg.si && oi === seg.oi} onclick={() => goto(si, oi)}
+									>{o.label || o.id || '…'}</button
+								>
+							{/each}
+						</div>
+					{/if}
+				</div>
+			{/each}
+			<button class="add small" onclick={() => addStage(stages.length)}>+ Stage</button>
+		</div>
+		{#if stage}
+			<div class="stagepanel">
+				<label class="field">
+					<span class="lbl">Stage title</span>
+					<input bind:value={stage.title} oninput={onchange} placeholder="Opener, Mid game…" />
+				</label>
+				{#if stage.options}
+					<label class="field">
+						<span class="lbl">The choice <em>the question the reader answers</em></span>
+						<input
+							bind:value={stage.choose}
+							oninput={onchange}
+							placeholder="What did your scout see?"
+						/>
+					</label>
+					{@const o = stage.options[seg.oi]}
+					{#if o}
+						<div class="optfields">
+							<label class="field">
+								<span class="lbl">Option</span>
+								<input
+									bind:value={o.label}
+									oninput={() => {
+										if (autoId.has(o)) o.id = slug(o.label ?? '');
+										onchange();
+									}}
+									placeholder="vs 9 pool"
+								/>
+							</label>
+							<label class="field">
+								<span class="lbl">Id <em>same id in another stage = same choice</em></span>
+								<input
+									bind:value={o.id}
+									oninput={() => {
+										autoId.delete(o);
+										onchange();
+									}}
+									placeholder="pool-first"
+								/>
+							</label>
+							<label class="field wide">
+								<span class="lbl">How you know</span>
+								<input
+									bind:value={o.read}
+									oninput={onchange}
+									placeholder="Lings arrive before the Nexus finishes"
+								/>
+							</label>
+						</div>
+					{/if}
+				{/if}
+				{#each stageErrors as e (e.message)}<p class="err">{e.message}</p>{/each}
+				<div class="tools">
+					{#if stage.options}
+						<button class="small" onclick={() => addOption(stage)}>+ Option</button>
+						{#if stage.options.length > 2}
+							<button class="small" onclick={() => removeOption(stage, seg.oi)}
+								>Remove this option</button
+							>
+						{/if}
+						<button class="small" onclick={() => makeShared(stage)}
+							>Make shared (keep this option)</button
+						>
+					{:else}
+						<button class="small" onclick={() => makeChoice(stage)}>Make this a choice</button>
+					{/if}
+					<button class="small" onclick={() => addStage(seg.si + 1)}>+ Stage after</button>
+					<span class="spacer"></span>
+					<button
+						class="icon"
+						title="Move stage up"
+						disabled={seg.si === 0}
+						onclick={() => moveStage(seg.si, -1)}>↑</button
+					>
+					<button
+						class="icon"
+						title="Move stage down"
+						disabled={seg.si === stages.length - 1}
+						onclick={() => moveStage(seg.si, 1)}>↓</button
+					>
+					<button
+						class="icon danger"
+						title="Delete stage"
+						disabled={stages.length === 1}
+						onclick={() => removeStage(seg.si)}>🗑</button
+					>
+				</div>
+			</div>
+		{/if}
+	{/if}
 	<ol class="steps">
 		{#each steps as s, i (s)}
 			{@const errs = stepErrors(i)}
@@ -740,6 +982,63 @@
 	}
 	.meta .add {
 		align-self: flex-start;
+	}
+	.stagebar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		align-items: flex-start;
+		margin-bottom: 8px;
+	}
+	.stagechip {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+		padding: 3px;
+		border-radius: 8px;
+		border: 1px solid var(--border);
+	}
+	.stagechip.current {
+		border-color: var(--accent);
+	}
+	.stagechip .title {
+		font-size: 0.72rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	.optchips {
+		display: flex;
+		gap: 3px;
+	}
+	.optchips button {
+		font-size: 0.72rem;
+	}
+	.optchips button.current {
+		background: var(--accent);
+		color: #0b0d10;
+	}
+	.stagepanel {
+		display: grid;
+		gap: 6px;
+		margin-bottom: 10px;
+		padding: 8px;
+		border-radius: 8px;
+		background: var(--bg-elev);
+		border: 1px solid var(--border);
+	}
+	.optfields {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 6px;
+	}
+	.optfields .wide {
+		grid-column: 1 / -1;
+	}
+	.stagepanel .err {
+		margin: 0;
+		font-size: 0.78rem;
+		color: var(--red, #f87171);
 	}
 	h3 {
 		margin: 6px 0 8px;

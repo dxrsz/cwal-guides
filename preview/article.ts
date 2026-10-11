@@ -38,6 +38,14 @@ export type SourceIn = {
 		note?: string;
 	};
 };
+/** A stage in its YAML shape: shared steps, or a choice between options. */
+export type RawOption = { id?: string; label?: string; read?: string; steps?: RawStep[] };
+export type RawStage = {
+	title?: string;
+	steps?: RawStep[];
+	choose?: string;
+	options?: RawOption[];
+};
 export type Article = {
 	title?: string;
 	matchup?: string;
@@ -47,7 +55,16 @@ export type Article = {
 	objective?: string;
 	references?: { youtube?: string; replay?: string; label?: string }[];
 	steps?: RawStep[];
+	stages?: RawStage[];
 };
+
+/** Every step list in an article: the flat list, or each stage's / option's. */
+export const stepLists = (a: Article): RawStep[][] =>
+	a.stages
+		? a.stages.flatMap((st) =>
+				st.options ? st.options.map((o) => (o.steps ??= [])) : [(st.steps ??= [])]
+			)
+		: [(a.steps ??= [])];
 
 /** YAML text -> article, or null if the text isn't a YAML mapping. */
 export const readArticle = (text: string): Article | null => {
@@ -67,7 +84,8 @@ const FIELD_ORDER = [
 	'tagline',
 	'objective',
 	'references',
-	'steps'
+	'steps',
+	'stages'
 ];
 const STEP_ORDER = [
 	'id',
@@ -99,20 +117,33 @@ const clean = (o: Record<string, unknown>, order: string[]) => {
 
 /** Article -> YAML in the same style as the published articles. */
 export const writeArticle = (a: Article): string => {
+	const step = (s: RawStep) => {
+		if (!s || typeof s !== 'object') return s;
+		const make = Array.isArray(s.make) && s.make.length === 1 ? s.make[0] : s.make;
+		const sources = s.sources?.map((x) =>
+			x.replays
+				? { replays: clean(x.replays, ['players', 'at', 'range', 'supply', 'workers', 'note']) }
+				: clean(x, ['youtube', 'replay', 'label'])
+		);
+		return clean({ ...s, make, sources }, STEP_ORDER);
+	};
 	const obj = clean(
 		{
 			...a,
 			references: a.references?.map((r) => clean(r, ['youtube', 'replay', 'label'])),
-			steps: a.steps?.map((s) => {
-				if (!s || typeof s !== 'object') return s;
-				const make = Array.isArray(s.make) && s.make.length === 1 ? s.make[0] : s.make;
-				const sources = s.sources?.map((x) =>
-					x.replays
-						? { replays: clean(x.replays, ['players', 'at', 'range', 'supply', 'workers', 'note']) }
-						: clean(x, ['youtube', 'replay', 'label'])
-				);
-				return clean({ ...s, make, sources }, STEP_ORDER);
-			})
+			steps: a.steps?.map(step),
+			stages: a.stages?.map((st) =>
+				clean(
+					{
+						...st,
+						steps: st.options ? undefined : st.steps?.map(step),
+						options: st.options?.map((o) =>
+							clean({ ...o, steps: o.steps?.map(step) }, ['id', 'label', 'read', 'steps'])
+						)
+					},
+					['title', 'choose', 'options', 'steps']
+				)
+			)
 		},
 		FIELD_ORDER
 	);
@@ -126,10 +157,14 @@ export const writeArticle = (a: Article): string => {
 			}
 		}
 	});
-	return doc
-		.toString({ lineWidth: 96, minContentWidth: 40, indent: 2, indentSeq: true })
-		.replace(/\n {2}- (section|at|id):/g, '\n\n  - $1:')
-		.replace(/steps:\n\n/, 'steps:\n');
+	return (
+		doc
+			.toString({ lineWidth: 96, minContentWidth: 40, indent: 2, indentSeq: true })
+			// a blank line before each step, stage and option, but not right
+			// under the key that opens the list
+			.replace(/\n( +)- (section|at|id|title):/g, '\n\n$1- $2:')
+			.replace(/:\n\n( +- )/g, ':\n$1')
+	);
 };
 
 // ---- cues ------------------------------------------------------------------
@@ -253,8 +288,9 @@ export const namesFor = (race: string | undefined): string[] => {
 /** Give each step the editor's working state (its cue and items as form
  *  fields), read from the article's own text. */
 export const hydrate = (a: Article): Article => {
-	if (!Array.isArray(a.steps)) return a;
-	for (const s of a.steps) {
+	if (a.stages !== undefined && !Array.isArray(a.stages)) return a;
+	if (a.stages === undefined && !Array.isArray(a.steps)) return a;
+	for (const s of stepLists(a).flat()) {
 		if (!s || typeof s !== 'object') continue;
 		s._at = readCue(s.at);
 		s._or = s.or == null ? null : readCue(s.or);

@@ -20,6 +20,9 @@ export type Trigger =
 			ofId?: number;
 			ofKind?: Produce['kind'];
 			ref?: string;
+			/** In a guide with choices, the step that builds X on each other path
+			 *  (`ref` is the default path's); the guide connects whichever is shown. */
+			alts?: string[];
 	  }
 	| { kind: 'immediate' }; // follows the previous step; use sparingly
 
@@ -101,5 +104,31 @@ export type BuildOrder = {
 	objective: string;
 	/** Links to the replays / videos the build comes from. */
 	references?: Reference[];
+	/** The steps along the default path: every shared stage, and the first
+	 *  option of every choice. A guide without stages is just this list. */
+	steps: Step[];
+	/** A guide written in stages: shared stretches, and choices where the
+	 *  reader picks what fits their game (what the scout saw, what the
+	 *  opponent teched to). Paths split at a choice and rejoin at the next
+	 *  shared stage. */
+	stages?: Stage[];
+};
+
+/** A stretch of the guide: the same for everyone, or a choice between options. */
+export type Stage = SharedStage | ChoiceStage;
+export type SharedStage = { title: string; steps: Step[] };
+export type ChoiceStage = {
+	title: string;
+	/** The question the reader answers, e.g. "What did your scout see?" */
+	choose: string;
+	options: StageOption[];
+};
+export type StageOption = {
+	/** Short and stable. Options with the same id in different stages are the
+	 *  same choice, so picking one carries it through the guide. */
+	id: string;
+	label: string;
+	/** How you know you're on this path ("lings arrive before the Nexus is done"). */
+	read?: string;
 	steps: Step[];
 };

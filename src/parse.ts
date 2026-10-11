@@ -6,7 +6,7 @@
 // mistake with the line it is on so the preview can point at it.
 import { LineCounter, parseDocument, isMap, type Node } from 'yaml';
 import { lev, lookup, suggest, type Kind } from './names';
-import type { BuildOrder, Produce, Reference, Source, Step, Trigger } from './types';
+import type { BuildOrder, Produce, Reference, Source, Stage, Step, Trigger } from './types';
 
 export type Issue = { message: string; line?: number; path: (string | number)[] };
 export type ParseResult = { build?: BuildOrder; errors: Issue[] };
@@ -19,7 +19,8 @@ const TOP_KEYS = [
 	'tagline',
 	'objective',
 	'references',
-	'steps'
+	'steps',
+	'stages'
 ];
 const STEP_KEYS = [
 	'id',
@@ -120,22 +121,113 @@ export function parseArticle(text: string): ParseResult {
 		}
 	}
 
-	// ---- steps -------------------------------------------------------------
-	const stepsIn = root.steps;
-	if (!Array.isArray(stepsIn) || stepsIn.length === 0) {
-		err(
-			stepsIn === undefined ? [] : ['steps'],
-			'An article needs a `steps:` list with at least one step.'
-		);
+	// ---- steps / stages ----------------------------------------------------
+	// Every step, flat, wherever it sits: a plain `steps:` list, or the steps
+	// of a stage or of one option of a choice stage. `seg` says which segment
+	// it belongs to (stage index, option id) so cues resolve along a path.
+	type Entry = { o: unknown; p: (string | number)[]; stage: number; opt?: string; first: boolean };
+	const entries: Entry[] = [];
+	type RawStage =
+		| { title: string; shared: number[] }
+		| {
+				title: string;
+				choose: string;
+				options: { id: string; label: string; read?: string; idx: number[] }[];
+		  };
+	const rawStages: RawStage[] = [];
+
+	const takeSteps = (
+		path: (string | number)[],
+		v: unknown,
+		stage: number,
+		opt?: string
+	): number[] => {
+		if (!Array.isArray(v) || v.length === 0) {
+			err(path, 'Needs a `steps:` list with at least one step.');
+			return [];
+		}
+		return v.map((o, k) => {
+			entries.push({ o, p: [...path, k], stage, opt, first: k === 0 });
+			return entries.length - 1;
+		});
+	};
+
+	if (root.stages !== undefined && root.steps !== undefined) {
+		err(['stages'], 'Use either `steps:` (one path) or `stages:`, not both.');
 		return { errors };
+	}
+	if (root.stages !== undefined) {
+		if (!Array.isArray(root.stages) || root.stages.length === 0) {
+			err(['stages'], '`stages` is a list of stages (each line starting with `- title:`).');
+			return { errors };
+		}
+		root.stages.forEach((st, si) => {
+			const p = ['stages', si];
+			if (!st || typeof st !== 'object' || Array.isArray(st)) {
+				err(p, 'Each stage has a `title:` and either `steps:` or `choose:` + `options:`.');
+				return;
+			}
+			const o = st as Record<string, unknown>;
+			for (const k of Object.keys(o))
+				if (!['title', 'steps', 'choose', 'options'].includes(k))
+					err(
+						[...p, k],
+						`Unknown stage field \`${k}\`.${hint(k, ['title', 'steps', 'choose', 'options'])}`
+					);
+			const title = str([...p, 'title'], o.title, true) ?? '';
+			if (o.choose === undefined && o.options === undefined) {
+				rawStages.push({ title, shared: takeSteps([...p, 'steps'], o.steps, si) });
+				return;
+			}
+			if (o.steps !== undefined)
+				err([...p, 'steps'], 'A choice stage keeps its steps inside each option.');
+			const choose = str([...p, 'choose'], o.choose, true) ?? '';
+			if (!Array.isArray(o.options) || o.options.length < 2) {
+				err([...p, 'options'], 'A choice needs at least two `options:`.');
+				return;
+			}
+			const seen = new Set<string>();
+			const options = o.options.flatMap((op, oi) => {
+				const q = [...p, 'options', oi];
+				if (!op || typeof op !== 'object' || Array.isArray(op)) {
+					err(q, 'Each option has an `id`, a `label` and `steps`.');
+					return [];
+				}
+				const oo = op as Record<string, unknown>;
+				for (const k of Object.keys(oo))
+					if (!['id', 'label', 'read', 'steps'].includes(k))
+						err(
+							[...q, k],
+							`Unknown option field \`${k}\`.${hint(k, ['id', 'label', 'read', 'steps'])}`
+						);
+				const id = str([...q, 'id'], oo.id, true) ?? '';
+				if (id && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(id))
+					err([...q, 'id'], 'An option `id` is lowercase words joined by `-`, like `hatch-first`.');
+				if (seen.has(id)) err([...q, 'id'], `Another option in this stage is already \`${id}\`.`);
+				seen.add(id);
+				const label = str([...q, 'label'], oo.label, true) ?? '';
+				const read = str([...q, 'read'], oo.read);
+				return [{ id, label, read, idx: takeSteps([...q, 'steps'], oo.steps, si, id) }];
+			});
+			rawStages.push({ title, choose, options });
+		});
+	} else {
+		const stepsIn = root.steps;
+		if (!Array.isArray(stepsIn) || stepsIn.length === 0) {
+			err(
+				stepsIn === undefined ? [] : ['steps'],
+				'An article needs a `steps:` list (or `stages:`) with at least one step.'
+			);
+			return { errors };
+		}
+		stepsIn.forEach((o, k) => entries.push({ o, p: ['steps', k], stage: -1, first: false }));
 	}
 
 	const steps: Step[] = [];
 	const raws: { at?: RawTrigger; or?: RawTrigger }[] = [];
 	const ids = new Set<string>();
 
-	stepsIn.forEach((s, i) => {
-		const p = ['steps', i];
+	entries.forEach(({ o: s, p, first, stage }) => {
 		if (!s || typeof s !== 'object' || Array.isArray(s)) {
 			err(p, 'Each step is a set of fields starting with `- at: …`.');
 			steps.push({ trigger: { kind: 'immediate' } });
@@ -157,7 +249,15 @@ export function parseArticle(text: string): ParseResult {
 			step.id = id;
 		}
 		const section = str([...p, 'section'], o.section);
-		if (section) step.section = section;
+		if (section && first)
+			err(
+				[...p, 'section'],
+				'The first step of a stage is headed by the stage title; drop `section:` here.'
+			);
+		else if (section) step.section = section;
+		// A stage's title heads its first step (and each option's first step),
+		// so any path through the guide reads with its stage titles.
+		if (first && stage >= 0) step.section = rawStages[stage]?.title;
 
 		const raw: { at?: RawTrigger; or?: RawTrigger } = {};
 		if (o.at === undefined)
@@ -198,6 +298,31 @@ export function parseArticle(text: string): ParseResult {
 		steps.push(step);
 	});
 
+	// What comes before a step on a path through the guide, nearest first:
+	// earlier steps of its own segment, then earlier stages. In an earlier
+	// choice it looks in the option with the same id (a linked choice), else
+	// the first option, the default path.
+	const segOf = (gi: number) =>
+		entries
+			.filter((e) => e.stage === entries[gi].stage && e.opt === entries[gi].opt)
+			.map((e) => entries.indexOf(e));
+	const before = (gi: number): number[] => {
+		const e = entries[gi];
+		if (e.stage < 0) return Array.from({ length: gi }, (_, k) => gi - 1 - k);
+		const own = segOf(gi);
+		const out = own.slice(0, own.indexOf(gi)).reverse();
+		for (let si = e.stage - 1; si >= 0; si--) {
+			const st = rawStages[si];
+			if (!st) continue;
+			const idx =
+				'shared' in st
+					? st.shared
+					: ((st.options.find((op) => op.id === e.opt) ?? st.options[0])?.idx ?? []);
+			out.push(...[...idx].reverse());
+		}
+		return out;
+	};
+
 	// ---- resolve cues ------------------------------------------------------
 	// A percent cue points back at the most recent earlier step that *builds*
 	// the thing it waits on (or the step named with `@id`), so the guide can
@@ -210,30 +335,31 @@ export function parseArticle(text: string): ParseResult {
 	): Trigger | undefined => {
 		if (!t) return undefined;
 		if (t.kind !== 'percent') return t;
-		const p = ['steps', i, field];
+		const p = [...entries[i].p, field];
 		const hit = lookup(t.name);
+		const earlier = before(i);
 		let target = -1;
 		if (t.at) {
 			target = steps.findIndex((s) => s.id === t.at);
 			if (target < 0) err(p, `No step has \`id: ${t.at}\`.`);
-			else if (target >= i) err(p, `\`@${t.at}\` must point at an earlier step.`);
+			else if (!earlier.includes(target))
+				err(p, `\`@${t.at}\` must point at an earlier step on the same path.`);
 		} else if (hit) {
-			for (let j = i - 1; j >= 0; j--) {
-				if (steps[j].use) continue;
-				if (steps[j].produce?.some((pr) => pr.kind === hit.kind && pr.id === hit.id)) {
-					target = j;
-					break;
-				}
-			}
+			target =
+				earlier.find(
+					(j) =>
+						!steps[j].use &&
+						steps[j].produce?.some((pr) => pr.kind === hit.kind && pr.id === hit.id)
+				) ?? -1;
 		}
 		if (!hit && target < 0) {
 			err(p, `Don't know "${t.name}".${didYouMean(t.name)}`);
 			return { kind: 'percent', percent: t.percent, of: t.name };
 		}
-		const prod =
-			target >= 0 && target < i
-				? steps[target].produce?.find((pr) => !hit || (pr.kind === hit.kind && pr.id === hit.id))
-				: undefined;
+		const ok = target >= 0 && earlier.includes(target);
+		const prod = ok
+			? steps[target].produce?.find((pr) => !hit || (pr.kind === hit.kind && pr.id === hit.id))
+			: undefined;
 		const kind = prod?.kind ?? hit!.kind;
 		const out: Trigger = {
 			kind: 'percent',
@@ -242,9 +368,31 @@ export function parseArticle(text: string): ParseResult {
 			ofId: prod?.id ?? hit!.id
 		};
 		if (kind !== 'building') out.ofKind = kind;
-		if (target >= 0 && target < i) {
+		if (ok) {
 			if (!steps[target].id) steps[target].id = keyOf(target);
 			out.ref = steps[target].id;
+		}
+		// After a choice, the thing waited on may be built in every option: note
+		// each option's builder so any path can draw its connector.
+		if (hit && !t.at && entries[i].stage >= 0) {
+			const alts: string[] = [];
+			for (let si = entries[i].stage - 1; si >= 0; si--) {
+				const st = rawStages[si];
+				if (!st || 'shared' in st) continue;
+				for (const op of st.options) {
+					const j = [...op.idx]
+						.reverse()
+						.find(
+							(k) =>
+								!steps[k].use &&
+								steps[k].produce?.some((pr) => pr.kind === hit.kind && pr.id === hit.id)
+						);
+					if (j === undefined || j === target || !before(i).length) continue;
+					if (!steps[j].id) steps[j].id = keyOf(j);
+					alts.push(steps[j].id!);
+				}
+			}
+			if (alts.length) out.alts = alts;
 		}
 		return out;
 	};
@@ -254,6 +402,27 @@ export function parseArticle(text: string): ParseResult {
 		const or = resolve(i, 'or', raws[i].or);
 		if (or) s.altTrigger = or;
 	});
+
+	// Stages, and the default path (shared stages + each choice's first option).
+	let stages: Stage[] | undefined;
+	let path: Step[] = steps;
+	if (rawStages.length) {
+		stages = rawStages.map((st) =>
+			'shared' in st
+				? { title: st.title, steps: st.shared.map((i) => steps[i]) }
+				: {
+						title: st.title,
+						choose: st.choose,
+						options: st.options.map((op) => ({
+							id: op.id,
+							label: op.label,
+							...(op.read ? { read: op.read } : {}),
+							steps: op.idx.map((i) => steps[i])
+						}))
+					}
+		);
+		path = stages.flatMap((st) => ('steps' in st ? st.steps : (st.options[0]?.steps ?? [])));
+	}
 
 	errors.sort((a, b) => (a.line ?? 0) - (b.line ?? 0));
 	if (errors.length || !title || !matchup || !objective) return { errors };
@@ -269,7 +438,8 @@ export function parseArticle(text: string): ParseResult {
 	if (tagline) build.tagline = tagline;
 	build.objective = objective;
 	if (references.length) build.references = references;
-	build.steps = steps;
+	build.steps = path;
+	if (stages) build.stages = stages;
 	return { build, errors };
 }
 

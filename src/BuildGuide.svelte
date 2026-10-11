@@ -1,173 +1,76 @@
 <script lang="ts">
-	import { tick, untrack } from 'svelte';
-	import BuildStep from './BuildStep.svelte';
+	import { untrack } from 'svelte';
+	import BuildBoard, { type BoardChoice } from './BuildBoard.svelte';
 	import BuildCheatSheet from './BuildCheatSheet.svelte';
+	import { choicesOn, defaultPath, pathIds, pick, stepsOn, type Path } from './path';
 	import type { BuildOrder } from './types';
 
 	// `backHref` is the "All builds" link; null hides it (the preview site has
 	// no browse page to go back to).
 	// `view` is bindable so a host (the preview site) can drive the toggle.
+	// `syncUrl` keeps the picked path in the page url (`?path=…`), so a shared
+	// link opens the same path; hosts with their own routing leave it off.
 	let {
 		build,
 		backHref = '/builds',
-		view = $bindable('guide')
-	}: { build: BuildOrder; backHref?: string | null; view?: 'guide' | 'sheet' } = $props();
+		view = $bindable('guide'),
+		syncUrl = false
+	}: {
+		build: BuildOrder;
+		backHref?: string | null;
+		view?: 'guide' | 'sheet';
+		syncUrl?: boolean;
+	} = $props();
 
-	// The route remounts this component via {#key} on every slug change, so `build`
-	// never changes for a given instance. Snapshot the step list once for the
-	// init-time sizing arrays below (untrack documents that the fixed capture is
-	// intentional, not a missed reactive dependency).
-	const steps = untrack(() => build.steps);
+	// The route remounts this component via {#key} on every slug change, so
+	// `build` never changes for a given instance.
+	const fromUrl = () =>
+		syncUrl && typeof location !== 'undefined'
+			? (new URLSearchParams(location.search).get('path') ?? '').split(',').filter(Boolean)
+			: [];
+	let path = $state<Path>(untrack(() => defaultPath(build, fromUrl())));
+	const steps = $derived(stepsOn(build, path));
+	const choices = $derived(choicesOn(build, path));
+	const pathKey = $derived(JSON.stringify(path));
+	const boardChoices = $derived<BoardChoice[]>(
+		choices.map((c) => ({
+			si: c.si,
+			at: c.at,
+			question: c.stage.choose,
+			options: c.stage.options.map((o) => ({ id: o.id, label: o.label })),
+			picked: c.picked,
+			read: c.stage.options.find((o) => o.id === c.picked)?.read
+		}))
+	);
+	// The cheat sheet has no tabs; its section titles say which option is shown.
+	const sheetBuild = $derived<BuildOrder>({
+		...build,
+		steps: steps.map((s, i) => {
+			const c = choices.find((x) => x.at === i);
+			const label = c?.stage.options.find((o) => o.id === c.picked)?.label;
+			return c && label ? { ...s, section: `${c.stage.title}: ${label}` } : s;
+		})
+	});
 
-	// `view`: 'guide' is the in-depth build order; 'sheet' is the minified cheat sheet.
-
-	type Link = { d: string; buildKey: string; cueKey: string };
-
-	let board: HTMLDivElement | undefined = $state();
-	const cardEls: (HTMLElement | undefined)[] = $state(steps.map(() => undefined));
-
-	// Layout output, filled by measure(): a top offset + dot y for each step, the
-	// board height, and the connector paths.
-	let tops = $state<number[]>(steps.map(() => 0));
-	let dotYs = $state<number[]>(steps.map(() => 12));
-	let sectionTops = $state<{ title: string; top: number }[]>([]);
-	let boardH = $state(0);
-	let centerX = $state(0);
-	let links = $state<Link[]>([]);
-	let hover = $state<string | null>(null); // the step key under the cursor
-	let narrow = $state(false);
-	let measured = $state(false); // hide the board until the first pack, no flash
-
-	const stepKey = (i: number) => build.steps[i].id ?? `s${i}`;
-	const sideOf = (i: number): 'left' | 'right' => (build.steps[i].use ? 'right' : 'left');
-	const dotClass = (i: number) => build.steps[i].trigger.kind;
-	const indexOfKey = new Map(steps.map((s, i) => [stepKey(i), i]));
-
-	// Coupled masonry. Each column (build / do-this) packs tightly on its own, but
-	// a shared cursor keeps game order: the next beat — whichever side — sits just
-	// below THIS beat's header, not below its note. A long note therefore bleeds
-	// down past the opposite column (they never share a horizontal half) instead
-	// of reserving that height on both sides. The result stays dense but ordered.
-	const GAP = 16; // min gap between two cards in the same column
-	const ORDER_GAP = 14; // how far the next beat drops below this beat's header
-	const SECTION_GAP = 30; // space above a section divider (not the first)
-	const SECTION_BAND = 44; // vertical room a divider reserves before its steps
-
-	const measure = async () => {
-		const el = board;
-		if (!el) return;
-		await tick();
-		const bw = el.clientWidth;
-		narrow = bw < 720;
-		const cx = narrow ? 6 : bw / 2;
-		centerX = cx;
-
-		const colY = { left: 0, right: 0 };
-		let cursor = 0;
-		const nextTops = build.steps.map(() => 0);
-		const nextDots = build.steps.map(() => 12);
-		const nextSections: { title: string; top: number }[] = [];
-
-		build.steps.forEach((_, i) => {
-			const node = cardEls[i];
-			const card = node?.querySelector('.card') as HTMLElement | null;
-			if (!node || !card) return;
-
-			// Section boundary: flush both columns to a common baseline, reserve a
-			// band for the divider, and start the section clean below it. This also
-			// stops a long note in one section from bleeding into the next.
-			const secTitle = build.steps[i].section;
-			if (secTitle) {
-				const base = Math.max(colY.left, colY.right, cursor);
-				const bandTop = i === 0 ? 0 : base + SECTION_GAP;
-				nextSections.push({ title: secTitle, top: bandTop + SECTION_BAND / 2 });
-				const after = bandTop + SECTION_BAND;
-				colY.left = after;
-				colY.right = after;
-				cursor = after;
-			}
-
-			const side = narrow ? 'left' : sideOf(i);
-			// Measure the card, not the node: the card is absolutely positioned, so
-			// the node itself has no height. header = card top down to the bottom of
-			// the action row (the ordered beat); full = whole card including any note
-			// hanging below it.
-			const cardTop = card.getBoundingClientRect().top;
-			const action = card.querySelector('.action') as HTMLElement | null;
-			const cue = card.querySelector('.cue') as HTMLElement | null;
-			const fullH = card.offsetHeight;
-			const headerH = action ? action.getBoundingClientRect().bottom - cardTop : fullH;
-			const cueMid = cue ? cue.getBoundingClientRect().top - cardTop + cue.offsetHeight / 2 : 12;
-
-			const top = narrow ? cursor : Math.max(colY[side], cursor);
-			nextTops[i] = top;
-			nextDots[i] = top + cueMid;
-			colY[side] = top + fullH + GAP;
-			cursor = top + (narrow ? fullH : headerH) + (narrow ? GAP : ORDER_GAP);
-		});
-
-		tops = nextTops;
-		dotYs = nextDots;
-		sectionTops = nextSections;
-		boardH = Math.max(colY.left, colY.right) - GAP;
-
-		// Connectors: each `@N%` cue points back up to the step that builds the
-		// thing it waits on. Both dots sit on the centre spine; bow just into the
-		// channel beside it so the line never crosses a card body.
-		const out: Link[] = [];
-		build.steps.forEach((s, i) => {
-			if (s.trigger.kind !== 'percent' || !s.trigger.ref) return;
-			const bi = indexOfKey.get(s.trigger.ref);
-			if (bi === undefined) return;
-			const by = nextDots[bi];
-			const cy = nextDots[i];
-			const bx = cx - 12;
-			out.push({
-				buildKey: s.trigger.ref,
-				cueKey: stepKey(i),
-				d: `M ${cx} ${cy} C ${bx} ${cy}, ${bx} ${by}, ${cx - 7} ${by}`
-			});
-		});
-		links = out;
-		measured = true;
-	};
-
-	const activeKeys = $derived.by(() => {
-		const s = new Set<string>();
-		if (hover) {
-			for (const l of links) {
-				if (l.buildKey === hover || l.cueKey === hover) {
-					s.add(l.buildKey);
-					s.add(l.cueKey);
-				}
-			}
+	// Switching an option re-lays the board; keep the clicked tabs where they
+	// were on screen so the page doesn't jump.
+	let anchor: { si: number; top: number } | null = null;
+	const choose = (si: number, id: string, el?: HTMLElement) => {
+		const box = el?.closest('.choice') as HTMLElement | null;
+		anchor = box ? { si, top: box.getBoundingClientRect().top } : null;
+		path = pick(build, path, si, id);
+		if (syncUrl && typeof history !== 'undefined') {
+			const u = new URL(location.href);
+			u.searchParams.set('path', pathIds(path).join(','));
+			history.replaceState(history.state, '', u);
 		}
-		return s;
-	});
-	const linkActive = (l: Link) => hover !== null && (l.buildKey === hover || l.cueKey === hover);
-
-	// Re-runs whenever the guide is (re)shown: switching to the cheat sheet and
-	// back re-creates the board, so the layout must be re-measured each time.
-	$effect(() => {
-		if (view !== 'guide' || !board) return;
-		measured = false;
-		measure();
-		const relayout = () => measure();
-		const ro = new ResizeObserver(relayout);
-		ro.observe(board);
-		// content reflow (font load, wrapping) changes card heights → re-pack.
-		// Observe the .card (the node is a zero-height positioning anchor).
-		cardEls.forEach((c) => {
-			const card = c?.querySelector('.card');
-			if (card) ro.observe(card);
-		});
-		const imgs = Array.from(board.querySelectorAll('img'));
-		imgs.forEach((im) => im.addEventListener('load', relayout));
-		return () => {
-			ro.disconnect();
-			imgs.forEach((im) => im.removeEventListener('load', relayout));
-		};
-	});
+	};
+	const restoreScroll = () => {
+		if (!anchor || typeof document === 'undefined') return;
+		const box = document.querySelector(`.choice[data-si="${anchor.si}"]`);
+		if (box) window.scrollBy(0, box.getBoundingClientRect().top - anchor.top);
+		anchor = null;
+	};
 </script>
 
 <div class="page">
@@ -197,6 +100,19 @@
 		>
 	</div>
 
+	{#if choices.length}
+		<div class="pathbar" aria-label="Your path">
+			{#each choices as c (c.si)}
+				<label>
+					<span>{c.stage.title}</span>
+					<select value={c.picked} onchange={(e) => choose(c.si, e.currentTarget.value)}>
+						{#each c.stage.options as o (o.id)}<option value={o.id}>{o.label}</option>{/each}
+					</select>
+				</label>
+			{/each}
+		</div>
+	{/if}
+
 	{#if build.references?.length}
 		<div class="refs">
 			{#each build.references as ref (ref.url)}
@@ -209,7 +125,7 @@
 	{/if}
 
 	{#if view === 'sheet'}
-		<BuildCheatSheet {build} />
+		<BuildCheatSheet build={sheetBuild} />
 	{:else}
 		<section class="objective">
 			<h2>Objective</h2>
@@ -222,70 +138,14 @@
 			<span class="lg percent">when built</span>
 		</div>
 
-		{#if !narrow}
-			<div class="cols">
-				<span class="cap left">Build</span>
-				<span></span>
-				<span class="cap right">Tasks</span>
-			</div>
-		{/if}
-
-		<div
-			class="board"
-			class:narrow
-			class:ready={measured}
-			bind:this={board}
-			style="height:{boardH}px"
-		>
-			<div class="spine" style="left:{centerX}px"></div>
-
-			{#each sectionTops as sec (sec.title + sec.top)}
-				<div class="section" class:narrow style="top:{sec.top}px">
-					<span class="section-title" style="left:{centerX}px">{sec.title}</span>
-				</div>
-			{/each}
-
-			<svg class="links" aria-hidden="true">
-				<defs>
-					<marker id="arw" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-						<path d="M0,0 L6,3 L0,6 Z" fill="var(--green)" />
-					</marker>
-				</defs>
-				{#each links as l (l.buildKey + l.cueKey)}
-					<path
-						d={l.d}
-						class:active={linkActive(l)}
-						class:dim={hover !== null && !linkActive(l)}
-						fill="none"
-						stroke="var(--green)"
-						stroke-width="2"
-						marker-end="url(#arw)"
-					/>
-				{/each}
-			</svg>
-
-			{#each build.steps as step, i (i)}
-				<div
-					class="node {sideOf(i)}"
-					class:active={activeKeys.has(stepKey(i))}
-					data-step-id={stepKey(i)}
-					style="top:{tops[i]}px"
-					bind:this={cardEls[i]}
-					onmouseenter={() => (hover = stepKey(i))}
-					onmouseleave={() => (hover = null)}
-					role="listitem"
-				>
-					<span
-						class="dot {dotClass(i)}"
-						class:hollow={step.use}
-						style="left:{centerX}px; top:{dotYs[i] - tops[i]}px"
-					></span>
-					<div class="card">
-						<BuildStep {step} side={narrow ? 'right' : sideOf(i)} />
-					</div>
-				</div>
-			{/each}
-		</div>
+		{#key pathKey}
+			<BuildBoard
+				{steps}
+				choices={boardChoices}
+				onpick={(si, id, el) => choose(si, id, el)}
+				onmeasured={restoreScroll}
+			/>
+		{/key}
 	{/if}
 </div>
 
@@ -468,182 +328,37 @@
 		background: var(--green);
 	}
 
-	.cols {
-		display: grid;
-		grid-template-columns: 1fr 44px 1fr;
-		align-items: center;
-		margin-bottom: 8px;
+	/* the picked path at a glance (and the cheat sheet's only way to switch) */
+	.pathbar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 16px;
+		margin: 0 0 20px;
+		padding: 10px 14px;
+		border-radius: var(--radius);
+		background: var(--bg-elev);
+		border: 1px solid var(--border);
 	}
-	.cap {
-		font-size: 0.66rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
+	.pathbar label {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 0.78rem;
 		color: var(--text-3);
 	}
-	.cap.left {
-		text-align: right;
-		padding-right: 4px;
+	.pathbar span {
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-size: 0.66rem;
 	}
-	.cap.right {
-		text-align: left;
-		padding-left: 4px;
-	}
-
-	/* the coupled-masonry board: cards are absolutely positioned from measured
-	   heights, so a note on one side never reserves height on the other. */
-	.board {
-		position: relative;
-		opacity: 0;
-	}
-	.board.ready {
-		opacity: 1;
-		transition: opacity 0.12s;
-	}
-	.spine {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 2px;
-		transform: translateX(-1px);
-		background: var(--border);
-	}
-	/* a section divider: a full-width rule with a centred title pill on the spine.
-	   above the connector layer (z-index 2) so a cross-section connector passes
-	   behind the divider and its opaque title pill, not over the text. */
-	.section {
-		position: absolute;
-		left: 0;
-		right: 0;
-		height: 0;
-		border-top: 1px solid var(--border-strong);
-		z-index: 3;
-	}
-	.section-title {
-		position: absolute;
-		top: 0;
-		transform: translate(-50%, -50%);
-		padding: 3px 14px;
-		border-radius: 999px;
+	.pathbar select {
+		font: inherit;
+		font-size: 0.84rem;
+		color: var(--text);
 		background: var(--bg);
 		border: 1px solid var(--border-strong);
-		color: var(--text-2);
-		font-size: 0.66rem;
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		white-space: nowrap;
-	}
-	.section.narrow .section-title {
-		transform: translate(0, -50%);
-		left: 22px !important;
-	}
-
-	.links {
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		overflow: visible;
-		pointer-events: none;
-		z-index: 2;
-	}
-	.links path {
-		opacity: 0.5;
-		transition:
-			opacity 0.15s,
-			stroke-width 0.15s;
-	}
-	.links path.active {
-		opacity: 1;
-		stroke-width: 3;
-	}
-	.links path.dim {
-		opacity: 0.12;
-	}
-
-	.node {
-		position: absolute;
-		left: 0;
-		right: 0;
-	}
-	.card {
-		position: absolute;
-		width: min(400px, calc(50% - 34px));
-	}
-	.node.left .card {
-		right: calc(50% + 14px);
-	}
-	.node.right .card {
-		left: calc(50% + 14px);
-	}
-	.card :global(.step) {
-		padding: 6px;
-		border-radius: var(--radius);
-		transition:
-			background 0.15s,
-			box-shadow 0.15s;
-	}
-
-	.dot {
-		position: absolute;
-		z-index: 3;
-		width: 12px;
-		height: 12px;
-		border-radius: 50%;
-		background: var(--tracked);
-		box-shadow: 0 0 0 3px var(--bg);
-		transform: translateX(-50%);
-	}
-	.dot.supply {
-		background: var(--link);
-	}
-	.dot.time {
-		background: var(--accent);
-	}
-	.dot.percent {
-		background: var(--green);
-	}
-	.dot.hollow {
-		width: 8px;
-		height: 8px;
-		background: var(--bg);
-		border: 2px solid var(--text-3);
-	}
-
-	.node.active .card :global(.step) {
-		background: color-mix(in srgb, var(--green) 9%, transparent);
-		box-shadow: 0 0 0 1px color-mix(in srgb, var(--green) 45%, transparent);
-	}
-	.node.active .dot {
-		box-shadow:
-			0 0 0 3px var(--bg),
-			0 0 8px 1px var(--green);
-	}
-
-	/* Narrow: one left-railed column. measure() stacks everything on the left and
-	   forces cards left-aligned; here we just re-place the card box and un-mirror
-	   the build cards' internal alignment. */
-	.board.narrow .card {
-		width: calc(100% - 24px);
-		left: 24px;
-		right: auto;
-	}
-	.board.narrow .card :global(.step.left) {
-		flex-direction: row;
-		text-align: left;
-	}
-	.board.narrow .card :global(.step.left .cue),
-	.board.narrow .card :global(.step.left .labels) {
-		align-items: flex-start;
-	}
-	.board.narrow .card :global(.step.left .action) {
-		flex-direction: row;
-	}
-	.board.narrow .card :global(.step.left .note.attached) {
-		padding-left: 10px;
-		padding-right: 0;
-		border-left: 2px solid var(--cue);
-		border-right: none;
+		border-radius: 6px;
+		padding: 3px 6px;
 	}
 </style>
