@@ -8,8 +8,8 @@ objective: >-
   and the right Cannon count hold every common Zerg opener except a 4 or 5 pool. Then a
   Stargate, +1 weapons and a Citadel go down, and the first Corsair finds out whether the Zerg
   is going Spire or Hydralisks. Against a Spire the Stargate keeps working and +1 speed Zealots
-  hit at about 7:30 with five or six Corsairs on the Overlords. Against Hydras you stop at a
-  Corsair or two and hold behind Cannons, more Gateways and Storm. In both, the Templar Archives
+  hit at about 7:30 with five or six Corsairs on the Overlords. Against Hydras you make only a
+  few Corsairs and hold behind Cannons, more Gateways and Storm. In both, the Templar Archives
   gives you a choice: a Dark Templar first, or Storm first with more Gateways. The game then
   grows into an 8-Gateway Zealot, Dragoon and High Templar army on about 52 Probes, with a third
   Nexus near 11:00. In our replay set 585 players open this way against Zerg; the pros among
@@ -59,7 +59,7 @@ stages:
           There is no fixed wall: lay out your own sim-city (the Pylon, Forge, Gateway and
           Cannon placed to close most of the natural's entrance) on each map so it holds both
           Zerglings and a later Hydralisk push. Keep one Pylon building ahead of supply for the
-          whole game; the guide lists each one up to about 12:00.
+          whole game; the guide lists each one up to the seventh, at about 7:00.
         sources:
           - replays:
               players: 585
@@ -199,10 +199,10 @@ stages:
               - youtube: https://youtu.be/kbo2QGOtVIg?t=139
                 label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
 
-          - at: 13 supply
+          - at: next
             or: 2:23
             make: Photon Cannon
-            description: Right after the Nexus, then Probes up to 15.
+            description: Right after the Nexus, still at 13 supply; then Probes up to 15.
             notes: >-
               The tightest window of the build is until this Cannon finishes: if the first lings
               arrive, body-block the wall gap with a Probe. Coaches split on six lings. Bisu
@@ -248,13 +248,13 @@ stages:
             make: Gateway
             description: At the natural, completing the wall.
             notes: >-
-              This is your only Gateway until about 6:20. Keep watching the Zerg while it goes
-              up. If drones come out of the larvae after the lings leave, it made only six lings
-              and you can play comfortably. Six lings plus gas means ling speed is coming, so
-              keep a unit placed for lings that run past the Cannon. Four lings chasing your
-              Probe may be a bluff hiding a Hydra or Lair follow-up, but if the Zerg also left
-              two main larvae unused it can still be a ling all-in, so watch the natural
-              entrance.
+              This is your only Gateway until about 6:00 to 6:30, depending on the Templar line.
+              Keep watching the Zerg while it goes up. If drones come out of the larvae after
+              the lings leave, it made only six lings and you can play comfortably. Six lings
+              plus gas means ling speed is coming, so keep a unit placed for lings that run past
+              the Cannon. Four lings chasing your Probe may be a bluff hiding a Hydra or Lair
+              follow-up, but if the Zerg also left two main larvae unused it can still be a ling
+              all-in, so watch the natural entrance.
             sources:
               - replays:
                   players: 364
@@ -270,6 +270,20 @@ stages:
                   supply: 48
                   workers: 36
                   note: "Gateway #2, vs Overpool"
+              - replays:
+                  players: 54
+                  at: 6:06
+                  range: 5:34-6:32
+                  supply: 49
+                  workers: 36
+                  note: "Gateway #2, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
+                  players: 123
+                  at: 6:25
+                  range: 5:51-6:49
+                  supply: 54
+                  workers: 38
+                  note: "Gateway #2, vs 3 Hatch Spire, with Forge FE Dark Templar line"
               - youtube: https://youtu.be/WFt1reU1cCU?t=196
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
               - youtube: https://youtu.be/5wprChZSI-Y?t=315
@@ -328,7 +342,7 @@ stages:
               - youtube: https://youtu.be/xcPC_BqNiFw?t=119
                 label: "BISUTUBE: Bisu's Forge double for PvZ"
 
-          - at: 14 supply
+          - at: next
             or: 2:15
             make: Photon Cannon
             description: A second Cannon right behind the first.
@@ -398,10 +412,10 @@ stages:
               - youtube: https://youtu.be/bkBgN_oUOKE?t=55
                 label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-          - at: 16 supply
+          - at: next
             or: 2:58
             make: Gateway
-            description: With the main gas close behind.
+            description: Right after the Nexus, at about 16 supply, with the main gas close behind.
             notes: >-
               Gas and Gateway go up together so your tech keeps pace with the Zerg. From here
               the build is the standard one, only later: Core about 3:45, Stargate about 4:35,
@@ -527,14 +541,23 @@ stages:
             instruction: Short Probe cut at about 17 for the Core
             description: About 25 seconds without Probes while the Core and first Zealot go down.
             notes: >-
-              About 4 in 10 players take this second cut after a 9 pool; the Cannons cost the
-              money that would otherwise cover the Core. Resume as soon as the Core is placed.
+              About 4 in 10 players take this second cut after a 9 pool, just after the main gas
+              goes down (about 3:19 at 17 supply in these games, later than the next stage's
+              time); the Cannons cost the money that would otherwise cover the Core. Resume as
+              soon as the Core is placed.
             sources:
               - replays:
                   players: 38
                   at: 3:26
                   range: 3:19-3:43
                   note: Worker Pause@19, vs 9 Pool
+              - replays:
+                  players: 89
+                  at: 3:19
+                  range: 3:14-3:29
+                  supply: 17
+                  workers: 16
+                  note: "Assimilator #1, vs 9 Pool"
               - replays:
                   players: 85
                   at: 2:15
@@ -663,10 +686,10 @@ stages:
                   workers: 15
                   note: "Pylon #2, vs Overpool"
 
-          - at: 16 supply
-            or: 2:49
+          - at: Nexus 25%
+            or: 2:48
             make: Gateway
-            description: At the natural, before the first Cannon.
+            description: At the natural, a quarter of the way into the Nexus, before the first Cannon.
             sources:
               - replays:
                   players: 44
@@ -690,10 +713,11 @@ stages:
                   workers: 17
                   note: "Photon Cannon #1, vs 12 Hatch"
 
-          - at: 18 supply
+          - at: Pylon 100%
             or: 3:04
             make: Photon Cannon
-            description: The first Cannon, about 40 seconds later than against a pool.
+            description: The first Cannon as the main Pylon finishes, about 40 seconds later than against a
+              pool.
             notes: >-
               With no early pool there is time for the Gateway first, and the Cannon still beats
               the first lings. If it is killed or you cancel it while it builds, put it straight
@@ -837,16 +861,19 @@ stages:
           - youtube: https://youtu.be/WFt1reU1cCU?t=540
             label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-      - at: 22 supply
+      - at: Gateway 100%
         or: 3:42
         make: Zealot
-        description: First Zealot; a second at about 4:14, and 4 by about 5:20.
+        instruction: Keep the Gateway making Zealots
+        description: One after another from the first Gateway, about 5 by 5:40.
         notes: >-
-          Run the first Zealot into the Zerg base to see what it is making, Hydralisk Den or
-          Lair. Even with no damage done, early Zealot pokes make the Zerg build lings instead
-          of drones. Only fight where it trades well, and pull back once the extra lings show
-          up: getting the Zealots trapped is the worst outcome. More lings and ling speed after
-          a two-Zealot poke points to a Lair.
+          Keep the Gateway busy until you have about 5 Zealots; after that it is fine to let it
+          sit idle for a while as gas goes into Corsairs and tech. Run the first Zealot into the
+          Zerg base to see what it is making, Hydralisk Den or Lair. Even with no damage done,
+          early Zealot pokes make the Zerg build lings instead of drones. Only fight where it
+          trades well, and pull back once the extra lings show up: getting the Zealots trapped
+          is the worst outcome. More lings and ling speed after a two-Zealot poke points to a
+          Lair.
         sources:
           - replays:
               players: 584
@@ -856,19 +883,17 @@ stages:
               workers: 18
               note: "Zealot #1"
           - replays:
-              players: 580
-              at: 4:14
-              range: 4:03-4:25
-              supply: 28
-              workers: 22
-              note: "Zealot #2"
+              players: 584
+              at: 3:42
+              range: 3:33-3:51
+              note: Zealot production
           - replays:
-              players: 559
-              at: 5:19
-              range: 5:03-5:44
-              supply: 40
-              workers: 30
-              note: "Zealot #4"
+              players: 544
+              at: 5:53
+              range: 5:34-6:29
+              supply: 46
+              workers: 33
+              note: "Zealot #5"
           - youtube: https://youtu.be/esOAfXH7Xy4?t=259
             label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
           - youtube: https://youtu.be/ew7GJM2SydM?t=200
@@ -937,13 +962,13 @@ stages:
           - youtube: https://youtu.be/ew7GJM2SydM?t=990
             label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-      - at: 33 supply
+      - at: Stargate 50%
         or: 4:47
         make:
           upgrade: Protoss Ground Weapons
           label: +1 Attack
         instruction: Research +1 ground weapons
-        description: At the Forge, just after the Stargate.
+        description: At the Forge, about halfway through the Stargate.
         notes: >-
           Nearly everyone gets ground +1 here. KhalaTV calls Stargate then ground weapons the
           standard order (weapons first only if your gas started early); Jung Yoon Jong takes
@@ -1162,18 +1187,27 @@ stages:
                   range: 8:11-9:13
                   note: Worker Pause@53, vs 3 Hatch Spire
 
-          - at: 5:41
-            make: 2 Corsair
-            description: Corsairs 2 and 3, the third at about 6:10.
+          - at: Corsair 100%
+            or: 5:40
+            make: Corsair
+            instruction: Keep the Stargate making Corsairs
+            description: One after another until about 7:30, about 6 in all; Probes take short cuts
+              meanwhile.
             notes: >-
-              Keep the Stargate busy: about 9 in 10 players have 3 Corsairs by about 6:10 and 8
-              in 10 have 4 by about 6:40, and Khrane and KhalaTV keep producing them. PADOTUBE
-              is the exception: even after confirming the Spire he stops at two, as a signal
-              that puts the Zerg off Mutalisks rather than a force to hunt them. Corsairs are
-              the lifeline: keep them away from Scourge, though trading one for 2 Scourge and 2
-              Overlords is fine. Stack them on a Probe trapped behind your minerals to clump
-              them. About 1 in 6 players adds a second Stargate at about 5:50 for a mass-Corsair
-              game with a later Archives.
+              The Stargate stays busy about nine-tenths of the time from the first Corsair to
+              the sixth, and almost nobody keeps Probes going nonstop through it: that is what
+              the short Probe cuts in this and the next stages pay for. About 9 in 10 have 3
+              Corsairs by about 6:10 and 8 in 10 have 4 by about 6:40. In the Dark Templar line
+              8 in 10 reach 5 by about 7:05 and 7 in 10 a sixth at about 7:35, with air +1 for 8
+              in 10; the Storm line stops a little sooner (5 for 7 in 10, 6 for 6 in 10). Khrane
+              and KhalaTV keep producing them, and Khrane waits for five +1 Corsairs before
+              going in, because five can fight small Scourge groups. PADOTUBE is the exception:
+              even after confirming the Spire he stops at two, as a signal that puts the Zerg
+              off Mutalisks rather than a force to hunt them. Corsairs are the lifeline: keep
+              them away from Scourge, though trading one for 2 Scourge and 2 Overlords is fine.
+              Stack them on a Probe trapped behind your minerals to clump them. About 1 in 6
+              players adds a second Stargate at about 5:50 for a mass-Corsair game with a later
+              Archives.
             sources:
               - replays:
                   players: 251
@@ -1182,6 +1216,18 @@ stages:
                   supply: 45
                   workers: 33
                   note: "Corsair #2, vs 3 Hatch Spire"
+              - replays:
+                  players: 257
+                  at: 5:09
+                  range: 5:04-5:22
+                  note: Corsair production, vs 3 Hatch Spire
+              - replays:
+                  players: 178
+                  at: 7:34
+                  range: 7:19-7:57
+                  supply: 70
+                  workers: 44
+                  note: "Corsair #6, vs 3 Hatch Spire"
               - replays:
                   players: 241
                   at: 6:09
@@ -1197,16 +1243,51 @@ stages:
                   workers: 39
                   note: "Corsair #4, vs 3 Hatch Spire"
               - replays:
+                  players: 99
+                  at: 7:05
+                  range: 6:53-7:23
+                  supply: 64
+                  workers: 42
+                  note: "Corsair #5, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 82
+                  at: 7:35
+                  range: 7:21-7:57
+                  supply: 71
+                  workers: 44
+                  note: "Corsair #6, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 98
+                  at: 5:19
+                  range: 5:04-5:41
+                  supply: 41
+                  workers: 31
+                  note: Protoss Air Weapons +1, vs 3 Hatch Spire, with Forge FE Dark Templar line
+              - replays:
+                  players: 37
+                  at: 7:03
+                  range: 6:51-7:15
+                  supply: 65
+                  workers: 42
+                  note: "Corsair #5, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
+                  players: 33
+                  at: 7:32
+                  range: 7:21-7:57
+                  supply: 72
+                  workers: 45
+                  note: "Corsair #6, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
                   players: 44
                   at: 5:52
                   range: 5:28-6:26
                   supply: 44
                   workers: 33
                   note: "Stargate #2, vs 3 Hatch Spire"
-              - youtube: https://youtu.be/5wprChZSI-Y?t=1270
-                label: "PADOTUBE: Forge double lecture, in detail"
               - youtube: https://youtu.be/WFt1reU1cCU?t=454
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=1270
+                label: "PADOTUBE: Forge double lecture, in detail"
               - youtube: https://youtu.be/bkBgN_oUOKE?t=346
                 label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
               - replay: https://cwal.gg/viewer?match=MM-37923B1A-BD62-11F1-A71E-FA167AEAB62F
@@ -1214,9 +1295,45 @@ stages:
               - replay: https://cwal.gg/viewer?match=MM-16A45636-A55C-11F1-866E-FA167B5461B6
                 label: Example replay
 
+          - at: 44 supply
+            or: 5:42
+            make: 2 Pylon
+            description: Pylons 5 and 6, the second at about 51 supply (about 6:15).
+            notes: >-
+              Nearly every player builds both, while the Stargate keeps making Corsairs. The
+              seventh comes in the Templar Archives choice.
+            sources:
+              - replays:
+                  players: 270
+                  at: 5:42
+                  range: 5:29-5:58
+                  supply: 44
+                  workers: 33
+                  note: "Pylon #5, vs 3 Hatch Spire"
+              - replays:
+                  players: 266
+                  at: 6:15
+                  range: 5:56-6:37
+                  supply: 51
+                  workers: 36
+                  note: "Pylon #6, vs 3 Hatch Spire"
+              - replays:
+                  players: 257
+                  at: 5:09
+                  range: 5:04-5:22
+                  note: Corsair production, vs 3 Hatch Spire
+              - replays:
+                  players: 262
+                  at: 6:47
+                  range: 6:33-7:08
+                  supply: 58
+                  workers: 40
+                  note: "Pylon #7, vs 3 Hatch Spire"
+
           - at: 5:53
             make: Photon Cannon
-            description: The second Cannon, in a mineral line; skip it after a 9 pool.
+            description: "After an overpool or hatch first: the second Cannon, in a mineral line. After a 9
+              pool you already have it; skip this step."
             notes: >-
               On seeing the Spire, PADOTUBE adds a Cannon in the main and ideally one at the
               natural, and Stork puts one in the mineral line in case of Lair. These come later
@@ -1224,7 +1341,6 @@ stages:
               a 9 pool your two early Cannons already cover this one. Against a 2-hatch Spire,
               put this Cannon and one in the other mineral line down by about 5:35, and start
               Dragoons by about 6:20; few pro games show this Zerg, so treat the times as rough.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 264
@@ -1265,8 +1381,6 @@ stages:
                 label: "PADOTUBE: Forge double lecture, in detail"
               - youtube: https://youtu.be/ew7GJM2SydM?t=484
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 6:00
             make: Probe
@@ -1348,7 +1462,8 @@ stages:
         steps:
           - at: 5:18
             make: Photon Cannon
-            description: The second Cannon at the natural; skip it after a 9 pool.
+            description: "After an overpool or hatch first: the second Cannon, at the natural. After a 9
+              pool you already have it; skip this step."
             notes: >-
               Put it down the moment you see Hydra signs, so it is building before the 5:30 bust
               window. After a 9 pool your two early Cannons already cover it. More Cannons
@@ -1413,16 +1528,19 @@ stages:
                   range: 5:26-5:51
                   note: Worker Pause@34, vs 3 Hatch Hydra, with Forge FE High Templar line
 
-          - at: 5:45
+          - at: Corsair 100%
+            or: 5:44
             make: Corsair
-            description: Stop at one or two Corsairs, and skip air +1.
+            description: One more Corsair, plus a third if you will go Dark Templar first; skip air +1.
             notes: >-
-              Only about 6 in 10 make a second Corsair and 3 in 10 a third; about a third get
-              air +1. KhalaTV cancels the Corsair and air weapons when Hydras show up, and Stork
-              stops making Corsairs once he confirms them. The one exception is a greedy Zerg on
-              four or five Hatcheries with no Lair: with no Lair there is no Spire and so no
-              Scourge yet, and KhalaTV keeps going to about three Corsairs to hunt Overlords.
-              The Corsairs you have hunt Overlords behind the Hydras.
+              How many depends on the Templar line you take next. Of the players who go Dark
+              Templar first, about 8 in 10 make this second Corsair and half a third; of those
+              who go Storm first, about half make a second and only 1 in 5 a third. About a
+              third get air +1. KhalaTV cancels the Corsair and air weapons when Hydras show up,
+              and Stork stops making Corsairs once he confirms them. The one exception is a
+              greedy Zerg on four or five Hatcheries with no Lair: with no Lair there is no
+              Spire and so no Scourge yet, and KhalaTV keeps going to about three Corsairs to
+              hunt Overlords. The Corsairs you have hunt Overlords behind the Hydras.
             sources:
               - replays:
                   players: 120
@@ -1432,6 +1550,13 @@ stages:
                   workers: 33
                   note: "Corsair #2, vs 3 Hatch Hydra"
               - replays:
+                  players: 22
+                  at: 6:26
+                  range: 6:04-9:01
+                  supply: 55
+                  workers: 38
+                  note: "Corsair #3, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - replays:
                   players: 76
                   at: 5:17
                   range: 4:58-5:43
@@ -1439,12 +1564,26 @@ stages:
                   workers: 31
                   note: Protoss Air Weapons +1, vs 3 Hatch Hydra
               - replays:
-                  players: 60
-                  at: 6:43
-                  range: 6:09-8:18
-                  supply: 54
+                  players: 34
+                  at: 5:40
+                  range: 5:32-6:23
+                  supply: 45
+                  workers: 33
+                  note: "Corsair #2, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - replays:
+                  players: 28
+                  at: 5:45
+                  range: 5:38-5:57
+                  supply: 46
+                  workers: 33
+                  note: "Corsair #2, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - replays:
+                  players: 10
+                  at: 7:04
+                  range: 6:27-8:07
+                  supply: 56
                   workers: 38
-                  note: "Corsair #3, vs 3 Hatch Hydra"
+                  note: "Corsair #3, vs 3 Hatch Hydra, with Forge FE High Templar line"
               - youtube: https://youtu.be/ew7GJM2SydM?t=1116
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
               - youtube: https://youtu.be/kbo2QGOtVIg?t=348
@@ -1452,12 +1591,13 @@ stages:
               - youtube: https://youtu.be/bkBgN_oUOKE?t=325
                 label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-          - at: 5:54
+          - at: 45 supply
+            or: 5:53
             make: 2 Pylon
             description: Pylons 5 and 6, the second at about 6:35.
             notes: >-
               Spread the Pylons that power your Cannons and Forge, so one sniped Pylon doesn't
-              shut the defence down.
+              shut the defence down. The seventh comes in the Templar Archives choice.
             sources:
               - replays:
                   players: 204
@@ -1473,6 +1613,13 @@ stages:
                   supply: 50
                   workers: 37
                   note: "Pylon #6, vs 3 Hatch Hydra"
+              - replays:
+                  players: 181
+                  at: 7:15
+                  range: 6:49-7:38
+                  supply: 57
+                  workers: 40
+                  note: "Pylon #7, vs 3 Hatch Hydra"
               - youtube: https://youtu.be/ew7GJM2SydM?t=990
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
@@ -1488,9 +1635,11 @@ stages:
           players get a Dark Templar against a Spire, and the pros' records in the two lines are
           close.
         steps:
-          - at: 6:15
+          - at: next
+            or: 6:15
             make: Templar Archives
-            description: About 20 seconds earlier than in the Storm line, and before the second Gateway.
+            description: Right after leg speed, about 20 seconds earlier than in the Storm line, and before
+              the second Gateway.
             notes: >-
               Khrane wants the Archives down by 6:30 at the latest so Templar are out in time
               for a 4- or 5-hatch Hydra counter. PADOTUBE builds it with the minerals that pile
@@ -1524,7 +1673,8 @@ stages:
               - youtube: https://youtu.be/ew7GJM2SydM?t=1074
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-          - at: 6:25
+          - at: next
+            or: 6:25
             make: Gateway
             description: The second Gateway, just after the Archives; from here both Gateways produce
               Zealots.
@@ -1588,20 +1738,28 @@ stages:
                   range: 6:18-6:47
                   note: Worker Pause@40, vs 3 Hatch Spire, with Forge FE Dark Templar line
 
-          - at: 6:36
-            make: 2 Corsair
-            description: Corsairs 4 and 5, by about 7:05.
-            notes: >-
-              This line keeps the Stargate going hardest, and 8 in 10 have air +1. Khrane waits
-              for five +1 Corsairs before going in, because five can fight small Scourge groups.
+          - at: 58 supply
+            or: 6:44
+            make: Pylon
+            description: The seventh Pylon. From here, keep building Pylons ahead of supply; the guide stops
+              listing them.
             sources:
               - replays:
-                  players: 105
-                  at: 6:36
-                  range: 6:25-6:50
+                  players: 121
+                  at: 6:44
+                  range: 6:33-7:02
                   supply: 58
                   workers: 40
-                  note: "Corsair #4, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+                  note: "Pylon #7, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=410
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+
+          - at: 7:00
+            make: Probe
+            use: true
+            instruction: About 41 Probes
+            description: Still two bases and two gases; the Stargate is still making Corsairs.
+            sources:
               - replays:
                   players: 99
                   at: 7:05
@@ -1609,25 +1767,6 @@ stages:
                   supply: 64
                   workers: 42
                   note: "Corsair #5, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - replays:
-                  players: 98
-                  at: 5:19
-                  range: 5:04-5:41
-                  supply: 41
-                  workers: 31
-                  note: Protoss Air Weapons +1, vs 3 Hatch Spire, with Forge FE Dark Templar line
-              - youtube: https://youtu.be/WFt1reU1cCU?t=710
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
-
-          - at: 7:00
-            make: Probe
-            use: true
-            instruction: About 41 Probes
-            description: Still two bases and two gases.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
-            sources:
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: Templar Archives 100%
             or: 7:02
@@ -1669,9 +1808,17 @@ stages:
               - youtube: https://youtu.be/bkBgN_oUOKE?t=302
                 label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-          - at: 7:20
+          - at: next
+            or: 7:20
             make: High Templar
-            description: The first High Templar, with a second at about 7:43.
+            instruction: Make High Templar
+            description: Right after the Dark Templar, a first round of 3 or 4, by about 8:50.
+            notes: >-
+              Most players keep the Gateways busy with Templar for this round, then switch back
+              to Zealots. Against Mutalisks, Dragoons stay close to protect the Templar. Stork
+              leaves one Templar slightly exposed near the Cannons as bait: the Mutalisks come
+              in once, and you move out after they are spent. About 4 in 10 merge two Templar
+              into an Archon at about 9:00.
             sources:
               - replays:
                   players: 117
@@ -1681,20 +1828,43 @@ stages:
                   workers: 43
                   note: "High Templar #1, vs 3 Hatch Spire, with Forge FE Dark Templar line"
               - replays:
-                  players: 114
-                  at: 7:43
-                  range: 7:20-8:09
-                  supply: 70
-                  workers: 46
-                  note: "High Templar #2, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+                  players: 106
+                  at: 8:36
+                  range: 7:50-9:02
+                  supply: 78
+                  workers: 49
+                  note: "High Templar #3, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 99
+                  at: 8:51
+                  range: 8:20-9:36
+                  supply: 84
+                  workers: 50
+                  note: "High Templar #4, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 117
+                  at: 7:20
+                  range: 7:02-7:39
+                  note: High Templar production, vs 3 Hatch Spire, with Forge FE Dark Templar line
+              - replays:
+                  players: 42
+                  at: 9:05
+                  range: 8:18-11:10
+                  supply: 84
+                  workers: 49
+                  note: "Archon #1, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=553
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
       - id: storm-first
         label: Storm first
         read: >-
-          Your call. It leans on more Gateways, Storm and Archons rather than a Dark Templar, so
-          it suits a Zerg you expect to switch to Hydras: Khrane wants Templar out in time for a
-          4- or 5-hatch Hydra counter. Players on this line also start Leg earlier (see the Leg
-          step).
+          Your call. It trades the Dark Templar for more Gateways sooner: the second Gateway
+          goes down before the Archives and there are four by about 7:30, so more Zealots are on
+          the field for the +1 hit, and two in three players make an Archon by about 8:25 (about
+          4 in 10 on the Dark Templar line, later). The Templar and Storm come only a few
+          seconds after the Dark Templar line's. Players on this line also start Leg earlier
+          (see the Leg step).
         steps:
           - at: 6:06
             make: Gateway
@@ -1762,29 +1932,25 @@ stages:
               - youtube: https://youtu.be/WFt1reU1cCU?t=582
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-          - at: 6:35
-            make: 2 Corsair
-            description: Corsairs 4 and 5 for about 7 in 10, by about 7:03.
+          - at: 58 supply
+            or: 6:42
+            make: Pylon
+            description: The seventh Pylon. From here, keep building Pylons ahead of supply; the guide stops
+              listing them.
             sources:
               - replays:
-                  players: 40
-                  at: 6:34
-                  range: 6:23-6:57
+                  players: 54
+                  at: 6:42
+                  range: 6:25-6:54
                   supply: 58
                   workers: 40
-                  note: "Corsair #4, vs 3 Hatch Spire, with Forge FE High Templar line"
-              - replays:
-                  players: 37
-                  at: 7:03
-                  range: 6:51-7:15
-                  supply: 65
-                  workers: 42
-                  note: "Corsair #5, vs 3 Hatch Spire, with Forge FE High Templar line"
+                  note: "Pylon #7, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=410
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 6:44
             make: Photon Cannon
             description: The third Cannon, in a mineral line that has none yet.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 52
@@ -1795,8 +1961,6 @@ stages:
                   note: "Photon Cannon #3, vs 3 Hatch Spire, with Forge FE High Templar line"
               - youtube: https://youtu.be/5wprChZSI-Y?t=568
                 label: "PADOTUBE: Forge double lecture, in detail"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 7:00
             make: Probe
@@ -1805,11 +1969,15 @@ stages:
             description: Still two bases and two gases.
 
           - at: 7:17
-            make: 2 Gateway
-            description: Gateways 3 and 4, by about 7:29.
+            make: 6 Gateway
+            instruction: Add six more Gateways, two at a time
+            description: Two at a time as money allows, to 4 by about 7:30, 6 by about 8:15 and 8 by about
+              9:00.
             notes: >-
-              Nearly every player in this line builds 4 Gateways, half of them by about 7:30.
-              Khrane adds two Gateways to reach four once his first 7 or 8 Zealots are out.
+              Nearly every player in this line builds 4 Gateways, half of them by about 7:30,
+              and 8 in 10 reach 8. Khrane adds two Gateways to reach four once his first 7 or 8
+              Zealots are out. 8 Gateways on two bases is the standard size; Bisu goes to 10
+              once a third base is up.
             sources:
               - replays:
                   players: 54
@@ -1825,14 +1993,31 @@ stages:
                   supply: 67
                   workers: 44
                   note: "Gateway #4, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
+                  players: 52
+                  at: 8:12
+                  range: 7:44-8:43
+                  supply: 76
+                  workers: 48
+                  note: "Gateway #6, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
+                  players: 43
+                  at: 9:00
+                  range: 8:31-9:53
+                  supply: 85
+                  workers: 52
+                  note: "Gateway #8, vs 3 Hatch Spire, with Forge FE High Templar line"
               - youtube: https://youtu.be/WFt1reU1cCU?t=646
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=758
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
 
           - at: 7:18
             make: Probe
             use: true
             instruction: Short Probe cut at about 43
-            description: About 30 seconds without Probes while Pylons 8 and 9 and the first Templar go down.
+            description: About 30 seconds without Probes while two more Pylons and the first Templar go
+              down.
             notes: >-
               More than half of players on this line take it. Resume once the Templar are paid
               for.
@@ -1845,11 +2030,13 @@ stages:
 
           - at: Templar Archives 100%
             or: 7:25
-            make: 2 High Templar
-            description: Two High Templar as soon as the Archives finishes.
+            make: High Templar
+            instruction: Make High Templar
+            description: Two at once as the Archives finishes, then two more, 4 by about 8:25.
             notes: >-
-              Khrane starts with two Templar; PADOTUBE builds Pylons first and goes to four. If
-              gas is short, make one fewer Templar rather than delay Storm.
+              Most players keep the Gateways on Templar for this round, then switch back to
+              Zealots. Khrane starts with two Templar; PADOTUBE builds Pylons first and goes to
+              four. If gas is short, make one fewer Templar rather than delay Storm.
             sources:
               - replays:
                   players: 54
@@ -1865,6 +2052,18 @@ stages:
                   supply: 71
                   workers: 45
                   note: "High Templar #2, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
+                  players: 47
+                  at: 8:22
+                  range: 7:57-9:12
+                  supply: 80
+                  workers: 50
+                  note: "High Templar #4, vs 3 Hatch Spire, with Forge FE High Templar line"
+              - replays:
+                  players: 54
+                  at: 7:25
+                  range: 7:12-7:45
+                  note: High Templar production, vs 3 Hatch Spire, with Forge FE High Templar line
               - youtube: https://youtu.be/WFt1reU1cCU?t=646
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
               - youtube: https://youtu.be/5wprChZSI-Y?t=634
@@ -1877,8 +2076,11 @@ stages:
       - id: dt-first
         label: Dark Templar first
         read: >-
-          Your call. Bisu's answer to a Hydra read is 4 Gateways, armor, then one Dark Templar
-          and one High Templar.
+          Your call. Pick it against a greedy Hydra Zerg, no Lair yet on four or five
+          Hatcheries, that you want to punish with a Dark Templar (KhalaTV's plan); against a
+          Zerg that looks ready to bust your natural, Storm first is the safer line. Bisu's
+          answer to a Hydra read is the same shape: 4 Gateways, armor, then one Dark Templar and
+          one High Templar.
         steps:
           - at: 6:00
             make: Probe
@@ -1892,9 +2094,11 @@ stages:
               - youtube: https://youtu.be/kbo2QGOtVIg?t=375
                 label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
 
-          - at: 6:10
+          - at: Citadel of Adun 100%
+            or: 6:10
             make: Templar Archives
-            description: The earliest Archives of any line, before the second Gateway and third Cannon.
+            description: As the Citadel finishes, the earliest Archives of any line, before the second
+              Gateway and third Cannon.
             notes: >-
               About half of this line also makes a third Corsair, at about 6:26. Khrane's
               6:30-at-the-latest rule is about exactly this Zerg: a 4- or 5-hatch Hydra
@@ -1938,7 +2142,8 @@ stages:
               - youtube: https://youtu.be/WFt1reU1cCU?t=582
                 label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-          - at: 6:15
+          - at: next
+            or: 6:15
             make: Gateway
             description: The second Gateway, right after the Archives.
             notes: >-
@@ -2087,6 +2292,22 @@ stages:
                   workers: 36
                   note: "Photon Cannon #3, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
 
+          - at: 58 supply
+            or: 7:01
+            make: Pylon
+            description: The seventh Pylon. From here, keep building Pylons ahead of supply; the guide stops
+              listing them.
+            sources:
+              - replays:
+                  players: 40
+                  at: 7:01
+                  range: 6:44-7:23
+                  supply: 58
+                  workers: 41
+                  note: "Pylon #7, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=410
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+
           - at: Templar Archives 100%
             or: 7:02
             make: Dark Templar
@@ -2094,7 +2315,6 @@ stages:
             notes: >-
               KhalaTV punishes a greedy no-Lair Hydra Zerg with Zealots or a Dark Templar drop.
               The rest of your army stays home behind the Cannons.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 42
@@ -2114,8 +2334,60 @@ stages:
                 label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
               - youtube: https://youtu.be/xcPC_BqNiFw?t=429
                 label: "BISUTUBE: Bisu's Forge double for PvZ"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
+
+          - at: next
+            or: 7:25
+            make: [ High Templar, Psionic Storm ]
+            instruction: Make High Templar and research Storm
+            description: About 20 seconds after the Dark Templar, the first Templar and Storm together; 3 or
+              4 Templar by about 8:30.
+            notes: >-
+              Most players keep the Gateways on Templar for this round, then switch back to
+              Zealots or Dragoons. Save Storm for the Hydras. Storm Lurkers only when it catches
+              2 or more, and lings only when it also hits Hydras.
+            sources:
+              - replays:
+                  players: 41
+                  at: 7:25
+                  range: 7:03-7:53
+                  supply: 60
+                  workers: 42
+                  note: "High Templar #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - replays:
+                  players: 39
+                  at: 7:38
+                  range: 7:03-7:59
+                  supply: 60
+                  workers: 44
+                  note: Psionic Storm, vs 3 Hatch Hydra, with Forge FE Dark Templar line
+              - replays:
+                  players: 42
+                  at: 7:02
+                  range: 6:17-7:23
+                  supply: 54
+                  workers: 40
+                  note: "Dark Templar #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - replays:
+                  players: 35
+                  at: 8:21
+                  range: 7:50-8:37
+                  supply: 70
+                  workers: 46
+                  note: "High Templar #3, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - replays:
+                  players: 31
+                  at: 8:32
+                  range: 8:01-8:55
+                  supply: 75
+                  workers: 48
+                  note: "High Templar #4, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - replays:
+                  players: 41
+                  at: 7:25
+                  range: 7:03-7:53
+                  note: High Templar production, vs 3 Hatch Hydra, with Forge FE Dark Templar line
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=969
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
       - id: storm-first
         label: Storm first
@@ -2146,24 +2418,13 @@ stages:
               - youtube: https://youtu.be/5wprChZSI-Y?t=505
                 label: "PADOTUBE: Forge double lecture, in detail"
 
-          - at: 6:00
-            make: Probe
-            use: true
-            instruction: About 34 Probes
-            description: 34 at 6:00, about 40 at 7:00.
-            notes: >-
-              Keep the Probes coming. KhalaTV moves Probes off gas onto minerals while he holds
-              the Hydras, because Cannons and Gateways cost minerals.
-            sources:
-              - youtube: https://youtu.be/kbo2QGOtVIg?t=375
-                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
-
-          - at: 6:07
+          - at: next
+            or: 6:07
             make: Photon Cannon
-            description: The fourth Cannon, before the second Gateway.
+            description: The fourth Cannon, right after the third and before the second Gateway.
             notes: >-
-              9 in 10 in this line build a fourth Cannon (half by about 6:07) and most a fifth
-              (half by about 7:00), more than Stork's limit of 4; they fill the gap until Storm.
+              9 in 10 in this line build a fourth Cannon and most a fifth, more than Stork's
+              limit of 4; they fill the gap until Storm.
             sources:
               - replays:
                   players: 48
@@ -2189,9 +2450,22 @@ stages:
               - youtube: https://youtu.be/ew7GJM2SydM?t=1142
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-          - at: 6:26
+          - at: 6:00
+            make: Probe
+            use: true
+            instruction: About 34 Probes
+            description: 34 at 6:00, about 40 at 7:00.
+            notes: >-
+              Keep the Probes coming. KhalaTV moves Probes off gas onto minerals while he holds
+              the Hydras, because Cannons and Gateways cost minerals.
+            sources:
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=375
+                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
+
+          - at: Citadel of Adun 100%
+            or: 6:26
             make: Gateway
-            description: The second Gateway, after the fourth Cannon.
+            description: The second Gateway, as the Citadel finishes.
             notes: >-
               If the Hydras break a Gateway, rebuild it right away. Stay home behind the Cannons.
             sources:
@@ -2219,9 +2493,10 @@ stages:
               - youtube: https://youtu.be/5wprChZSI-Y?t=760
                 label: "PADOTUBE: Forge double lecture, in detail"
 
-          - at: 6:39
+          - at: next
+            or: 6:39
             make: Templar Archives
-            description: About 30 seconds later than in the Dark Templar line.
+            description: Right after Gateway 2, about 30 seconds later than in the Dark Templar line.
             sources:
               - replays:
                   players: 53
@@ -2231,6 +2506,13 @@ stages:
                   workers: 36
                   note: "Templar Archives #1, vs 3 Hatch Hydra, with Forge FE High Templar line"
               - replays:
+                  players: 53
+                  at: 6:26
+                  range: 5:39-6:57
+                  supply: 45
+                  workers: 35
+                  note: "Gateway #2, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - replays:
                   players: 41
                   at: 6:10
                   range: 5:33-6:36
@@ -2238,13 +2520,15 @@ stages:
                   workers: 34
                   note: "Templar Archives #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
 
-          - at: 6:43
+          - at: next
+            or: 6:43
             make: Leg Enhancements
-            description: Zealot speed, about half a minute later than against a Spire.
+            description: Zealot speed right behind the Archives, about half a minute later than against a
+              Spire.
             notes: >-
-              The Citadel has been done for nearly a minute: against Hydras the minerals go into
-              Cannons and the second Gateway first. About 6 Zealots by now, with 4 Cannons. Stay
-              home: the Zealots stand in front of the Cannons and wait for Storm.
+              Against Hydras the minerals go into Cannons and the second Gateway before Leg.
+              About 6 Zealots by now, with 4 Cannons. Stay home: the Zealots stand in front of
+              the Cannons and wait for Storm.
             sources:
               - replays:
                   players: 50
@@ -2293,11 +2577,24 @@ stages:
               - youtube: https://youtu.be/5wprChZSI-Y?t=760
                 label: "PADOTUBE: Forge double lecture, in detail"
 
+          - at: next
+            or: 7:02
+            make: Photon Cannon
+            description: The fifth Cannon, for most players on this line.
+            sources:
+              - replays:
+                  players: 45
+                  at: 7:02
+                  range: 6:14-9:03
+                  supply: 56
+                  workers: 40
+                  note: "Photon Cannon #5, vs 3 Hatch Hydra, with Forge FE High Templar line"
+
           - at: 7:00
             make: Probe
             use: true
             instruction: About 40 Probes
-            description: Two bases, two gases, two Gateways, four Cannons.
+            description: Two bases, two gases, two Gateways, four or five Cannons.
             sources:
               - replays:
                   players: 53
@@ -2313,11 +2610,6 @@ stages:
                   supply: 46
                   workers: 35
                   note: "Photon Cannon #4, vs 3 Hatch Hydra, with Forge FE High Templar line"
-
-          - at: 7:02
-            make: Photon Cannon
-            description: The fifth Cannon.
-            sources:
               - replays:
                   players: 45
                   at: 7:02
@@ -2393,8 +2685,16 @@ stages:
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
           - at: 7:36
-            make: 2 Gateway
-            description: Gateways 3 and 4, by about 7:47.
+            make: 6 Gateway
+            instruction: Add six more Gateways, two at a time
+            description: Two at a time as money allows, to 4 by about 7:45, 6 by about 8:15 and 8 by about
+              9:00.
+            notes: >-
+              Add Gateways while the Zealots pressure. KhalaTV adds his 5th and 6th Gateways and
+              prepares Templar right after the speedlot attack; PADOTUBE cuts Probes again for
+              them and goes up to 8. 8 Gateways on two bases is the standard size, though
+              KhalaTV calls it tight on minerals; 9 in 10 on this line reach 8. A ninth comes
+              for about half, at about 10:05; Bisu goes to 10 once a third base is up.
             sources:
               - replays:
                   players: 121
@@ -2410,18 +2710,33 @@ stages:
                   supply: 70
                   workers: 46
                   note: "Gateway #4, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-
-          - at: 7:36
-            make: Corsair
-            description: A sixth Corsair for about two in three.
-            sources:
               - replays:
-                  players: 82
-                  at: 7:35
-                  range: 7:21-7:57
-                  supply: 71
-                  workers: 44
-                  note: "Corsair #6, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+                  players: 104
+                  at: 8:15
+                  range: 7:59-8:40
+                  supply: 75
+                  workers: 50
+                  note: "Gateway #6, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 95
+                  at: 9:03
+                  range: 8:32-9:41
+                  supply: 84
+                  workers: 52
+                  note: "Gateway #8, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 55
+                  at: 10:06
+                  range: 9:11-11:15
+                  supply: 98
+                  workers: 53
+                  note: "Gateway #9, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - youtube: https://youtu.be/bkBgN_oUOKE?t=492
+                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
+              - youtube: https://youtu.be/5wprChZSI-Y?t=654
+                label: "PADOTUBE: Forge double lecture, in detail"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=471
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
 
           - at: 7:41
             make: Psionic Storm
@@ -2429,7 +2744,6 @@ stages:
             description: Storm right behind the first High Templar.
             notes: >-
               The second High Templar comes at about 7:43.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 113
@@ -2452,17 +2766,17 @@ stages:
                   supply: 70
                   workers: 46
                   note: "High Templar #2, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 7:47
             make: Probe
             use: true
             instruction: Short Probe cut at about 47
-            description: About 30 seconds without Probes while Gateways 5 and 6, Pylon 10 and the next
+            description: About 30 seconds without Probes while Gateways 5 and 6, a Pylon and the next
               Templar go down.
             notes: >-
-              About two in three players on this line take it. Resume once they are placed.
+              About two in three players on this line take it, somewhere between about 7:30 and
+              8:15. Resume once they are placed; from there a last few Probes take you to the
+              stop at about 53.
             sources:
               - replays:
                   players: 81
@@ -2470,7 +2784,8 @@ stages:
                   range: 7:27-8:16
                   note: Worker Pause@48, vs 3 Hatch Spire, with Forge FE Dark Templar line
 
-          - at: 7:48
+          - at: Protoss Ground Weapons 100%
+            or: 7:47
             make:
               upgrade: Protoss Ground Armor
               label: +1 Armor
@@ -2509,35 +2824,15 @@ stages:
           - at: 8:00
             make: Probe
             use: true
-            instruction: About 48 Probes
-            description: The highest economy of any line at 8:00.
-
-          - at: 8:12
-            make: 2 Gateway
-            description: Gateways 5 and 6, by about 8:16.
-            notes: >-
-              Add Gateways while the Zealots pressure. KhalaTV adds his 5th and 6th Gateways and
-              prepares Templar right after the speedlot attack; PADOTUBE cuts Probes again here
-              and goes up to 8.
+            instruction: About 47 or 48 Probes
+            description: 47 if you are in the cut, 48 if you skipped it; the highest economy of any line at
+              8:00.
             sources:
               - replays:
-                  players: 107
-                  at: 8:11
-                  range: 7:55-8:32
-                  supply: 74
-                  workers: 48
-                  note: "Gateway #5, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - replays:
-                  players: 104
-                  at: 8:15
-                  range: 7:59-8:40
-                  supply: 75
-                  workers: 50
-                  note: "Gateway #6, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/bkBgN_oUOKE?t=492
-                label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
-              - youtube: https://youtu.be/5wprChZSI-Y?t=654
-                label: "PADOTUBE: Forge double lecture, in detail"
+                  players: 81
+                  at: 7:47
+                  range: 7:27-8:16
+                  note: Worker Pause@48, vs 3 Hatch Spire, with Forge FE Dark Templar line
 
       - id: storm-first
         label: Storm line
@@ -2591,13 +2886,13 @@ stages:
               - youtube: https://youtu.be/bkBgN_oUOKE?t=438
                 label: "KhalaTV: Forge double vs no-Lair 5-hatch Hydra"
 
-          - at: 7:42
+          - at: Protoss Ground Weapons 100%
+            or: 7:42
             make:
               upgrade: Protoss Ground Armor
               label: +1 Armor
             instruction: Research +1 armor
             description: As soon as +1 weapons finishes.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 52
@@ -2608,8 +2903,6 @@ stages:
                   note: vs 3 Hatch Spire, with Forge FE High Templar line
               - youtube: https://youtu.be/5wprChZSI-Y?t=634
                 label: "PADOTUBE: Forge double lecture, in detail"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 7:46
             make: Photon Cannon
@@ -2643,21 +2936,16 @@ stages:
                   workers: 45
                   note: "High Templar #2, vs 3 Hatch Spire, with Forge FE High Templar line"
 
-          - at: 8:00
-            make: Probe
-            use: true
-            instruction: About 47 Probes
-            description: Still two bases and two gases.
-
           - at: 8:01
             make: Probe
             use: true
             instruction: Short Probe cut at about 48 to 50
-            description: About 35 seconds without Probes while Pylon 11, Gateways 5 and 6 and +1 armor go
-              down.
+            description: Around 8:00, still on two bases and two gases, about 35 seconds without Probes
+              while a Pylon and Gateways 5 and 6 go down.
             notes: >-
-              About 6 in 10 players on this line take it. Resume afterwards: the stop comes at
-              about 52.
+              About 6 in 10 players on this line take it, between about 7:40 and 8:35; the line
+              as a whole has about 47 Probes at 8:00. Resume afterwards for the last two or
+              three Probes before the stop at about 52.
             sources:
               - replays:
                   players: 32
@@ -2665,47 +2953,11 @@ stages:
                   range: 7:41-8:34
                   note: Worker Pause@50, vs 3 Hatch Spire, with Forge FE High Templar line
 
-          - at: 8:04
-            make: 2 Gateway
-            description: Gateways 5 and 6, by about 8:13.
-            sources:
-              - replays:
-                  players: 52
-                  at: 8:04
-                  range: 7:36-8:32
-                  supply: 74
-                  workers: 48
-                  note: "Gateway #5, vs 3 Hatch Spire, with Forge FE High Templar line"
-              - replays:
-                  players: 52
-                  at: 8:12
-                  range: 7:44-8:43
-                  supply: 76
-                  workers: 48
-                  note: "Gateway #6, vs 3 Hatch Spire, with Forge FE High Templar line"
-
-          - at: 8:05
-            make: 2 High Templar
-            description: High Templar 3 and 4, by about 8:23.
-            sources:
-              - replays:
-                  players: 51
-                  at: 8:04
-                  range: 7:48-8:26
-                  supply: 75
-                  workers: 47
-                  note: "High Templar #3, vs 3 Hatch Spire, with Forge FE High Templar line"
-              - replays:
-                  players: 47
-                  at: 8:22
-                  range: 7:57-9:12
-                  supply: 80
-                  workers: 50
-                  note: "High Templar #4, vs 3 Hatch Spire, with Forge FE High Templar line"
-
-          - at: 8:14
+          - at: Photon Cannon 40%
+            or: 8:14
             make: Photon Cannon
-            description: A fifth Cannon for about 3 in 4, for the Mutalisks.
+            description: A fifth Cannon for about 3 in 4, for the Mutalisks, while the fourth is still
+              building.
             sources:
               - replays:
                   players: 41
@@ -2747,8 +2999,14 @@ stages:
         read: The line you picked at the Templar Archives.
         steps:
           - at: 7:14
-            make: 2 Gateway
-            description: Gateways 3 and 4, by about 7:27.
+            make: 6 Gateway
+            instruction: Add six more Gateways, two at a time
+            description: Two at a time as money allows, to 4 by about 7:25, 6 by about 8:05 and 8 by about
+              9:10.
+            notes: >-
+              Bisu goes up to 4 Gateways against Hydras and to 10 once a third base is up. 8
+              Gateways on two bases is the target, for about three in four on this line; KhalaTV
+              calls 8 on two bases tight, so add more only when minerals pile up.
             sources:
               - replays:
                   players: 40
@@ -2764,25 +3022,24 @@ stages:
                   supply: 60
                   workers: 43
                   note: "Gateway #4, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-
-          - at: 7:26
-            make: High Templar
-            description: The first High Templar, with a second at about 7:53.
-            sources:
               - replays:
-                  players: 41
-                  at: 7:25
-                  range: 7:03-7:53
-                  supply: 60
-                  workers: 42
-                  note: "High Templar #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+                  players: 35
+                  at: 8:05
+                  range: 7:48-8:21
+                  supply: 70
+                  workers: 47
+                  note: "Gateway #6, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
               - replays:
-                  players: 40
-                  at: 7:52
-                  range: 7:21-8:24
-                  supply: 66
-                  workers: 46
-                  note: "High Templar #2, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+                  players: 27
+                  at: 9:09
+                  range: 8:37-9:31
+                  supply: 83
+                  workers: 50
+                  note: "Gateway #8, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=429
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=982
+                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
 
           - at: 7:29
             make: Forge
@@ -2813,36 +3070,13 @@ stages:
                   workers: 42
                   note: "Photon Cannon #4, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
 
-          - at: 7:39
-            make: Psionic Storm
-            instruction: Research Storm
-            description: Storm right behind the first High Templar.
-            notes: >-
-              Save Storm for the Hydras. Storm Lurkers only when it catches 2 or more, and lings
-              only when it also hits Hydras.
-            sources:
-              - replays:
-                  players: 39
-                  at: 7:38
-                  range: 7:03-7:59
-                  supply: 60
-                  workers: 44
-                  note: Psionic Storm, vs 3 Hatch Hydra, with Forge FE Dark Templar line
-              - replays:
-                  players: 41
-                  at: 7:25
-                  range: 7:03-7:53
-                  supply: 60
-                  workers: 42
-                  note: "High Templar #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/esOAfXH7Xy4?t=969
-                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
-
-          - at: 7:47
+          - at: Protoss Ground Weapons 100%
+            or: 7:47
             make:
               upgrade: Protoss Ground Armor
               label: +1 Armor
             instruction: Research +1 armor
+            description: As soon as +1 weapons finishes, or from the second Forge if you built one.
             sources:
               - replays:
                   players: 38
@@ -2850,35 +3084,36 @@ stages:
                   range: 7:29-8:41
                   supply: 65
                   workers: 44
-                  note: vs 3 Hatch Hydra, with Forge FE Dark Templar line
+                  note: Protoss Ground Armor +1, vs 3 Hatch Hydra, with Forge FE Dark Templar line
+              - replays:
+                  players: 16
+                  at: 7:28
+                  range: 6:53-8:55
+                  supply: 57
+                  workers: 44
+                  note: "Forge #2, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
 
           - at: 7:55
             make: Probe
             use: true
-            instruction: Probe cut at about 47 for the Templar and Gateways
-            description: About 35 seconds without Probes while High Templar 2 and 3, Pylon 10 and more
+            instruction: Probe cut at about 46 to 47 for the Templar and Gateways
+            description: About 35 seconds without Probes while High Templar 2 and 3, a Pylon and more
               Gateways go down.
             notes: >-
-              Two in three players on this line cut here. Resume afterwards: the long stop comes
-              at about 52.
+              Two in three players on this line cut here, between about 7:40 and 8:30. Resume
+              afterwards: a few more Probes, then the long stop at about 52.
             sources:
               - replays:
                   players: 28
                   at: 7:55
                   range: 7:42-8:31
                   note: Worker Pause@48, vs 3 Hatch Hydra, with Forge FE Dark Templar line
-              - replays:
-                  players: 20
-                  at: 8:42
-                  range: 8:28-9:15
-                  note: Worker Pause@54, vs 3 Hatch Hydra, with Forge FE Dark Templar line
 
           - at: 8:00
             make: Probe
             use: true
             instruction: About 46 Probes
             description: Still two bases and two gases.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 42
@@ -2887,27 +3122,6 @@ stages:
                   supply: 27
                   workers: 22
                   note: "Assimilator #2, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
-
-          - at: 8:00
-            make: 2 Gateway
-            description: Gateways 5 and 6, by about 8:06.
-            sources:
-              - replays:
-                  players: 35
-                  at: 7:59
-                  range: 7:39-8:17
-                  supply: 67
-                  workers: 46
-                  note: "Gateway #5, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - replays:
-                  players: 35
-                  at: 8:05
-                  range: 7:48-8:21
-                  supply: 70
-                  workers: 47
-                  note: "Gateway #6, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
 
           - at: Leg Enhancements 100%
             or: 8:09
@@ -2937,9 +3151,10 @@ stages:
               - youtube: https://youtu.be/5wprChZSI-Y?t=760
                 label: "PADOTUBE: Forge double lecture, in detail"
 
-          - at: 8:19
+          - at: Photon Cannon 30%
+            or: 8:19
             make: Photon Cannon
-            description: The fifth Cannon.
+            description: The fifth Cannon, while the fourth is still building.
             sources:
               - replays:
                   players: 32
@@ -2954,8 +3169,14 @@ stages:
         read: The line you picked at the Templar Archives.
         steps:
           - at: 7:06
-            make: 2 Gateway
-            description: Gateways 3 and 4, by about 7:19.
+            make: 6 Gateway
+            instruction: Add six more Gateways, two at a time
+            description: Two at a time as money allows, to 4 by about 7:20, 6 by about 8:10 and 8 by about
+              9:00.
+            notes: >-
+              8 Gateways on two bases is the target, for about 8 in 10 on this line; Bisu goes
+              to 10 once a third base is up. If the Hydras break a Gateway at any point, rebuild
+              it at once.
             sources:
               - replays:
                   players: 53
@@ -2971,6 +3192,29 @@ stages:
                   supply: 58
                   workers: 42
                   note: "Gateway #4, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - replays:
+                  players: 47
+                  at: 8:08
+                  range: 7:50-8:43
+                  supply: 68
+                  workers: 48
+                  note: "Gateway #6, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - replays:
+                  players: 41
+                  at: 8:57
+                  range: 8:22-9:30
+                  supply: 79
+                  workers: 50
+                  note: "Gateway #8, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - replays:
+                  players: 22
+                  at: 6:11
+                  range: 6:00-6:33
+                  supply: 46
+                  workers: 35
+                  note: "Gateway #2 (rebuilt), vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - youtube: https://youtu.be/xcPC_BqNiFw?t=758
+                label: "BISUTUBE: Bisu's Forge double for PvZ"
 
           - at: 7:08
             make: Forge
@@ -3010,11 +3254,33 @@ stages:
                   range: 6:32-7:26
                   note: Worker Pause@42, vs 3 Hatch Hydra, with Forge FE High Templar line
 
+          - at: 57 supply
+            or: 7:15
+            make: Pylon
+            description: The seventh Pylon. From here, keep building Pylons ahead of supply; the guide stops
+              listing them.
+            sources:
+              - replays:
+                  players: 53
+                  at: 7:15
+                  range: 6:47-7:38
+                  supply: 57
+                  workers: 41
+                  note: "Pylon #7, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - youtube: https://youtu.be/WFt1reU1cCU?t=410
+                label: "Khrane: PvZ FFE into +1/+1 Opening"
+
           - at: Templar Archives 100%
             or: 7:34
-            make: 2 High Templar
-            description: Two High Templar as the Archives finishes.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
+            make: [ High Templar, Psionic Storm ]
+            instruction: Make High Templar and research Storm
+            description: Storm and two Templar as the Archives finishes, the earliest Storm of any line; 4
+              Templar by about 8:20.
+            notes: >-
+              Most players keep the Gateways on Templar for this round, then switch back to
+              Zealots or Dragoons. Save Storm for the Hydras: Storm Lurkers only when it catches
+              2 or more, and lings only when it also hits Hydras. Losing your Templar to Hydras
+              usually loses the game. About half also add one Dark Templar at about 8:04.
             sources:
               - replays:
                   players: 53
@@ -3023,26 +3289,6 @@ stages:
                   supply: 60
                   workers: 42
                   note: "High Templar #1, vs 3 Hatch Hydra, with Forge FE High Templar line"
-              - replays:
-                  players: 53
-                  at: 7:38
-                  range: 7:20-7:51
-                  supply: 62
-                  workers: 44
-                  note: "High Templar #2, vs 3 Hatch Hydra, with Forge FE High Templar line"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
-
-          - at: Templar Archives 100%
-            or: 7:34
-            make: Psionic Storm
-            instruction: Research Storm
-            description: Storm as the Archives finishes, the earliest of any line.
-            notes: >-
-              Save Storm for the Hydras: Storm Lurkers only when it catches 2 or more, and lings
-              only when it also hits Hydras. Losing your Templar to Hydras usually loses the
-              game.
-            sources:
               - replays:
                   players: 52
                   at: 7:33
@@ -3057,58 +3303,6 @@ stages:
                   supply: 70
                   workers: 45
                   note: Psionic Storm, vs 3 Hatch Spire, with Forge FE Dark Templar line
-              - youtube: https://youtu.be/esOAfXH7Xy4?t=969
-                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
-              - youtube: https://youtu.be/kbo2QGOtVIg?t=775
-                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
-
-          - at: 7:36
-            make:
-              upgrade: Protoss Ground Armor
-              label: +1 Armor
-            instruction: Research +1 armor
-            sources:
-              - replays:
-                  players: 50
-                  at: 7:36
-                  range: 7:12-8:01
-                  supply: 62
-                  workers: 44
-                  note: vs 3 Hatch Hydra, with Forge FE High Templar line
-
-          - at: 7:52
-            make: Probe
-            use: true
-            instruction: Probe cut at about 46 for the Gateways
-            description: About 40 seconds without Probes while Gateways 5 and 6 and the Templar go down.
-            notes: >-
-              About 4 in 10 players on this line cut here. Resume afterwards: the long stop
-              comes at about 51.
-            sources:
-              - replays:
-                  players: 21
-                  at: 7:52
-                  range: 7:34-8:20
-                  note: Worker Pause@47, vs 3 Hatch Hydra, with Forge FE High Templar line
-              - replays:
-                  players: 33
-                  at: 8:32
-                  range: 8:11-8:50
-                  note: Worker Pause@52, vs 3 Hatch Hydra, with Forge FE High Templar line
-
-          - at: 7:56
-            make: 2 High Templar
-            description: High Templar 3 and 4, by about 8:20.
-            notes: >-
-              About half also add one Dark Templar at about 8:04.
-            sources:
-              - replays:
-                  players: 52
-                  at: 7:56
-                  range: 7:41-8:18
-                  supply: 68
-                  workers: 45
-                  note: "High Templar #3, vs 3 Hatch Hydra, with Forge FE High Templar line"
               - replays:
                   players: 50
                   at: 8:19
@@ -3117,40 +3311,59 @@ stages:
                   workers: 47
                   note: "High Templar #4, vs 3 Hatch Hydra, with Forge FE High Templar line"
               - replays:
+                  players: 53
+                  at: 7:34
+                  range: 7:05-7:43
+                  note: High Templar production, vs 3 Hatch Hydra, with Forge FE High Templar line
+              - replays:
                   players: 28
                   at: 8:04
                   range: 7:52-8:30
                   supply: 69
                   workers: 48
                   note: "Dark Templar #1, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - youtube: https://youtu.be/esOAfXH7Xy4?t=969
+                label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
+              - youtube: https://youtu.be/kbo2QGOtVIg?t=775
+                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
 
-          - at: 7:59
-            make: 2 Gateway
-            description: Gateways 5 and 6, by about 8:09.
-            notes: >-
-              If the Hydras break a Gateway at any point, rebuild it at once.
+          - at: Forge 100%
+            or: 7:36
+            make:
+              upgrade: Protoss Ground Armor
+              label: +1 Armor
+            instruction: Research +1 armor
+            description: As the second Forge finishes; with one Forge, as +1 weapons finishes.
             sources:
               - replays:
-                  players: 49
-                  at: 7:58
-                  range: 7:34-8:36
-                  supply: 66
-                  workers: 46
-                  note: "Gateway #5, vs 3 Hatch Hydra, with Forge FE High Templar line"
+                  players: 50
+                  at: 7:36
+                  range: 7:12-8:01
+                  supply: 62
+                  workers: 44
+                  note: Protoss Ground Armor +1, vs 3 Hatch Hydra, with Forge FE High Templar line
               - replays:
-                  players: 47
-                  at: 8:08
-                  range: 7:50-8:43
-                  supply: 68
-                  workers: 48
-                  note: "Gateway #6, vs 3 Hatch Hydra, with Forge FE High Templar line"
+                  players: 30
+                  at: 7:08
+                  range: 6:19-7:40
+                  supply: 50
+                  workers: 38
+                  note: "Forge #2, vs 3 Hatch Hydra, with Forge FE High Templar line"
+
+          - at: 7:52
+            make: Probe
+            use: true
+            instruction: Probe cut at about 46 for the Gateways
+            description: About 40 seconds without Probes while Gateways 5 and 6 and the Templar go down.
+            notes: >-
+              About 4 in 10 players on this line cut here, between about 7:35 and 8:20. Resume
+              afterwards for the last few Probes before the long stop at about 50.
+            sources:
               - replays:
-                  players: 22
-                  at: 6:11
-                  range: 6:00-6:33
-                  supply: 46
-                  workers: 35
-                  note: "Gateway #2 (rebuilt), vs 3 Hatch Hydra, with Forge FE High Templar line"
+                  players: 21
+                  at: 7:52
+                  range: 7:34-8:20
+                  note: Worker Pause@47, vs 3 Hatch Hydra, with Forge FE High Templar line
 
           - at: 8:00
             make: Probe
@@ -3200,17 +3413,17 @@ stages:
         label: Dark Templar line
         read: The line you picked at the Templar Archives.
         steps:
-          - at: 8:28
+          - at: 8:47
             make: Probe
             use: true
-            instruction: Stop Probes at about 52
+            instruction: Stop Probes at about 53
             description: Two bases are full; put the money into Gateways, Pylons and Templar.
             notes: >-
-              More than half of players on this line cut here, half of them for under a minute
-              and about a quarter for three minutes or more; by about 8:47, at about 53 Probes,
-              every player on this line has stopped adding Probes. Only the third Nexus starts
-              them again: about half of the players who resume do it with the new base, the rest
-              only once their army is built. Going past 52 on two bases buys nothing.
+              Every player on this line eventually stops at about 53 Probes; half have stopped
+              by about 8:47 and three in four by about 9:12. About half of them first pause at
+              about 52 around 8:28, usually for under a minute. Only the third Nexus starts
+              Probes again: about half of the players who resume do it with the new base, the
+              rest only once their army is built. Going past about 53 on two bases buys nothing.
             sources:
               - replays:
                   players: 69
@@ -3222,76 +3435,6 @@ stages:
                   at: 10:51
                   range: 9:56-11:41
                   note: "Workers at Nexus #2, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-
-          - at: 8:36
-            make: 2 High Templar
-            description: High Templar 3 and 4, by about 8:51.
-            notes: >-
-              Against Mutalisks, Dragoons stay close to protect the Templar. Stork leaves one
-              Templar slightly exposed near the Cannons as bait: the Mutalisks come in once, and
-              you move out after they are spent. About 4 in 10 merge two Templar into an Archon
-              at about 9:00.
-            sources:
-              - replays:
-                  players: 106
-                  at: 8:36
-                  range: 7:50-9:02
-                  supply: 78
-                  workers: 49
-                  note: "High Templar #3, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - replays:
-                  players: 99
-                  at: 8:51
-                  range: 8:20-9:36
-                  supply: 84
-                  workers: 50
-                  note: "High Templar #4, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - replays:
-                  players: 42
-                  at: 9:05
-                  range: 8:18-11:10
-                  supply: 84
-                  workers: 49
-                  note: "Archon #1, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/ew7GJM2SydM?t=553
-                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
-
-          - at: 8:56
-            make: 2 Gateway
-            description: Gateways 7 and 8, by about 9:03.
-            notes: >-
-              8 Gateways on two bases is the standard size, though KhalaTV calls it tight on
-              minerals. A ninth comes for about half, at about 10:07; Bisu goes to 10 once a
-              third base is up.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
-            sources:
-              - replays:
-                  players: 98
-                  at: 8:55
-                  range: 8:25-9:27
-                  supply: 84
-                  workers: 51
-                  note: "Gateway #7, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - replays:
-                  players: 95
-                  at: 9:03
-                  range: 8:32-9:41
-                  supply: 84
-                  workers: 52
-                  note: "Gateway #8, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - replays:
-                  players: 55
-                  at: 10:06
-                  range: 9:11-11:15
-                  supply: 98
-                  workers: 53
-                  note: "Gateway #9, vs 3 Hatch Spire, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/xcPC_BqNiFw?t=471
-                label: "BISUTUBE: Bisu's Forge double for PvZ"
-              - youtube: https://youtu.be/kbo2QGOtVIg?t=982
-                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 9:15
             make: Singularity Charge
@@ -3332,11 +3475,15 @@ stages:
               - youtube: https://youtu.be/ew7GJM2SydM?t=553
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-          - at: 9:56
-            make: 8 Dragoon
-            description: Eight Dragoons from the Gateways, by about 10:21.
+          - at: Singularity Charge 40%
+            or: 9:56
+            make: Dragoon
+            instruction: Make Dragoons from the Gateways
+            description: Before range finishes; a round of about 16, through about 11:00, then back to
+              Zealots.
             notes: >-
-              Keep Zealots and Dragoons in separate control groups, with the Dragoons in front.
+              The Gateways are busy most of this round, and Probes stay stopped through it. Keep
+              Zealots and Dragoons in separate control groups, with the Dragoons in front.
             sources:
               - replays:
                   players: 94
@@ -3346,12 +3493,10 @@ stages:
                   workers: 52
                   note: "Dragoon #1, vs 3 Hatch Spire, with Forge FE Dark Templar line"
               - replays:
-                  players: 88
-                  at: 10:20
-                  range: 9:57-11:04
-                  supply: 106
-                  workers: 53
-                  note: "Dragoon #8, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+                  players: 94
+                  at: 9:56
+                  range: 9:20-10:24
+                  note: Dragoon production, vs 3 Hatch Spire, with Forge FE Dark Templar line
               - youtube: https://youtu.be/esOAfXH7Xy4?t=941
                 label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
@@ -3364,7 +3509,28 @@ stages:
               Players who take a third by 10:00 have about 57 Probes at 13:00, against 52 for
               those who don't.
 
-          - at: 10:38
+          - at: 10:19
+            make: High Templar
+            description: A fifth High Templar for most players on this line, and a sixth by about 11:15 for
+              about 7 in 10.
+            sources:
+              - replays:
+                  players: 83
+                  at: 10:19
+                  range: 9:27-11:18
+                  supply: 104
+                  workers: 51
+                  note: "High Templar #5, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+              - replays:
+                  players: 67
+                  at: 11:17
+                  range: 10:04-12:00
+                  supply: 117
+                  workers: 51
+                  note: "High Templar #6, vs 3 Hatch Spire, with Forge FE Dark Templar line"
+
+          - at: Robotics Facility 100%
+            or: 10:38
             make: Observatory
             description: Then an Observer at about 11:05.
             notes: >-
@@ -3423,7 +3589,8 @@ stages:
               - youtube: https://youtu.be/ew7GJM2SydM?t=1276
                 label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-          - at: 10:53
+          - at: Protoss Ground Armor 100%
+            or: 10:53
             make:
               upgrade: Protoss Ground Armor
               label: +2 Armor
@@ -3492,16 +3659,17 @@ stages:
         label: Storm line
         read: The line you picked at the Templar Archives.
         steps:
-          - at: 8:25
+          - at: 8:40
             make: Probe
             use: true
             instruction: Stop Probes at about 52
             description: Two bases are full; put the money into Gateways, Templar and Dragoons.
             notes: >-
-              After the short cut at about 50, nearly every player on this line has stopped
-              adding Probes by about 8:25 at 52. About 4 in 10 squeeze out one or two more and
-              cut again at about 54 around 8:41, for 45 seconds or longer. Only the third Nexus
-              starts Probes again; going past that on two bases buys nothing.
+              Half of the players on this line have stopped by about 8:25 at 52 (mostly those
+              who skipped the cut at about 50), and nearly all stop by about 9:15. About 4 in 10
+              squeeze out one or two more and cut again at about 54 around 8:41, usually for 20
+              seconds to two minutes, about 45 seconds typical. Only the third Nexus starts
+              Probes again; going past that on two bases buys nothing.
             sources:
               - replays:
                   players: 32
@@ -3514,35 +3682,10 @@ stages:
                   range: 8:23-9:24
                   note: Worker Pause@55, vs 3 Hatch Spire, with Forge FE High Templar line
 
-          - at: 8:46
-            make: 2 Gateway
-            description: Gateways 7 and 8, by about 9:00.
-            notes: >-
-              8 Gateways on two bases is the standard size; Bisu goes to 10 once a third base is
-              up.
-            sources:
-              - replays:
-                  players: 48
-                  at: 8:45
-                  range: 8:16-9:27
-                  supply: 83
-                  workers: 51
-                  note: "Gateway #7, vs 3 Hatch Spire, with Forge FE High Templar line"
-              - replays:
-                  players: 43
-                  at: 9:00
-                  range: 8:31-9:53
-                  supply: 85
-                  workers: 52
-                  note: "Gateway #8, vs 3 Hatch Spire, with Forge FE High Templar line"
-              - youtube: https://youtu.be/xcPC_BqNiFw?t=471
-                label: "BISUTUBE: Bisu's Forge double for PvZ"
-
           - at: 9:12
             make: Singularity Charge
             instruction: Research Dragoon range
             description: Dragoon range, then Dragoons.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 44
@@ -3558,8 +3701,6 @@ stages:
                   supply: 97
                   workers: 51
                   note: "Dragoon #1, vs 3 Hatch Spire, with Forge FE High Templar line"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
           - at: 9:28
             make: Robotics Facility
@@ -3573,11 +3714,15 @@ stages:
                   workers: 52
                   note: vs 3 Hatch Spire, with Forge FE High Templar line
 
-          - at: 9:31
-            make: 8 Dragoon
-            description: Eight Dragoons, by about 10:26.
+          - at: Singularity Charge 30%
+            or: 9:31
+            make: Dragoon
+            instruction: Make Dragoons from the Gateways
+            description: Before range finishes; a round of about 17, and about 4 in 10 are still making them
+              at 13:00.
             notes: >-
-              Keep Zealots and Dragoons in separate control groups, with the Dragoons in front;
+              The Gateways are busy most of this round, and Probes stay stopped through it. Keep
+              Zealots and Dragoons in separate control groups, with the Dragoons in front;
               Dragoons stay close to the Templar against Mutalisks.
             sources:
               - replays:
@@ -3588,12 +3733,10 @@ stages:
                   workers: 51
                   note: "Dragoon #1, vs 3 Hatch Spire, with Forge FE High Templar line"
               - replays:
-                  players: 39
-                  at: 10:25
-                  range: 9:36-10:50
-                  supply: 100
-                  workers: 52
-                  note: "Dragoon #8, vs 3 Hatch Spire, with Forge FE High Templar line"
+                  players: 44
+                  at: 9:31
+                  range: 8:38-10:25
+                  note: Dragoon production, vs 3 Hatch Spire, with Forge FE High Templar line
               - youtube: https://youtu.be/esOAfXH7Xy4?t=941
                 label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
               - youtube: https://youtu.be/ew7GJM2SydM?t=599
@@ -3624,7 +3767,8 @@ stages:
             instruction: About 52 Probes
             description: Still holding at about 52 on two bases; more Probes wait for the third.
 
-          - at: 10:26
+          - at: Robotics Facility 100%
+            or: 10:26
             make: Observatory
             description: Then an Observer at about 11:00.
             sources:
@@ -3685,7 +3829,8 @@ stages:
               - youtube: https://youtu.be/KYKwBJ7so3Q?t=555
                 label: 이경민의 풀영상
 
-          - at: 10:57
+          - at: Protoss Ground Armor 100%
+            or: 10:57
             make:
               upgrade: Protoss Ground Armor
               label: +2 Armor
@@ -3750,59 +3895,17 @@ stages:
         label: Dark Templar line
         read: The line you picked at the Templar Archives.
         steps:
-          - at: 8:22
-            make: 2 High Templar
-            description: High Templar 3 and 4, by about 8:32.
-            notes: >-
-              Stork wins the big fight with about 6 Templar; the moment just before Lurkers come
-              out is the best time to fight.
-            sources:
-              - replays:
-                  players: 35
-                  at: 8:21
-                  range: 7:50-8:37
-                  supply: 70
-                  workers: 46
-                  note: "High Templar #3, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - replays:
-                  players: 31
-                  at: 8:32
-                  range: 8:01-8:55
-                  supply: 75
-                  workers: 48
-                  note: "High Templar #4, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/ew7GJM2SydM?t=505
-                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
-
-          - at: 8:42
+          - at: 8:53
             make: Probe
             use: true
             instruction: Stop Probes at about 52
             description: Two bases are full; the money goes into Dragoons and Gateways 7 and 8.
             notes: >-
-              About half of players on this line stop here, often for close to two minutes. Only
-              the third Nexus (or rebuilding Probes that the Hydras killed) starts them again.
+              Every player on this line stops at about 52; half have stopped by about 8:53 and
+              three in four by about 9:35. About half stop at about 53 around 8:42, often for
+              close to two minutes. Only the third Nexus (or rebuilding Probes that the Hydras
+              killed) starts them again.
             sources:
-              - replays:
-                  players: 20
-                  at: 8:42
-                  range: 8:28-9:15
-                  note: Worker Pause@54, vs 3 Hatch Hydra, with Forge FE Dark Templar line
-
-          - at: 8:52
-            make: 2 Gateway
-            description: Gateways 7 and 8, by about 9:09.
-            notes: >-
-              8 Gateways on two bases; Bisu goes to 10 once a third is up. KhalaTV calls 8 on
-              two bases tight, so add more only when minerals pile up.
-            sources:
-              - replays:
-                  players: 31
-                  at: 8:52
-                  range: 8:24-9:24
-                  supply: 80
-                  workers: 50
-                  note: "Gateway #7, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
               - replays:
                   players: 27
                   at: 9:09
@@ -3810,10 +3913,11 @@ stages:
                   supply: 83
                   workers: 50
                   note: "Gateway #8, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/xcPC_BqNiFw?t=471
-                label: "BISUTUBE: Bisu's Forge double for PvZ"
-              - youtube: https://youtu.be/kbo2QGOtVIg?t=982
-                label: "KhalaTV: Forge double into 8 Gates and 2 Forges vs 3-hatch Hydra"
+              - replays:
+                  players: 20
+                  at: 8:42
+                  range: 8:28-9:15
+                  note: Worker Pause@54, vs 3 Hatch Hydra, with Forge FE Dark Templar line
 
           - at: 9:00
             make: Robotics Facility
@@ -3866,7 +3970,9 @@ stages:
           - at: 9:34
             make: High Templar
             description: A fifth High Templar for about 7 in 10.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
+            notes: >-
+              Stork wins the big fight with about 6 Templar; the moment just before Lurkers come
+              out is the best time to fight.
             sources:
               - replays:
                   players: 24
@@ -3875,14 +3981,18 @@ stages:
                   supply: 86
                   workers: 50
                   note: "High Templar #5, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
+              - youtube: https://youtu.be/ew7GJM2SydM?t=505
+                label: "Song Byung-goo (Stork) TV: Forge double Nexus lecture"
 
-          - at: 9:38
-            make: 8 Dragoon
-            description: Eight Dragoons, by about 10:26.
+          - at: Singularity Charge 30%
+            or: 9:38
+            make: Dragoon
+            instruction: Make Dragoons from the Gateways
+            description: Before range finishes; a round of about 17, through about 11:00, then back to
+              Zealots.
             notes: >-
-              Keep Zealots and Dragoons in separate control groups, with the Dragoons in front.
+              The Gateways are busy most of this round, and Probes stay stopped through it. Keep
+              Zealots and Dragoons in separate control groups, with the Dragoons in front.
             sources:
               - replays:
                   players: 32
@@ -3892,12 +4002,10 @@ stages:
                   workers: 52
                   note: "Dragoon #1, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
               - replays:
-                  players: 30
-                  at: 10:26
-                  range: 9:57-10:42
-                  supply: 104
-                  workers: 52
-                  note: "Dragoon #8, vs 3 Hatch Hydra, with Forge FE Dark Templar line"
+                  players: 32
+                  at: 9:38
+                  range: 8:54-10:03
+                  note: Dragoon production, vs 3 Hatch Hydra, with Forge FE Dark Templar line
               - youtube: https://youtu.be/esOAfXH7Xy4?t=941
                 label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
@@ -3907,7 +4015,8 @@ stages:
             instruction: About 51 Probes
             description: Still holding on two bases; more Probes wait for the third.
 
-          - at: 10:19
+          - at: Robotics Facility 100%
+            or: 10:18
             make: Observatory
             description: Then an Observer at about 10:52.
             sources:
@@ -3959,7 +4068,8 @@ stages:
               - youtube: https://youtu.be/esOAfXH7Xy4?t=589
                 label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
-          - at: 11:10
+          - at: Protoss Ground Armor 100%
+            or: 11:09
             make:
               upgrade: Protoss Ground Armor
               label: +2 Armor
@@ -4028,29 +4138,6 @@ stages:
         label: Storm line
         read: The line you picked at the Templar Archives.
         steps:
-          - at: 8:32
-            make: Probe
-            use: true
-            instruction: Stop Probes at about 51
-            description: Two bases are full; the money goes into a Robotics Facility, Dragoons and Cannons.
-            notes: >-
-              About 6 in 10 players on this line stop here, typically for three minutes or more:
-              this line stays on two bases longest. Only the third Nexus (or rebuilding Probes
-              lost to Hydras) starts them again.
-            sources:
-              - replays:
-                  players: 33
-                  at: 8:32
-                  range: 8:11-8:50
-                  note: Worker Pause@52, vs 3 Hatch Hydra, with Forge FE High Templar line
-              - replays:
-                  players: 44
-                  at: 8:42
-                  range: 8:07-9:38
-                  supply: 77
-                  workers: 50
-                  note: "Robotics Facility #1, vs 3 Hatch Hydra, with Forge FE High Templar line"
-
           - at: 8:41
             make: Photon Cannon
             description: The sixth Cannon, for about 7 in 10.
@@ -4106,13 +4193,48 @@ stages:
                   workers: 50
                   note: vs 3 Hatch Hydra, with Forge FE High Templar line
 
-          - at: 8:51
-            make: 8 Dragoon
-            description: Eight Dragoons, by about 9:42.
+          - at: 8:50
+            make: Probe
+            use: true
+            instruction: Stop Probes at about 50 to 51
+            description: Two bases are full; the money goes into the Robotics Facility, Dragoons and
+              Cannons.
+            notes: >-
+              Every player on this line stops at about 50 to 51; half have stopped by about 8:32
+              (mostly those who skipped the cut at about 46) and three in four by about 8:55.
+              About 6 in 10 stop for three minutes or more: this line stays on two bases
+              longest. Only the third Nexus (or rebuilding Probes lost to Hydras) starts them
+              again.
+            sources:
+              - replays:
+                  players: 44
+                  at: 8:42
+                  range: 8:07-9:38
+                  supply: 77
+                  workers: 50
+                  note: "Robotics Facility #1, vs 3 Hatch Hydra, with Forge FE High Templar line"
+              - replays:
+                  players: 21
+                  at: 7:52
+                  range: 7:34-8:20
+                  note: Worker Pause@47, vs 3 Hatch Hydra, with Forge FE High Templar line
+              - replays:
+                  players: 33
+                  at: 8:32
+                  range: 8:11-8:50
+                  note: Worker Pause@52, vs 3 Hatch Hydra, with Forge FE High Templar line
+
+          - at: Singularity Charge 25%
+            or: 8:51
+            make: Dragoon
+            instruction: Make Dragoons from the Gateways
+            description: Before range finishes, the earliest Dragoons of any line; a round of about 17,
+              through about 10:50, then back to Zealots.
             notes: >-
               PADOTUBE makes one round of Zealots to save gas, then two rounds of Dragoons, and
-              moves out once each of his 4 Templar has energy for two Storms. Keep Zealots and
-              Dragoons in separate control groups.
+              moves out once each of his 4 Templar has energy for two Storms. The Gateways are a
+              little less busy here than in the other lines, and Probes stay stopped. Keep
+              Zealots and Dragoons in separate control groups.
             sources:
               - replays:
                   players: 47
@@ -4122,40 +4244,18 @@ stages:
                   workers: 50
                   note: "Dragoon #1, vs 3 Hatch Hydra, with Forge FE High Templar line"
               - replays:
-                  players: 40
-                  at: 9:41
-                  range: 9:22-10:29
-                  supply: 95
-                  workers: 51
-                  note: "Dragoon #8, vs 3 Hatch Hydra, with Forge FE High Templar line"
+                  players: 47
+                  at: 8:51
+                  range: 8:37-10:05
+                  note: Dragoon production, vs 3 Hatch Hydra, with Forge FE High Templar line
               - youtube: https://youtu.be/5wprChZSI-Y?t=780
                 label: "PADOTUBE: Forge double lecture, in detail"
               - youtube: https://youtu.be/esOAfXH7Xy4?t=941
                 label: "Jung Yoon Jong: Forge double Nexus vs Zerg"
 
-          - at: 8:52
-            make: 2 Gateway
-            description: Gateways 7 and 8, by about 8:57.
-            sources:
-              - replays:
-                  players: 44
-                  at: 8:51
-                  range: 8:14-9:30
-                  supply: 78
-                  workers: 50
-                  note: "Gateway #7, vs 3 Hatch Hydra, with Forge FE High Templar line"
-              - replays:
-                  players: 41
-                  at: 8:57
-                  range: 8:22-9:30
-                  supply: 79
-                  workers: 50
-                  note: "Gateway #8, vs 3 Hatch Hydra, with Forge FE High Templar line"
-
           - at: 9:04
             make: Photon Cannon
             description: A seventh Cannon for about half.
-            before: From here, keep building Pylons ahead of supply; the guide stops listing them.
             sources:
               - replays:
                   players: 27
@@ -4164,10 +4264,9 @@ stages:
                   supply: 84
                   workers: 48
                   note: "Photon Cannon #7, vs 3 Hatch Hydra, with Forge FE High Templar line"
-              - youtube: https://youtu.be/WFt1reU1cCU?t=410
-                label: "Khrane: PvZ FFE into +1/+1 Opening"
 
-          - at: 9:55
+          - at: Robotics Facility 100%
+            or: 9:54
             make: Observatory
             description: Then an Observer at about 10:19.
             sources:
@@ -4233,7 +4332,8 @@ stages:
                   workers: 49
                   note: "High Templar #6, vs 3 Hatch Hydra, with Forge FE High Templar line"
 
-          - at: 10:56
+          - at: Protoss Ground Armor 100%
+            or: 10:56
             make:
               upgrade: Protoss Ground Armor
               label: +2 Armor
