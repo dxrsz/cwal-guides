@@ -136,8 +136,8 @@
 									>{s.label ??
 										(s.kind === 'youtube'
 											? 'YouTube'
-											: 'Watch the replay')}{#if s.seconds != null && !(s.label ?? '').includes(fmtClock(s.seconds))}
-										@ {fmtClock(s.seconds)}{/if}</a
+											: 'Watch the replay')}{#if s.seconds != null && !(s.label ?? '').includes(fmtClock(s.seconds))}{' '}@
+										{fmtClock(s.seconds)}{/if}</a
 								>
 							{/if}
 						</li>
